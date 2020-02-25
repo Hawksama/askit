@@ -1,0 +1,101 @@
+
+/**
+ * WordPress Social login
+ *
+ * Social login
+ * https://wordpress.org/plugins/wordpress-social-login/
+ */
+
+.wp-social-login-widget {
+
+    // Title
+    .wp-social-login-connect-with {
+        font-weight: $font-weight-bold;
+    }
+
+    // Provider list
+    .wp-social-login-provider-list {
+        padding: .5rem 0 1rem 0;
+    }
+
+    // Provider item
+    a.wp-social-login-provider {
+
+        padding: .85rem 1.2rem;
+        display: inline-block;
+        background-color: $body-color;
+        border-radius: $border-radius;
+        color: #fff !important;
+        font-weight: $font-weight-bold;
+        font-size: 0.9em;
+        margin-bottom: .5rem;
+        margin-right: .35rem;
+
+        &:before {
+            @include cera-icon();
+            content: $cera-link-2;
+            margin-right: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 1.4em;
+            position: relative;
+            top: -1px;
+        }
+
+        &:after {
+            content: attr(data-provider);
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        img {
+            display: none;
+        }
+
+        &[class*="facebook"] {
+            background-color: $brand-facebook;
+            &:before { content: $fa-var-facebook-official; }
+        }
+
+        &[class*="twitter"] {
+            background-color: $brand-twitter;
+            &:before { content: $fa-var-twitter; }
+        }
+
+        &[class*="google"] {
+            background-color: $brand-google;
+            &:before { content: $fa-var-google; }
+        }
+
+        &[class*="instagram"] {
+            background: $brand-instagram;
+            &:before { content: $fa-var-instagram; }
+        }
+
+        &[class*="linkedin"] {
+            background-color: $brand-linkedin;
+            &:before { content: $fa-var-linkedin; }
+        }
+
+        &[class*="pinterest"] {
+            background-color: $brand-pinterest;
+            &:before { content: $fa-var-pinterest; }
+        }
+
+        &[class*="wordpress"] {
+            background-color: $brand-wordpress;
+            &:before { content: $fa-var-wordpress; }
+        }
+
+    }
+}
+
+
+div.nsl-container-block .nsl-container-buttons a {
+    max-width: 100%;
+}

@@ -1,0 +1,107 @@
+# Copyright (C) 2020 grimlock-the-events-calendar
+# This file is distributed under the same license as the grimlock-the-events-calendar package.
+msgid ""
+msgstr ""
+"Project-Id-Version: grimlock-the-events-calendar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Themosaurus <support@themosaurus.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:26
+msgid "The Events Calendar"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:63
+msgid "General"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:75
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:84
+msgid "Style"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:105
+msgid "Events"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:134
+msgid "Display"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:175
+msgid "Title"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:198
+msgid "Description"
+msgstr ""
+
+#: inc/customizer/class-grimlock-the-events-calendar-customizer.php:222
+msgid "Header Image"
+msgstr ""
+
+#: inc/widget/class-grimlock-the-events-calendar-tribe-events-section-widget.php:27
+msgid "Grimlock Events Section"
+msgstr ""
+
+#: inc/widget/class-grimlock-the-events-calendar-tribe-events-section-widget.php:29
+msgid "A flexible component that displays a list of events."
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:72
+msgid "Events Display:"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:75
+msgid "All Events"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:76
+msgid "Only Upcoming Events"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:77
+msgid "Only Past Events"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:95
+msgid "Show Only Featured Events"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:113
+msgid "Start Date:"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:131
+msgid "End Date:"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:149
+msgid "Hide Event Recurrences"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:175
+msgid "Categories"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:182
+msgid "Taxonomies:"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:200
+msgid "Event Date"
+msgstr ""
+
+#: inc/widget/fields/class-grimlock-the-events-calendar-tribe-events-section-widget-fields.php:216
+msgid "Events Calendar"
+msgstr ""

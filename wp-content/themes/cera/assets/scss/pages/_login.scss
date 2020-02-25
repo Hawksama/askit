@@ -1,0 +1,67 @@
+
+/**
+ * Login
+ *
+ * Login form styles.
+ */
+
+#loginform {
+    @extend .clearfix;
+    .login-submit {
+        width: 100%;
+        input[type="submit"] {
+            width: 100%;
+        }
+    }
+}
+
+.login-footer {
+    display: flex;
+    margin: 1.5rem -1.5rem -1.5rem -1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    > div {
+        width: 100%;
+    }
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem .5rem;
+        text-align: center;
+        height: 100%;
+        font-size: .85em;
+        &:not(:hover) {
+            color: inherit !important;
+        }
+    }
+    & ~ .tribe-ce-register,
+    & ~ .tribe-ce-lostpassword {
+        display: none;
+    }
+}
+
+.login-form-wrapper {
+    max-width: $login-max-width;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+article[id*="post-"] > .entry-content {
+    > #loginform {
+
+        display: flex;
+        flex-direction: column;
+        max-width: $container-max-width-narrow;
+        margin: 0 auto;
+        padding: 1.5rem;
+
+        & + .tribe-ce-register,
+        & + .tribe-ce-lostpassword {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+    }
+}

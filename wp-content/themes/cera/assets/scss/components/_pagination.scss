@@ -1,0 +1,531 @@
+
+/**
+ * Pagination
+ *
+ * Post navigation, Pager & Pagination
+*/
+
+// Placeholders
+%post-navigation {
+    display: block;
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+    padding: 0;
+    @extend .clearfix;
+}
+
+%post-navigation-item {
+    display: inline;
+    & + li {
+        a,
+        span {
+            margin-left: $pagination-padding-y / 2;
+            text-decoration: none !important;
+        }
+    }
+}
+
+%post-navigation-pager {
+    display: block;
+    @extend .clearfix;
+    [class*="previous"] {
+        a {
+            float: left;
+            text-decoration: none !important;
+
+            &:before {
+                @include fa-icon;
+                content: $pager-icon-previous;
+                margin-right: $pager-icon-spacing * 2;
+                display: inline-block;
+                opacity: $pager-icon-opacity;
+                @include rtl {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
+    [class*="next"] {
+        a {
+            float: right;
+            text-decoration: none !important;
+
+            &:after {
+                @include fa-icon;
+                content: $pager-icon-next;
+                margin-left: $pager-icon-spacing * 2;
+                display: inline-block;
+                opacity: $pager-icon-opacity;
+                @include rtl {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
+}
+
+%post-navigation-link-active {
+    color: $btn-primary-color;
+    background-color: $primary;
+    border-color: $primary;
+}
+
+%post-navigation-link {
+    position: relative;
+    float: left;
+    padding: $pagination-padding-y $pagination-padding-x;
+    background-color: $pagination-bg;
+    border: $table-border-width solid $table-border-color;
+    border-radius: $btn-border-radius;
+    color: inherit;
+    text-decoration: none !important;
+    line-height: inherit;
+    @include hover-focus {
+        @extend %post-navigation-link-active;
+        text-decoration: none !important;
+    }
+}
+
+%post-navigation-item-icon {
+    font-size: 0;
+}
+
+%post-navigation-item-icon-previous {
+    &:before {
+        @include fa-icon;
+        content: $pager-icon-previous;
+        display: inline-block;
+        font-size: initial;
+        line-height: inherit;
+        opacity: $pager-icon-opacity;
+        @include rtl {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+%post-navigation-item-icon-next {
+    &:after {
+        @include fa-icon;
+        content: $pager-icon-next;
+        display: inline-block;
+        font-size: initial;
+        line-height: inherit;
+        opacity: $pager-icon-opacity;
+        @include rtl {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+
+/* WP core post pagination */
+
+.nav-links {
+    @extend %post-navigation;
+    @extend %post-navigation-pager;
+    > div,
+    > ul > li {
+        @extend %post-navigation-item;
+        > a {
+            @extend %post-navigation-link;
+        }
+    }
+    > ul {
+        margin: 0;
+    }
+}
+
+/* WP core single post page pagination */
+.page-links {
+    @extend %post-navigation;
+    @extend %post-navigation-pager;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid rgba(0,0,0,0.05);
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    > span:not(.screen-reader-text),
+    > a {
+        @extend %post-navigation-item;
+        @extend %post-navigation-link;
+        margin-right: .4rem;
+        min-width: 45px;
+        min-height: 45px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    > span:not(.screen-reader-text):not([class]) {
+        @extend %post-navigation-link-active;
+    }
+    .page-links-title {
+        display: none !important;
+    }
+}
+
+
+/* Project by Woothemes pagination */
+
+// Archive pagination
+.projects-pagination {
+    > ul {
+        @extend %post-navigation;
+        > li {
+            @extend %post-navigation-item;
+            display: inline-block;
+            > a, > span {
+                @extend %post-navigation-link;
+                &.current {
+                    @extend %post-navigation-link-active;
+                }
+                &.previous,
+                &.next {
+                    @extend %post-navigation-item-icon;
+                }
+                &.previous {
+                    @extend %post-navigation-item-icon-previous;
+
+                }
+                &.next {
+                    @extend %post-navigation-item-icon-next;
+                }
+            }
+        }
+    }
+}
+
+// Single pagination
+.single-project  .projects-single-pagination {
+    @extend %post-navigation;
+    @extend %post-navigation-pager;
+    > div {
+        @extend %post-navigation-item;
+        > a {
+            @extend %post-navigation-link;
+        }
+        &.previous {
+            float: left;
+
+            a {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+        &.next {
+            float: right;
+
+            a {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+
+/* Tribe events pagination */
+
+.tribe-events-sub-nav {
+    @extend %post-navigation;
+    @extend %post-navigation-pager;
+    > li {
+        @extend %post-navigation-item;
+        &:empty { display: none !important; }
+        > a {
+            @extend %post-navigation-link;
+            span {
+                display: none !important;
+            }
+            .widget & {
+                &:before,
+                &:after {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/* Woocommerce pagination */
+
+.woocommerce nav.woocommerce-pagination {
+    text-align: inherit;
+    ul {
+        @extend %post-navigation;
+        border: 0;
+        > li {
+            @extend %post-navigation-item;
+            overflow: visible;
+            border: 0;
+            > a,
+            span {
+                @extend %post-navigation-link;
+                &.current {
+                    @extend %post-navigation-link-active;
+                }
+                &.previous,
+                &.prev,
+                &.next {
+                    @extend %post-navigation-item-icon;
+                }
+                &.previous,
+                &.prev {
+                    @extend %post-navigation-item-icon-previous;
+
+                }
+                &.next {
+                    @extend %post-navigation-item-icon-next;
+                }
+                &:after {
+                    line-height: inherit;
+                    font-size: 1rem;
+                }
+            }
+            .dots {
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+
+/* Page-Navi */
+
+.wp-pagenavi {
+    @extend %post-navigation;
+    a,
+    span {
+        @extend %post-navigation-link;
+        &.current {
+            @extend %post-navigation-link-active
+        }
+        & + a,
+        & + span {
+            margin-left: $pagination-padding-y / 2;
+        }
+    }
+    .pages,
+    .extend {
+        pointer-events: none;
+    }
+}
+
+/* BuddyPress & bbPress pagination */
+#buddypress,
+.bbpress {
+    div.pagination,
+    div.bbp-pagination,
+    div.bp-swap-pagination {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        float: none;
+        color: inherit;
+        padding: 1rem 0 0 0;
+
+        @include media-breakpoint-up(md) {
+            padding: 1rem 0;
+            justify-content: flex-start;
+            flex-direction: row;
+        }
+
+        div.pagination-links,
+        div.bbp-pagination-links {
+
+            @extend %post-navigation;
+            float: none;
+            padding: 0;
+            margin: 0;
+
+            .page-numbers {
+
+                @extend %post-navigation-link;
+                font-size: 1rem;
+                min-width: 45px;
+                min-height: 45px;
+                text-align: center;
+
+                @include media-breakpoint-down(sm) {
+                    padding: .3rem .7rem !important;
+                }
+
+                & + a,
+                & + span {
+                    margin-left: $pagination-padding-y / 2;
+                    &:hover {
+                        font-weight: initial;
+                    }
+                }
+
+                &.current {
+                    @extend %post-navigation-link-active;
+                    pointer-events: none;
+                }
+
+                &.dots {
+                    pointer-events: none;
+                }
+
+                &.prev,
+                &.next {
+                    @extend %post-navigation-item-icon;
+                }
+
+                &.prev {
+                    @extend %post-navigation-item-icon-previous;
+                }
+
+                &.next {
+                    @extend %post-navigation-item-icon-next;
+                }
+            }
+        }
+
+        div.pag-count,
+        div.bbp-pagination-count {
+            opacity: 0.7;
+            font-style: italic;
+            float: none;
+            margin-top: 1rem;
+            @include media-breakpoint-up(md) {
+                margin-top: 0;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.bbpress {
+    div.bbp-pagination {
+        padding-top: 0;
+        padding-bottom: 0;
+        div.bbp-pagination-links {
+            display: flex !important;
+            .page-numbers {
+                padding: .2rem .6rem !important;
+                font-size: .7rem;
+                display: flex !important;
+                align-items: center;
+                &:before,
+                &:after {
+                    font-size: .7rem !important;
+                }
+            }
+        }
+        div.bbp-pagination-count {
+            font-size: .8em;
+            margin-right: auto;
+            margin-left: 0 !important;
+        }
+    }
+}
+
+/* Bootstrap classic pagination */
+
+.page-item.disabled {
+    opacity: 0.5;
+}
+.page-item {
+    display: inline-block;
+    & + li {
+        margin-left: $pagination-padding-y / 2;
+    }
+}
+.page-link {
+    text-transform: none;
+    text-decoration: none !important;
+    line-height: inherit;
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+
+// Cera custom pagination
+.site-content {
+
+    .post-navigation,
+    .posts-navigation {
+
+        padding-top: 1rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        border: 0 !important;
+
+        .nav-links {
+
+            display: flex;
+            padding: 0;
+            margin: 0;
+
+            @include media-breakpoint-down(xs) {
+                font-size: .9em;
+            }
+
+            > div,
+            > li {
+                padding: 0;
+                width: 100%;
+
+                @include media-breakpoint-down(xs) {
+                    margin-top: .2rem;
+                    margin-bottom: .2rem;
+                }
+            }
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-width: 2px;
+                min-height: 100%;
+                @include media-breakpoint-up(md) {
+                    padding: .85rem 1rem;
+                }
+                @include media-breakpoint-down(md) {
+                    font-size: 0;
+                    width: 100%;
+                    height: 50px;
+                }
+                &:before,
+                &:after {
+                    @include transition(transform ease-in-out .2s);
+                    @include media-breakpoint-down(md) {
+                        font-size: 18px !important;
+                        margin: 0;
+                    }
+                }
+                &:hover {
+                    &:after {
+                        transform: translate3d(5px,0,0);
+                        @include rtl {
+                            transform: scaleX(-1) translate3d(5px,0,0);
+                        }
+                    }
+                    &:before {
+                        transform: translate3d(-5px,0,0);
+                        @include rtl {
+                            transform: scaleX(-1) translate3d(-5px,0,0);
+                        }
+                    }
+                }
+            }
+            .nav-next {
+                text-align: right;
+            }
+        }
+    }
+
+}
+

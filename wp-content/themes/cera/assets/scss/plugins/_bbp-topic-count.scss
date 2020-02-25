@@ -1,0 +1,30 @@
+
+/**
+ * BBp topic count
+ *
+ * Shows any combination of the total topics, replies and total count under the avatar on each topic/reply view in bbpress.
+ * https://wordpress.org/plugins/bbp-topic-count/
+ */
+
+.bbp-list-author {
+    .tc_display {
+        opacity: .7;
+        font-size: .7em;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        ul {
+            display: flex;
+            li {
+                & + li {
+                    &:before {
+                        content: '•';
+                        margin-left: .4rem;
+                        margin-right: .4rem;
+                    }
+                }
+            }
+        }
+
+    }
+}

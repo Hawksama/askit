@@ -1,0 +1,78 @@
+
+/**
+ * Infinite scroll
+ *
+ * Infinite scroll styles.
+ */
+
+$jetpack-infinite-list: '.infinite-wrap';
+
+#{$jetpack-infinite-list} {
+	[id^="post-"] {
+		opacity: 0;
+		height: 0;
+		width: 0;
+		overflow: hidden;
+	}
+}
+
+.infinite-loader {
+	height: auto !important;
+	color: inherit !important;
+	text-indent: 0 !important;
+	.spinner {
+		background: none;
+		position: static !important;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100% !important;
+		height: auto !important;
+		&:before {
+			@include icon-spin();
+			font-size: 35px;
+			opacity: 0.5;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+		> div {
+			display: none !important;
+		}
+	}
+}
+
+#infinite-handle {
+	margin-top: 1rem;
+	text-align: center;
+	@extend .element-animated, .fade-in, .short;
+	animation-delay: 1.5s;
+	animation-fill-mode: backwards;
+	span {
+		padding: 14px 20px 14px 20px;
+		font-weight: 600;
+		font-size: 0.85em;
+		display: inline-block;
+		line-height: 1.2em;
+		@include transition($transition-base);
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+
+// Globally hidden elements when Infinite Scroll is supported and in use.
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer,
+.infinite-scroll.neverending .site-after-content,
+.infinite-scroll.neverending .site-prefooter {
+	display: none;
+}
+
+// When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before.
+.infinity-end.neverending .site-footer,
+.infinity-end.neverending .site-after-content,
+.infinity-end.neverending .site-prefooter {
+	display: block;
+}

@@ -1,0 +1,173 @@
+
+/**
+ * Jetpack
+ *
+ * The Swiss army knife of WordPress plugin.
+ * https://wordpress.org/plugins/jetpack/
+ */
+
+
+// Tiled Gallery
+.tiled-gallery {
+	.tiled-gallery-caption {
+		background-color: $tiled-gallery-caption-bg;
+	}
+}
+
+
+
+// Fullscreen gallery
+div.jp-carousel-wrap {
+
+	&,
+	div.jp-carousel-buttons a,
+	.jp-carousel-image-meta,
+	.jp-carousel-titleanddesc-title,
+	textarea#jp-carousel-comment-form-comment-field {
+		font-family: inherit !important;
+	}
+
+	.jp-carousel-overlay {
+		background-color: $jp-carousel-overlay;
+		color: #fff;
+	}
+
+	.jp-carousel-close-hint {
+		padding-top: 1rem;
+		span {
+			position: relative;
+			width: auto;
+			height: auto;
+			background: none;
+			border-radius: 0;
+			color: transparent;
+			font-size: 0 !important;
+			&:before {
+				@include cera-icon();
+				content: $cera-x-circle;
+				color: #fff !important;
+				font-size: 1.7rem;
+			}
+		}
+	}
+
+	.jp-carousel-next-button span,
+	.jp-carousel-previous-button span {
+		background: none;
+		&:before {
+			@include cera-icon();
+			content: $cera-arrow-right;
+			color: #fff !important;
+			font-size: 1.7rem;
+			width: 100%;
+			height: 100%;
+			z-index: 9;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff !important;
+			text-indent: 0;
+		}
+	}
+
+	.jp-carousel-previous-button span {
+		&:before {
+			content: $cera-arrow-left;
+		}
+	}
+
+	.jp-carousel-info {
+		display: none !important;
+	}
+
+}
+
+
+// Slideshow
+.slideshow-window.jetpack-slideshow {
+	border-radius: $jp-slideshow-corner;
+	background-color: $jp-components-bg;
+}
+
+
+// Jetpack forms
+form.contact-form {
+    > div {
+        @extend .form-group, .clearfix;
+    }
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+	label {
+		text-align: left;
+	}
+    label.checkbox,
+    label.radio {
+        margin-left: 1.25rem;
+    }
+    label.checkbox,
+    label.radio,
+    label.grunion-checkbox-multiple-label {
+        font-weight: inherit;
+    }
+	input[type="submit"] {
+		width: 100%;
+	}
+	p.contact-submit {
+		margin-bottom: 0;
+	}
+}
+
+div[id^="contact-form"] {
+    > h3 {
+	    @extend .alert;
+	    @include alert-variant-type($success);
+        font-size: 1em;
+        a {
+            color: inherit;
+        }
+    }
+    .contact-form-submission {
+        margin: 1rem 0;
+        padding-top: .3rem;
+        padding-bottom: .3rem;
+        font-size: .9em;
+    }
+}
+
+.form-errors {
+	@extend .alert;
+	@include alert-variant-type($danger);
+	list-style: none;
+	.form-error-message {
+		color: $danger;
+	}
+}
+
+
+// Carousel
+
+.jp-carousel-info {
+	display: none !important;
+}
+
+.jp-carousel-left-column-wrapper {
+	display: none !important;
+}
+
+.jp-carousel-image-meta {
+	float: none !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.jp-carousel-transitions .jp-carousel-close-hint {
+	position: fixed;
+	text-align: right;
+	right: 12px;
+	width: auto;
+}
