@@ -182,12 +182,12 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 /**
  * Posts
  */
-* {
-  border: 1px solid blue; }
-
 /**
  * Navigation
  */
+.vertical-navbar .navbar-wrapper .menu-item-gtranslate img {
+  margin-right: 10px; }
+
 /** 
  * Sections
  */

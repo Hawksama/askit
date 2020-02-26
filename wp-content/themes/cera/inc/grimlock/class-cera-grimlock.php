@@ -491,6 +491,11 @@ if ( ! class_exists( 'Cera_Grimlock' ) ) :
 						$classes[] = 'region--container-fluid';
 						break;
 
+					case 'listing-posts.php':
+						$classes[] = 'region--9-3-cols-left';
+						$classes[] = 'region--container-fluid';
+						break;
+
 					default:
 						$classes[] = 'region--3-6-3-cols-left';
 						$classes[] = 'region--container-fluid';
