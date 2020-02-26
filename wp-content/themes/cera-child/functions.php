@@ -111,3 +111,7 @@ function custom_post_type() {
     add_post_type_support( 'ht_kb', 'post-formats' );
 }
 add_action( 'init', 'custom_post_type', 0 );
+
+if ( (!current_user_can('manage_options') && is_user_logged_in()) || !is_user_logged_in() ) {
+    add_filter('show_admin_bar', '__return_false');
+}
