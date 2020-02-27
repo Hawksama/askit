@@ -1560,46 +1560,27 @@ if(!function_exists('ht_kb_display_archive')){
 		//set user options
 
 		$columns = (array_key_exists('archive-columns', $ht_knowledge_base_options)) ? $ht_knowledge_base_options['archive-columns'] : $columns;
-
 		$sub_cat_display = (array_key_exists('sub-cat-display', $ht_knowledge_base_options)) ? $ht_knowledge_base_options['sub-cat-display'] : $sub_cat_display;
-
 		$sub_cat_depth = (array_key_exists('sub-cat-depth', $ht_knowledge_base_options)) ? $ht_knowledge_base_options['sub-cat-depth'] : $sub_cat_depth;
-
 		$display_sub_cat_count = (array_key_exists('sub-cat-article-count', $ht_knowledge_base_options)) ? $ht_knowledge_base_options['sub-cat-article-count'] : $display_sub_cat_count;
-
 		$display_sub_cat_articles = (array_key_exists('sub-cat-article-display', $ht_knowledge_base_options)) ? $ht_knowledge_base_options['sub-cat-article-display'] : $display_sub_cat_articles;
-
-
 
 		//set number of posts to sub cat article number or global posts_per_page option
 
 		$numberposts = (array_key_exists('sub-cat-article-number', $ht_knowledge_base_options)) ? $ht_knowledge_base_options['sub-cat-article-number'] : get_option('posts_per_page');
 
-
-
 		//list terms in a given taxonomy
-
 		$args = array(
-
 			'orderby'       =>  'term_order',
-
 			'depth'         =>  0,
-
 			'child_of'      => 	0,
-
 			'hide_empty'    =>  0,
-
 			'pad_counts'   	=>	true,
-
 		); 
 
 		$master_tax_terms = get_terms('ht_kb_category', $args);
 
 		$tax_terms = wp_list_filter($master_tax_terms,array('parent'=>0));	?>
-
-
-
-
 
 		<?php 
 
@@ -1608,278 +1589,347 @@ if(!function_exists('ht_kb_display_archive')){
 		$ht_kb_category_count = count($tax_terms);
 
 		//category counter
-
 		$cat_counter = 0;
+		?>
+		
+		<ul id="forums-list-<?php bbp_forum_id(); ?>" class="bbp-forums">		
+			<li class="bbp-body">
+				<?php
+				foreach ($tax_terms as $tax_term) { ?>
 
-		foreach ($tax_terms as $tax_term) { ?>
+					<div id="bbp-forum-<?php bbp_forum_id(); ?>" <?php bbp_forum_class( '', array( 'p-3 p-sm-4 card card-static mb-3 ov-v' ) ); ?>>
 
-
-
-			<?php if( $cat_counter%$columns == 0 ): ?>
-
-				<!--.ht-grid-->
-
-				<div class="ht-grid ht-grid-gutter-20 ht-grid-gutter-bottom-40">
-
-			<?php else: ?>
-
-				
-
-			<?php endif; ?>
-
-
-
-			<?php $grid_class_int = 12/$columns; ?>
-
-
-
-			<!--.ht-grid-col-->
-
-			<div class="ht-grid-col ht-grid-<?php echo $grid_class_int; ?>">
-
-
-
-				<!--.ht-kb-category-->
-
-				<div class="ht-kb-category">
-
-
-
-					<?php $term_meta = get_ht_kb_term_meta($tax_term);
-
-
-
-					$category_thumb_att_id = 0;
-
-					$category_color = '#222'; 
-
-
-
-					if(is_array($term_meta)&&array_key_exists('meta_image', $term_meta)&&!empty($term_meta['meta_image']))
-
-						$category_thumb_att_id = $term_meta['meta_image'];
-
-
-
-					if(is_array($term_meta)&&array_key_exists('meta_color', $term_meta)&&!empty($term_meta['meta_color']))
-
-						$category_color = $term_meta['meta_color'];
-
-					?>
-
-
-
-					<?php if( !empty( $category_thumb_att_id ) && $category_thumb_att_id!=0 ){
-
-						$ht_kb_category_class = "ht-kb-category-hasthumb";
-
-					} else {
-
-						$ht_kb_category_class = "ht-kb-category-hasicon";
-
-					} ?>
-
-
-
-					<!--.ht-kb-category-title-wrapper-->
-
-					<div class="ht-kb-category-title-wrapper <?php echo $ht_kb_category_class; ?> clearfix">
-
-
-
-						<?php 
-
-						if( !empty( $category_thumb_att_id ) && $category_thumb_att_id!=0 ) :
-
-							$category_thumb_obj = wp_get_attachment_image_src( $category_thumb_att_id, 'ht-kb-thumb');
-
-							$category_thumb_src = $category_thumb_obj[0]; ?>
-
-
-
-							<img src="<?php echo $category_thumb_src ?>" class="ht-kb-category-thumb" alt="" />
-
-
-
+						<?php if ( bbp_is_user_home() && bbp_is_subscriptions() ) : ?>
+							<span class="bbp-row-actions">
+								<?php do_action( 'bbp_theme_before_forum_subscription_action' ); ?>
+								<?php bbp_forum_subscription_link( array( 'before' => '', 'subscribe' => '+', 'unsubscribe' => '&times;' ) ); ?>
+								<?php do_action( 'bbp_theme_after_forum_subscription_action' ); ?>
+							</span>
 						<?php endif; ?>
-						
-						<!-- Vlad - Custom Pentru a afla numarul de subcategorii -->
 
-						<?php
+						<div class="row">
+							<div class="col-12 col-md-6 col-lg-8 col-forum-info">
+								<div class="row d-flex align-items-center align-items-md-start">\
+									<div class="col-auto pr-0 topic-img-row">
+										<a href="<?php bbp_forum_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) : ?>
+												<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'img-fluid' ) ); ?>
+											<?php else: ?>
+												<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">
+													<i class="cera-icon cera-message-circle fa-2x text-primary"></i>
+												</div>
+											<?php endif; ?>
+										</a>
+									</div>
 
-							$id_child = $tax_term->term_id;
-							$children = get_term_children( $id_child, 'ht_kb_category');
-							$subcat_no = 0;
-							foreach ($children as $id) {
-								$subcat_no++;
+									<div class="col">
+										<?php do_action( 'bbp_theme_before_forum_title' ); ?>
+										<h2 class="entry-title h5 mt-2">
+											<a class="bbp-forum-title" href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a>
+										</h2>
+										<?php do_action( 'bbp_theme_after_forum_title' ); ?>
+										<?php do_action( 'bbp_theme_before_forum_description' ); ?>
+										<div class="forum-content d-none d-md-block mb-0 pr-0 pr-sm-5"><?php the_excerpt(); ?></div>
+										<?php do_action( 'bbp_theme_after_forum_description' ); ?>
+
+										<?php do_action( 'bbp_theme_before_forum_sub_forums' ); ?>
+
+										<?php
+											$sub_forums = bbp_forum_get_subforums();
+											if ( ! empty( $sub_forums ) ) : ?>
+												<div class="dropdown dropdown-classic mt-2">
+													<a class="btn btn-secondary btn-sm dropdown-toggle bg-black-faded border-0" href="#" role="button" id="dropdownMenuForums" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<?php esc_html_e('Forums list', 'cera'); ?>
+													</a>
+													<div class="dropdown-menu" aria-labelledby="dropdownMenuForums">
+														<?php bbp_list_forums( array(
+															'before'      => '',
+															'after'       => '',
+															'link_before' => '',
+															'link_after'  => '',
+															'separator'   => '',
+														) ); ?>
+													</div>
+												</div>
+											<?php
+											endif; ?>
+
+										<?php do_action( 'bbp_theme_after_forum_sub_forums' ); ?>
+									</div>
+								</div>
+								<?php bbp_forum_row_actions(); ?>
+							</div>
+
+							<div class="col-12 col-md-6 col-lg-4 col-forum-meta mt-4 mt-md-0">
+								<div class="row">
+									<div class="col forum-topic-count">
+										<div class="small text-uppercase font-weight-bold">
+											<?php esc_html_e( 'Topics', 'bbpress' ); ?>
+										</div>
+										<div class="h3">
+											<?php bbp_forum_topic_count(); ?>
+										</div>
+									</div>
+									<div class="col forum-reply-count">
+										<div class="small text-uppercase font-weight-bold">
+											<?php esc_html_e( 'Replies', 'bbpress' ); ?>
+										</div>
+										<div class="h3">
+											<?php bbp_show_lead_topic() ? bbp_forum_reply_count() : bbp_forum_post_count(); ?>
+										</div>
+									</div>
+								</div>
+
+								<hr class="mb-3 mt-2" />
+
+								<div class="forum-freshness">
+									<div class="small text-uppercase font-weight-bold">
+										<?php esc_html_e( 'Freshness', 'bbpress' ); ?>
+									</div>
+									<div class="d-flex mt-2 small align-items-center">
+										<?php do_action( 'bbp_theme_before_topic_author' ); ?>
+										<span class="bbp-topic-freshness-author"><?php
+												bbp_author_link( array(
+													'post_id' => bbp_get_forum_last_active_id(),
+													'size'    => '25',
+													'type'    => 'avatar'
+												) ); ?>
+										</span>
+										<?php do_action( 'bbp_theme_after_topic_author' ); ?>
+										<?php do_action( 'bbp_theme_before_forum_freshness_link' ); ?>
+										<?php bbp_forum_freshness_link(); ?>
+										<?php do_action( 'bbp_theme_after_forum_freshness_link' ); ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- #bbp-forum-<?php bbp_forum_id(); ?> -->
+
+
+
+
+
+
+					<?php $grid_class_int = 12/$columns; ?>
+					<!--.ht-grid-col-->
+
+					<div class="ht-grid-col ht-grid-<?php echo $grid_class_int; ?>">
+
+
+
+						<!--.ht-kb-category-->
+
+						<div class="ht-kb-category">
+
+
+
+							<?php $term_meta = get_ht_kb_term_meta($tax_term);
+
+
+
+							$category_thumb_att_id = 0;
+
+							$category_color = '#222'; 
+
+
+
+							if(is_array($term_meta)&&array_key_exists('meta_image', $term_meta)&&!empty($term_meta['meta_image']))
+
+								$category_thumb_att_id = $term_meta['meta_image'];
+
+
+
+							if(is_array($term_meta)&&array_key_exists('meta_color', $term_meta)&&!empty($term_meta['meta_color']))
+
+								$category_color = $term_meta['meta_color'];
+
+							?>
+
+
+
+							<?php if( !empty( $category_thumb_att_id ) && $category_thumb_att_id!=0 ){
+
+								$ht_kb_category_class = "ht-kb-category-hasthumb";
+
+							} else {
+
+								$ht_kb_category_class = "ht-kb-category-hasicon";
+
+							} ?>
+
+
+
+							<!--.ht-kb-category-title-wrapper-->
+
+							<div class="ht-kb-category-title-wrapper <?php echo $ht_kb_category_class; ?> clearfix">
+
+
+
+								<?php 
+
+								if( !empty( $category_thumb_att_id ) && $category_thumb_att_id!=0 ) :
+
+									$category_thumb_obj = wp_get_attachment_image_src( $category_thumb_att_id, 'ht-kb-thumb');
+
+									$category_thumb_src = $category_thumb_obj[0]; ?>
+
+
+
+									<img src="<?php echo $category_thumb_src ?>" class="ht-kb-category-thumb" alt="" />
+
+
+
+								<?php endif; ?>
+								
+								<!-- Vlad - Custom Pentru a afla numarul de subcategorii -->
+
+								<?php
+
+									$id_child = $tax_term->term_id;
+									$children = get_term_children( $id_child, 'ht_kb_category');
+									$subcat_no = 0;
+									foreach ($children as $id) {
+										$subcat_no++;
+									}
+							
+								?>
+
+								<!-- end -->
+
+
+								<h2 class="ht-kb-category-title">
+
+									<a href="<?php echo esc_attr(get_term_link($tax_term, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $tax_term->name ) ?>"><?php echo $tax_term->name; ?></a>
+		
+								</h2>
+
+									<span class="ht-kb-category-count"><a href="<?php echo esc_attr(get_term_link($tax_term, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $tax_term->name ) ?>"><?php echo $subcat_no; ?> <?php _e(' Subcategorii', 'ht-knowledge-base'); ?></a></span>
+
+								<?php if($display_sub_cat_count): ?>
+
+									<span class="ht-kb-category-count"><?php echo $tax_term->count; ?> <?php _e(' Solutii', 'ht-knowledge-base'); ?></span>
+
+								<?php endif; ?>
+
+								
+
+							</div>
+
+							<!--/.ht-kb-category-title-wrapper--> 
+
+
+
+								<?php $ht_kb_tax_desc =  $tax_term->description; ?>
+
+								<?php if( !empty($ht_kb_tax_desc) ): ?>
+
+									<p class="ht-kb-category-desc"><?php echo $ht_kb_tax_desc ?></p>
+
+								<?php endif; ?>
+
+								
+
+
+
+							<?php 
+
+							if($sub_cat_display && $sub_cat_depth){
+
+								ht_kb_display_sub_cats($master_tax_terms, $tax_term->term_id, $sub_cat_depth, $display_sub_cat_count, $display_sub_cat_articles, $numberposts);
+
 							}
-					
-						?>
 
-						<!-- end -->
+							
+
+							//get posts per category
+
+							$args = array( 
+
+								'numberposts' => 5, 
+
+								'post_type'  => 'ht_kb',
+
+								'posts_per_page' => $numberposts,
+
+								'orderby' => 'date',
+
+								'suppress_filters' => 0,
+
+								'tax_query' => array(
+
+									array(
+
+										'taxonomy' => 'ht_kb_category',
+
+										'field' => 'term_id',
+
+										'include_children' => false,
+
+										'terms' => $tax_term->term_id
+
+									)
+
+								)
+
+							);
 
 
-						<h2 class="ht-kb-category-title">
 
-							<a href="<?php echo esc_attr(get_term_link($tax_term, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $tax_term->name ) ?>"><?php echo $tax_term->name; ?></a>
- 
-						</h2>
+							$cat_posts = get_posts( $args ); ?>
 
-						    <span class="ht-kb-category-count"><a href="<?php echo esc_attr(get_term_link($tax_term, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $tax_term->name ) ?>"><?php echo $subcat_no; ?> <?php _e(' Subcategorii', 'ht-knowledge-base'); ?></a></span>
 
-						<?php if($display_sub_cat_count): ?>
 
-							<span class="ht-kb-category-count"><?php echo $tax_term->count; ?> <?php _e(' Solutii', 'ht-knowledge-base'); ?></span>
+								<?php if( !empty( $cat_posts ) && !is_a( $cat_posts, 'WP_Error' ) ): ?>
 
-						<?php endif; ?>
 
-						
+
+									<ul class="ht-kb-article-list">
+
+										<?php foreach( $cat_posts as $post ) : ?>
+
+											<?php
+
+													//set post format class  
+
+													if ( get_post_format( $post->ID )=='video') { 
+
+													$ht_kb_format_class = 'format-video';
+
+													} else {
+
+													$ht_kb_format_class = 'format-standard';
+
+													}
+
+											?>
+
+												<li class="<?php echo $ht_kb_format_class; ?>"><a href="<?php echo get_permalink($post->ID); ?>" rel="bookmark"><?php echo get_the_title($post->ID); ?></a></li>
+
+										<?php endforeach; ?>
+
+									</ul><!-- End Get posts per Category -->
+
+
+
+								<?php endif; ?>
+
+
+
+						</div>
+
+						<!--/.ht-kb-category--> 
+
+
 
 					</div>
-
-					<!--/.ht-kb-category-title-wrapper--> 
-
-
-
-						<?php $ht_kb_tax_desc =  $tax_term->description; ?>
-
-						<?php if( !empty($ht_kb_tax_desc) ): ?>
-
-							<p class="ht-kb-category-desc"><?php echo $ht_kb_tax_desc ?></p>
-
-						<?php endif; ?>
-
-						
-
-
-
-					<?php 
-
-					if($sub_cat_display && $sub_cat_depth){
-
-						ht_kb_display_sub_cats($master_tax_terms, $tax_term->term_id, $sub_cat_depth, $display_sub_cat_count, $display_sub_cat_articles, $numberposts);
-
-					}
-
-					
-
-					//get posts per category
-
-					$args = array( 
-
-						'numberposts' => 5, 
-
-						'post_type'  => 'ht_kb',
-
-						'posts_per_page' => $numberposts,
-
-						'orderby' => 'date',
-
-						'suppress_filters' => 0,
-
-						'tax_query' => array(
-
-							array(
-
-								'taxonomy' => 'ht_kb_category',
-
-								'field' => 'term_id',
-
-								'include_children' => false,
-
-								'terms' => $tax_term->term_id
-
-							)
-
-						)
-
-					);
-
-
-
-					$cat_posts = get_posts( $args ); ?>
-
-
-
-						<?php if( !empty( $cat_posts ) && !is_a( $cat_posts, 'WP_Error' ) ): ?>
-
-
-
-							<ul class="ht-kb-article-list">
-
-								<?php foreach( $cat_posts as $post ) : ?>
-
-									<?php
-
-										  	//set post format class  
-
-							                if ( get_post_format( $post->ID )=='video') { 
-
-							                  $ht_kb_format_class = 'format-video';
-
-							                } else {
-
-							                  $ht_kb_format_class = 'format-standard';
-
-							                }
-
-						            ?>
-
-										<li class="<?php echo $ht_kb_format_class; ?>"><a href="<?php echo get_permalink($post->ID); ?>" rel="bookmark"><?php echo get_the_title($post->ID); ?></a></li>
-
-								<?php endforeach; ?>
-
-							</ul><!-- End Get posts per Category -->
-
-
-
-						<?php endif; ?>
-
-
-
-				</div>
-
-				<!--/.ht-kb-category--> 
-
-
-
-			</div>
-
-			<!--/.ht-grid-col--> 
-
-
-
-			<?php
-
-				//increment counter
-
-				$cat_counter+=1;
-
-			?>
-
-
-
-			<?php if( ($cat_counter)%$columns == 0 || $cat_counter == $ht_kb_category_count ) : ?>
-
-				</div>
-
-				<!-- /.ht-grid --> 
-
-			<?php endif; ?>
-
-
-
-
-
-			<?php
-
-
-
-
-
-		} // close list terms in a given taxonomy
-
+					<!--/.ht-grid-col--> 
+					<?php
+				} // close list terms in a given taxonomy
+				?>
+			</li>
+		</ul>
 		
+		<?php		
 
 		//finished displaying archive posts
 

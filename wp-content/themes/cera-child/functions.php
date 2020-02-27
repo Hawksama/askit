@@ -115,3 +115,11 @@ add_action( 'init', 'custom_post_type', 0 );
 if ( (!current_user_can('manage_options') && is_user_logged_in()) || !is_user_logged_in() ) {
     add_filter('show_admin_bar', '__return_false');
 }
+
+add_action('admin_head', 'hide_editor');
+function hide_editor() { 
+  if(get_post_type() == 'ht_kb') { ?> 
+    <style> #postdivrich { display:none; } </style> 
+    <?php 
+  }
+}
