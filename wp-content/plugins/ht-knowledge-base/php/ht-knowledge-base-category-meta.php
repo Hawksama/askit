@@ -73,18 +73,18 @@ if( !class_exists( 'HT_Knowledge_Base_Category_Meta' ) ){
 			$thumbnail_url = ( !empty($attachment_thumb) ) ? $attachment_thumb[0] : $default_preview;
 
 			?>
-			<?php if( current_theme_supports( 'ht_kb_category_icons' ) ): ?>
-				<tr class="form-field">
-				<th scope="row" valign="top"><label for="term_meta[meta_image]"><?php _e( 'Category Image', 'ht-knowledge-base' ); ?></label></th>
-					<td>
-						<img src="<?php echo $thumbnail_url ?>" id="meta-image-preview"  />
-						<input type="hidden" name="term_meta[meta_image]" id="meta-image" value="<?php echo esc_attr( $term_meta['meta_image'] ) ? esc_attr( $term_meta['meta_image'] ) : ''; ?>">
-						<input type="button" id="meta-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'ht-knowledge-base' )?>" />
-						<input type="button" id="meta-image-remove" class="button" value="<?php _e( 'Remove Image', 'ht-knowledge-base' )?>" />
-						<p class="description"><?php _e( 'This will be displayed in various places in the Knowledge Base','ht-knowledge-base' ); ?></p>
-					</td>
-				</tr>
-			<?php endif; //theme supports icons ?>
+			
+			<tr class="form-field">
+			<th scope="row" valign="top"><label for="term_meta[meta_image]"><?php _e( 'Category Image', 'ht-knowledge-base' ); ?></label></th>
+				<td>
+					<img src="<?php echo $thumbnail_url ?>" id="meta-image-preview"  />
+					<input type="hidden" name="term_meta[meta_image]" id="meta-image" value="<?php echo esc_attr( $term_meta['meta_image'] ) ? esc_attr( $term_meta['meta_image'] ) : ''; ?>">
+					<input type="button" id="meta-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'ht-knowledge-base' )?>" />
+					<input type="button" id="meta-image-remove" class="button" value="<?php _e( 'Remove Image', 'ht-knowledge-base' )?>" />
+					<p class="description"><?php _e( 'This will be displayed in various places in the Knowledge Base','ht-knowledge-base' ); ?></p>
+				</td>
+			</tr>
+				      
 			<?php if( current_theme_supports( 'ht_kb_category_colors' ) ): ?>
 				<tr class="form-field">
 				<th scope="row" valign="top"><label for="term_meta[meta_color]"><?php _e( 'Category Color', 'ht-knowledge-base' ); ?></label></th>

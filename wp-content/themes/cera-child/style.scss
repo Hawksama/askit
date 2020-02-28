@@ -364,6 +364,7 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 
 // Styles go here...
 
+@import "assets/scss/plugins/ht-knowledge";
 
 
 /**
@@ -580,3 +581,5 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 // Styles go here...
 
 
+
+@import "assets/scss/general";

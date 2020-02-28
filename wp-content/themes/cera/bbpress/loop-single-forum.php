@@ -38,7 +38,7 @@
 					</a>
 				</div>
 
-				<div class="col">
+   				<div class="col">
 					<?php do_action( 'bbp_theme_before_forum_title' ); ?>
 					<h2 class="entry-title h5 mt-2">
 						<a class="bbp-forum-title" href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a>
