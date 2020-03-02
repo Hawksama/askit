@@ -1198,6 +1198,52 @@ EOT;
 
             <div id="poststuff">
                 <div class="postbox">
+                    <h3 id="settings"><?php _e('Paid version advantages', 'gtranslate'); ?></h3>
+                    <div class="inside">
+                        <ul style="list-style-type:square;padding-left:20px;">
+                            <li style="margin:0;"><?php _e('Search engine indexing', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Search engine friendly (SEF) URLs', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Human level neural translations', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Edit translations manually', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><a href="https://gtranslate.io/website-translation-quote" title="Website Translation Price Calculator" target="_blank"><?php _e('Automatic translation post-editing service and professional translations', 'gtranslate'); ?></a></li>
+                            <li style="margin:0;"><?php _e('Meta data translation (keywords, page description, etc...)', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('URL/slug translation', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Language hosting (custom domain like example.fr, example.es)', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Seamless updates', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Increased international traffic and AdSense revenue', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Works in China', 'gtranslate'); ?></li>
+                            <li style="margin:0;"><?php _e('Priority Live Chat support', 'gtranslate'); ?></li>
+                        </ul>
+
+                        <p><?php _e('Prices starting from <b>$7.99/month</b>!', 'gtranslate'); ?></p>
+
+                        <a href="https://gtranslate.io/?xyz=998#pricing" target="_blank" class="button-primary"><?php _e('Try Now (15 days free)', 'gtranslate'); ?></a> <a href="https://gtranslate.io/?xyz=998#faq" target="_blank" class="button-primary"><?php _e('FAQ', 'gtranslate'); ?></a> <a href="https://gtranslate.io/website-translation-quote" target="_blank" class="button-primary"><?php _e('Website Translation Quote', 'gtranslate'); ?></a> <a href="https://gtranslate.io/?xyz=998#contact" target="_blank" class="button-primary"><?php _e('Live Chat', 'gtranslate'); ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="poststuff">
+                <div class="postbox">
+                    <h3 id="settings"><?php _e('Do you like GTranslate?', 'gtranslate'); ?></h3>
+                    <div class="inside">
+                        <p><?php _e('Give us 5 stars on', 'gtranslate'); ?> <a href="https://wordpress.org/support/plugin/gtranslate/reviews/?filter=5">WordPress.org</a> :)</p>
+
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=231165476898475";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        <div class="fb-page" data-href="https://www.facebook.com/gtranslate" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/gtranslate" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gtranslate">GTranslate</a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="poststuff">
+                <div class="postbox">
                     <h3 id="settings"><?php _e('Useful links', 'gtranslate'); ?></h3>
                     <div class="inside">
                         <ul style="list-style-type:square;padding-left:20px;">
@@ -1266,7 +1312,7 @@ EOT;
 
         $data = get_option('GTranslate');
 
-        $data['pro_version'] = 1;
+        $data['pro_version'] = isset($_POST['pro_version']) ? intval($_POST['pro_version']) : '';
         $data['enterprise_version'] = isset($_POST['enterprise_version']) ? intval($_POST['enterprise_version']) : '';
         $data['url_translation'] = isset($_POST['url_translation']) ? intval($_POST['url_translation']) : '';
         $data['add_hreflang_tags'] = isset($_POST['add_hreflang_tags']) ? intval($_POST['add_hreflang_tags']) : '';
@@ -1335,7 +1381,7 @@ EOT;
     }
 
     public static function load_defaults(& $data) {
-        $data['pro_version'] = 1;
+        $data['pro_version'] = isset($data['pro_version']) ? $data['pro_version'] : '';
         $data['enterprise_version'] = isset($data['enterprise_version']) ? $data['enterprise_version'] : '';
         $data['url_translation'] = isset($data['url_translation']) ? $data['url_translation'] : '';
         $data['add_hreflang_tags'] = isset($data['add_hreflang_tags']) ? $data['add_hreflang_tags'] : '';

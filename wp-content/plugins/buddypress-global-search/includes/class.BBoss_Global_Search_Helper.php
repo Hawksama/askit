@@ -200,7 +200,6 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 
 		public function ajax_search(){
 			check_ajax_referer( 'bboss_global_search_ajax', 'nonce' );
-
 			if( isset($_POST["view"]) && $_POST["view"] == "content") {
 
 				$_GET["s"] = $_POST["s"];

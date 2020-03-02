@@ -103,15 +103,26 @@ if (!class_exists('BBoss_Global_Search_CPT')):
 			//now we have all the posts
 			//lets do a wp_query and generate html for all posts
 			$qry = new WP_Query( array( 'post_type' => $this->cpt_name, 'post__in'=>$post_ids ) );
+
 			if( $qry->have_posts() ){
 				while( $qry->have_posts() ){
 					$qry->the_post();	
-					$result = array(
-						'id'	=> get_the_ID(),
-						'type'	=> $this->search_type,
-						'title'	=> get_the_title(),
-						'html'	=> buddyboss_global_search_buffer_template_part( 'loop/post', $template_type, false ),
-					);
+
+					if($this->cpt_name == 'ht_kb') {
+						$result = array(
+							'id'	=> get_the_ID(),
+							'type'	=> $this->search_type,
+							'title'	=> get_the_title(),
+							'html'	=> buddyboss_global_search_buffer_template_part( 'loop/ht_kb', $template_type, false ),
+						);
+					} else {
+						$result = array(
+							'id'	=> get_the_ID(),
+							'type'	=> $this->search_type,
+							'title'	=> get_the_title(),
+							'html'	=> buddyboss_global_search_buffer_template_part( 'loop/post', $template_type, false ),
+						);
+					}
 
 					$this->search_results['items'][get_the_ID()] = $result;
 				}
