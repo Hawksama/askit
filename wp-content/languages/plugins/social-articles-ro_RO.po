@@ -1,0 +1,535 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Social Articles\n"
+"POT-Creation-Date: 2017-01-02 09:26-0300\n"
+"PO-Revision-Date: 2020-03-05 19:34+0200\n"
+"Last-Translator: broobe <dev@broobe.com>\n"
+"Language-Team: Broobe <dev@broobe.com>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: social-articles.php:196
+msgid "Settings"
+msgstr "Setări"
+
+#: social-articles.php:208
+msgid "Donate"
+msgstr "Donează"
+
+#: social-articles.php:233
+msgid ""
+"<strong>Social Articles</strong></a> requires the BuddyPress plugin to work. "
+"Please <a href=\"http://buddypress.org\">install BuddyPress</a> first, or <a "
+"href=\"plugins.php\">deactivate Social Articles</a>."
+msgstr ""
+"<strong> Articole sociale </strong> </a> necesită funcționarea pluginului "
+"BuddyPress. Vă rugăm să <a href=\"http://buddypress.org\"> instalați mai "
+"întâi BuddyPress </a> sau <a href=\"plugins.php\"> dezactivați articolele "
+"sociale </a>."
+
+#: includes/social-articles-functions.php:102
+msgid "One of your articles was approved"
+msgstr "Unul dintre articolele dvs. a fost aprobat"
+
+#: includes/social-articles-functions.php:102
+#: includes/social-articles-functions.php:111
+msgid "check it out!"
+msgstr "verifică!"
+
+#: includes/social-articles-functions.php:110
+msgid "There is a new article by "
+msgstr "Există un articol nou de"
+
+#: includes/social-articles-load.php:11 includes/social-articles-load.php:139
+msgid "Social Articles"
+msgstr "Articole sociale"
+
+#: includes/social-articles-load.php:40
+msgid "Search articles..."
+msgstr "Caută articole..."
+
+#: includes/social-articles-load.php:54 includes/social-articles-load.php:56
+msgid "Articles"
+msgstr "Articole"
+
+#: includes/social-articles-load.php:80 includes/sa-form/sa-form-class.php:130
+#: includes/templates/members/single/articles/new.php:6
+msgid "Published"
+msgstr "Publicări"
+
+#: includes/social-articles-load.php:89
+msgid "Under Review"
+msgstr "În curs de revizuire"
+
+#: includes/social-articles-load.php:99 includes/sa-form/sa-form-class.php:131
+#: includes/templates/members/single/articles/new.php:7
+msgid "Draft"
+msgstr "Schiţe"
+
+#: includes/social-articles-load.php:108
+#: includes/templates/members/single/articles/new.php:36
+msgid "New article"
+msgstr "Postare noua"
+
+#: includes/social-articles-load.php:146
+#, php-format
+msgid "Articles <span class=\"count\">%s</span>"
+msgstr "Articole <span class=\"count\">%s</span>"
+
+#: includes/social-articles-load.php:152
+#, fuzzy
+msgid "New Article"
+msgstr "Postare Noua"
+
+#: includes/social-articles-manage-functions.php:95
+msgid "edit article"
+msgstr "editează articolul"
+
+#: includes/social-articles-manage-functions.php:98
+msgid "delete article"
+msgstr "ștergeți articolul"
+
+#: includes/social-articles-manage-functions.php:128
+msgid "Archived"
+msgstr "Arhive"
+
+#: includes/social-articles-manage-functions.php:135
+msgid "comments"
+msgstr "comentarii"
+
+#: includes/admin/social-articles-options.php:34
+msgid "Settings Saved"
+msgstr "Setări Salvateă"
+
+#: includes/admin/social-articles-options.php:45
+msgid "Social Articles Settings"
+msgstr "Setări articole sociale"
+
+#: includes/admin/social-articles-options.php:53
+#: includes/admin/tabs/social-articles-general-settings.php:52
+msgid "General"
+msgstr "General"
+
+#: includes/admin/social-articles-options.php:54
+#: includes/admin/tabs/social-articles-view-settings.php:28
+msgid "View"
+msgstr "Vizionare"
+
+#: includes/admin/social-articles-options.php:55
+msgid "Form"
+msgstr "Formular"
+
+#: includes/admin/social-articles-options.php:56
+msgid "Get Premium"
+msgstr "Get Premium"
+
+#: includes/admin/social-articles-options.php:57
+msgid "There are unsaved changes"
+msgstr "Există modificări nesalvate"
+
+#: includes/admin/tabs/social-articles-form-settings.php:8
+msgid "Available Fields"
+msgstr "Câmpuri disponibile"
+
+#: includes/admin/tabs/social-articles-form-settings.php:10
+msgid ""
+"Drag and drop the fields you need from this column to the Form Layout column"
+msgstr ""
+"Trageți și plasați câmpurile de care aveți nevoie din această coloană în "
+"coloana formularului de Aspect"
+
+#: includes/admin/tabs/social-articles-form-settings.php:27
+msgid "Form Layout"
+msgstr "Formular de Aspect"
+
+#: includes/admin/tabs/social-articles-form-settings.php:47
+msgid "Field Configuration"
+msgstr "Configurare câmp"
+
+#: includes/admin/tabs/social-articles-form-settings.php:49
+#, php-format
+msgid "Click on %s to edit the field configuration"
+msgstr "Faceți clic pe%s pentru a edita configurația câmpului"
+
+#: includes/admin/tabs/social-articles-form-settings.php:58
+#: includes/admin/tabs/social-articles-general-settings.php:51
+#: includes/admin/tabs/social-articles-view-settings.php:27
+msgid "Update Social Articles Settings"
+msgstr "Actualizați setările pentru articole sociale"
+
+#: includes/admin/tabs/social-articles-general-settings.php:7
+msgid "Select workflow type"
+msgstr "Selectați tipul fluxului de lucru"
+
+#: includes/admin/tabs/social-articles-general-settings.php:9
+msgid "Direct Publish"
+msgstr "Publicare directă"
+
+#: includes/admin/tabs/social-articles-general-settings.php:10
+msgid "With Approval "
+msgstr "Cu aprobare"
+
+#: includes/admin/tabs/social-articles-general-settings.php:19
+msgid "To use this feature, you need to activate bb Friend Connections module."
+msgstr ""
+"Pentru a utiliza această caracteristică, trebuie să activați modulul bb "
+"Connections Connect."
+
+#: includes/admin/tabs/social-articles-general-settings.php:24
+msgid "Send buddyPress notifications?"
+msgstr "Trimiteți notificări buddyPress?"
+
+#: includes/admin/tabs/social-articles-general-settings.php:26
+#: includes/admin/tabs/social-articles-general-settings.php:36
+#: includes/admin/tabs/social-articles-general-settings.php:46
+#: includes/admin/tabs/social-articles-view-settings.php:9
+msgid "False"
+msgstr "Fals"
+
+#: includes/admin/tabs/social-articles-general-settings.php:27
+#: includes/admin/tabs/social-articles-general-settings.php:37
+#: includes/admin/tabs/social-articles-general-settings.php:47
+#: includes/admin/tabs/social-articles-view-settings.php:10
+msgid "True"
+msgstr "Adevarat"
+
+#: includes/admin/tabs/social-articles-general-settings.php:34
+msgid "Can users edit their articles?"
+msgstr "Utilizatorii își pot edita articolele?"
+
+#: includes/admin/tabs/social-articles-general-settings.php:44
+msgid "Can users delete their articles?"
+msgstr "Utilizatorii își pot șterge articolele?"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:7
+msgid "Coming Soon!!!"
+msgstr "In curand!!!"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:11
+msgid "Mail Notifications"
+msgstr "Notificări prin e-mail"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:12
+msgid ""
+"Mail Notification sends mail to your mailboxes. When new notification "
+"arrives, Mail Notification sends a new email."
+msgstr ""
+"Notificarea prin e-mail trimite poștele la căsuțele poștale. La sosirea unei "
+"noi notificări, notificarea prin e-mail trimite un nou e-mail."
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:14
+msgid "Html Template Customization"
+msgstr "Personalizare șablon HTML"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:15
+msgid "Customize your email with HTML Template Customizations!"
+msgstr "Personalizați-vă e-mailul cu personalizări de șabloane HTML!"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:17
+msgid "Custom Post Type definition"
+msgstr "Definiție personalizată de tip post"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:18
+msgid "Custom taxonomies"
+msgstr "Taxonomii personalizate"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:19
+msgid "Taxonomies Black/White List"
+msgstr "Taxonomie Lista Alb/Negru"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:20
+msgid "Hierarchical taxonomies"
+msgstr "Taxonomii ierarhice"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:21
+msgid "Ability to add terms from the front end"
+msgstr "Posibilitatea de a adăuga termeni din partea frontală"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:22
+msgid "Required Fields definition"
+msgstr "Definirea câmpurilor obligatorii"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:23
+msgid "Required Fields Messages definition"
+msgstr "Definiție mesaje câmpuri obligatorii"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:24
+msgid "More Editor Functions"
+msgstr "Mai multe funcții de editor"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:25
+msgid "Premium features for each field"
+msgstr "Funcții premium pentru fiecare câmp"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:26
+msgid "Ability to change labels"
+msgstr "Posibilitatea de a schimba etichetele"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:27
+msgid "More!"
+msgstr "Mai Mult!"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:34
+msgid "Premium Features"
+msgstr "Caracteristici premium"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:40
+msgid ""
+"Want to help make this plugin even better? All donations are used to improve "
+"this plugin, so donate $20, $50 or $100 now!"
+msgstr ""
+"Vrei să contribuie la îmbunătățirea acestui plugin? Toate donațiile sunt "
+"utilizate pentru a îmbunătăți acest plugin, așa că donați acum 20$, 50$ sau "
+"100$ !"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:45
+msgid "Or you could:"
+msgstr "Sau ai putea:"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:47
+msgid "Rate the plugin 5★ on WordPress.org"
+msgstr "Evaluează pluginul 5 ★ pe WordPress.org"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:48
+msgid "Help out other users in the forums"
+msgstr "Ajută-i pe alți utilizatori de pe forumuri"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:49
+#, php-format
+msgid "Blog about it & link to the %1$splugin page%2$s"
+msgstr "Blog despre asta și link către pagina %1$splugin page%2$s"
+
+#: includes/admin/tabs/social-articles-get-premium-settings.php:53
+msgid "Help Spread the Word!"
+msgstr "Ajută la răspândirea cuvântului!"
+
+#: includes/admin/tabs/social-articles-view-settings.php:7
+msgid "Show published articles counter"
+msgstr "Afișează conturile de articole publicate"
+
+#: includes/admin/tabs/social-articles-view-settings.php:17
+msgid "Post per page#"
+msgstr "Postare pe pagină #"
+
+#: includes/admin/tabs/social-articles-view-settings.php:23
+msgid "Excerpt length#"
+msgstr "Lungimea extrasului #"
+
+#: includes/sa-form/sa-form-class.php:132
+#: includes/templates/members/single/articles/new.php:8
+msgid "Under review"
+msgstr "În curs de revizuire"
+
+#: includes/sa-form/sa-form-class.php:133
+#: includes/templates/members/single/articles/new.php:9
+msgid "New"
+msgstr "Nou"
+
+#: includes/sa-form/sa-form-class.php:142
+msgid ""
+"Your article is under review. When the editors approve it you will get a "
+"notification."
+msgstr ""
+"Articolul dvs. este în curs de examinare. Când redactorii îl aprobă, veți "
+"primi o notificare."
+
+#: includes/sa-form/sa-form-class.php:146
+msgid "Your article is in draft form."
+msgstr "Articolul dvs. este sub formă de schiță."
+
+#: includes/sa-form/sa-form-class.php:150
+msgid "Your article has been published."
+msgstr "Articolul dvs. a fost publicat."
+
+#: includes/sa-form/sa-helper-class.php:57
+#: includes/sa-form/fields/classes/sa-title-class.php:10
+msgid "Title"
+msgstr "Titlu"
+
+#: includes/sa-form/sa-helper-class.php:78
+msgid "Content"
+msgstr "Conţinut"
+
+#: includes/sa-form/sa-helper-class.php:84
+msgid "Featured image"
+msgstr "Imagine prezentată"
+
+#: includes/sa-form/fields/classes/sa-content-class.php:11
+msgid "Article content"
+msgstr "Conținutul articolului"
+
+#: includes/sa-form/fields/classes/sa-featured-image-class.php:10
+msgid "Featured Image"
+msgstr "Imagine prezentată"
+
+#: includes/sa-form/fields/classes/sa-title-class.php:11
+msgid "Insert the title"
+msgstr "Introduceți titlul"
+
+#: includes/sa-form/fields/classes/sa-title-class.php:12
+msgid "Title is required"
+msgstr "Titlul este necesar"
+
+#: includes/sa-form/fields/commons/uploader.php:138
+msgid "Server error. Upload directory isn't writable."
+msgstr "Eroare de server. Directorul de încărcare nu este scris."
+
+#: includes/sa-form/fields/commons/uploader.php:142
+msgid "No files were uploaded."
+msgstr "Nu au fost încărcate fișiere."
+
+#: includes/sa-form/fields/commons/uploader.php:148
+msgid "File is empty"
+msgstr "Fișierul este gol"
+
+#: includes/sa-form/fields/commons/uploader.php:152
+msgid "File is too large"
+msgstr "Fișierul este prea mare"
+
+#: includes/sa-form/fields/commons/uploader.php:162
+#, php-format
+msgid "File has an invalid extension, it should be one of %s."
+msgstr "Fișierul are o extensie nevalidă, ar trebui să fie una din%s."
+
+#: includes/sa-form/fields/commons/uploader.php:175
+msgid ""
+"Could not save uploaded file. The upload was cancelled, or server error "
+"encountered"
+msgstr ""
+"Nu s-a putut salva fișierul încărcat. Încărcarea a fost anulată sau a apărut "
+"o eroare de server"
+
+#: includes/sa-form/fields/templates/commons/article-status-tpart.php:4
+msgid "Status"
+msgstr "Status"
+
+#: includes/sa-form/fields/templates/commons/publish-actions-tpart.php:4
+msgid "Save and move it under review"
+msgstr "Salvează și mută-l sub examinare"
+
+#: includes/sa-form/fields/templates/commons/publish-actions-tpart.php:8
+msgid "Save and publish"
+msgstr "Salvați și publicați"
+
+#: includes/sa-form/fields/templates/content/backend-part.php:4
+#: includes/sa-form/fields/templates/featured-image/backend-part.php:6
+#: includes/sa-form/fields/templates/taxonomy-hierarchical/backend-part.php:4
+#: includes/sa-form/fields/templates/taxonomy-regular/backend-part.php:4
+#: includes/sa-form/fields/templates/title/backend-part.php:6
+#, php-format
+msgid "Field: %s "
+msgstr "Câmpuri: %s "
+
+#: includes/sa-form/fields/templates/content/backend-part.php:7
+#: includes/sa-form/fields/templates/featured-image/backend-part.php:9
+#: includes/sa-form/fields/templates/taxonomy-hierarchical/backend-part.php:7
+#: includes/sa-form/fields/templates/taxonomy-regular/backend-part.php:7
+#: includes/sa-form/fields/templates/title/backend-part.php:9
+msgid "Label"
+msgstr "Eticheta"
+
+#: includes/sa-form/fields/templates/featured-image/backend-part.php:13
+#, php-format
+msgid "Maximum upload file size: %s (PHP limit)"
+msgstr "Dimensiunea maximă a fișierului de încărcare: %s (limită PHP)"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:14
+msgid "Delete"
+msgstr "Șterge"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:36
+msgid "Generating preview"
+msgstr "Generarea previzualizării"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:60
+msgid "Choose image"
+msgstr "Alegeți imaginea"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:61
+msgid "or"
+msgstr "sau"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:62
+msgid "Drag your file here to upload"
+msgstr "Trageți fișierul aici pentru a încărca"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:63
+msgid "Drop your file"
+msgstr "Aruncați fișierul"
+
+#: includes/sa-form/fields/templates/featured-image/frontend-part.php:64
+#, php-format
+msgid "Maximum upload file size: %s."
+msgstr "Dimensiunea maximă a fișierului de încărcare: %s."
+
+#: includes/sa-form/fields/templates/taxonomy-hierarchical/backend-part.php:11
+#: includes/sa-form/fields/templates/taxonomy-regular/backend-part.php:11
+#: includes/sa-form/fields/templates/title/backend-part.php:13
+msgid "Placeholder"
+msgstr "Substitut"
+
+#: includes/sa-form/fields/templates/taxonomy-hierarchical/backend-part.php:16
+#: includes/sa-form/fields/templates/taxonomy-regular/backend-part.php:16
+msgid "Type"
+msgstr "Tip"
+
+#: includes/sa-form/fields/templates/taxonomy-hierarchical/backend-part.php:18
+#: includes/sa-form/fields/templates/taxonomy-regular/backend-part.php:18
+msgid "Multiple"
+msgstr "Multiplu"
+
+#: includes/sa-form/fields/templates/taxonomy-hierarchical/backend-part.php:19
+#: includes/sa-form/fields/templates/taxonomy-regular/backend-part.php:19
+msgid "Single"
+msgstr "Singur"
+
+#: includes/sa-form/fields/templates/title/backend-part.php:19
+msgid "Required"
+msgstr "Necesar"
+
+#: includes/sa-form/fields/templates/title/backend-part.php:21
+msgid "Upgrade to premium to change this setting"
+msgstr "Treceți la premium pentru a modifica această setare"
+
+#: includes/sa-form/fields/templates/title/backend-part.php:24
+msgid "Messages"
+msgstr "Mesaje"
+
+#: includes/sa-form/fields/templates/title/backend-part.php:26
+msgid "Empty"
+msgstr "Gol"
+
+#: includes/templates/members/single/articles/loop.php:19
+msgid "Load more articles"
+msgstr "Încărcați mai multe articole"
+
+#: includes/templates/members/single/articles/loop.php:28
+msgid "This user doesn't have any article."
+msgstr "Acest utilizator nu are niciun articol."
+
+#: includes/templates/members/single/articles/new.php:34
+msgid "Edit article"
+msgstr "Editează articolul"
+
+#: includes/templates/members/single/articles/new.php:35
+msgid "View article"
+msgstr "Vezi articolul"
+
+#: includes/templates/members/single/articles/new.php:40
+msgid "Saving your article. Please wait."
+msgstr "Salvarea articolului. Te rog, asteaptă."
+
+#: includes/templates/members/single/articles/new.php:50
+msgid "Save"
+msgstr "Salvează"
+
+#: includes/templates/members/single/articles/new.php:51
+msgid "Cancel"
+msgstr "Anulare"
