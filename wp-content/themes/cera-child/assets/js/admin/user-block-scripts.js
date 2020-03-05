@@ -8,13 +8,15 @@ jQuery(document).ready( function($) {
 
             if (textarea.length > 0) {
                 var scriptExistIndex = textarea.indexOf('<script'),
-                    preTagExist = textarea.indexOf('<pre') >= 0;
+                    preTagExist = textarea.indexOf('<pre') >= 0
+                    externalLink = textarea.indexOf('<link');
                 
                 if(scriptExistIndex >= 0) {
-                    if(preTagExist) {
+                    if(preTagExist && !externalLink) {
                         if(textarea.indexOf('<pre') < scriptExistIndex && textarea.indexOf('</pre') > scriptExistIndex) {
                             textarea = textarea.replace('<script', '&lt;script');
                             textarea = textarea.replace('</script>', '&lt;/script&gt;');
+                            textarea = textarea.replace('<link', '&lt;script');
                             acfTxtArea.val(textarea);
                             refactored = true;
                         }

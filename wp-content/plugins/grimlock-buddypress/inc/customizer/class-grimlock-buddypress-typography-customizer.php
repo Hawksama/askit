@@ -164,7 +164,6 @@ class Grimlock_BuddyPress_Typography_Customizer {
 		$elements_headings = array(
 			'.grimlock-author-avatars__user span.name',
 			'.c100.hmk-percentage',
-			'#buddypress:not(.youzer) #profile-content__nav ul li > a',
 			'#buddypress:not(.youzer) #profile-content__nav .priority-nav__dropdown-toggle',
 			'#buddypress:not(.youzer) div.item-list-tabs.primary-list-tabs > ul > li > a',
 			'#buddypress:not(.youzer) div.dir-search > form input[type="text"]',

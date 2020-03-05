@@ -19,9 +19,6 @@ $cera_child = require get_stylesheet_directory() . '/inc/class-cera-child.php';
  * Add your customizations below this line.
  */
 
-define( 'WP_DEBUG_LOG', true );
-define( 'WP_DEBUG', true );
-
 add_action('admin_notices', 'propuneri_solutii_admin_notice');
 function propuneri_solutii_admin_notice()
 {
@@ -137,3 +134,54 @@ function admin_queue( $hook ) {
     }
 }
 add_action( 'admin_enqueue_scripts', 'admin_queue' );
+
+
+
+if ( ! function_exists( 'cera_grimlock_the_post_thumbnail' ) ) :
+	/**
+	 * Prints HTML for the post thumbnail :
+	 *     - For the Video, Audio and Image formats, the post thumbnail is replaced by the media
+	 *       found in the post content (either the video player, the image or the audio player).
+	 *     - In any other case, the post thumbnail is displayed.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $size The size for the thumbnail.
+	 * @param array  $attr The array of attributes for the thumbnail tag.
+	 */
+	function cera_grimlock_the_post_thumbnail( $size = 'medium', $attr = array() ) {
+		if ( has_post_format( array( 'video', 'audio', 'image', 'gallery' ) ) ) :
+            if(has_post_format('video')):
+
+                if(get_field('solutie_1')): 
+                    $html = get_field('solutie_1');
+                    $dom = new DOMDocument();
+                    $dom->loadHTML($html);
+                    $xpath = new DOMXPath($dom);
+                    $div = $xpath->query('//div[@class="wp-video"]');
+                    $div = $div->item(0);
+                    $videoTag = $dom->saveXML($div);
+
+                    if($videoTag): ?>
+                        <div class="post-media post-media-video"><?= $videoTag ?></div>
+                    <?php endif; 
+                endif; 
+            else: ?>
+                <div class="post-media"><?php the_content(); ?></div>
+            <?php endif;
+		elseif ( has_post_thumbnail() ) : ?>
+			<a href="<?php echo esc_url( get_permalink() ); ?>" class="post-thumbnail" title="<?php the_title_attribute(); ?>" rel="bookmark">
+				<?php the_post_thumbnail( $size, $attr ); ?>
+			</a>
+			<?php
+		endif;
+	}
+endif;
+
+// Remove plugins updates because of the inline modifications made inside of them
+function remove_plugin_updates( $value ) {
+    unset( $value->response['buddypress/class-buddypress.php'] );
+    unset( $value->response['ht-knowledge-base/ht-knowledge-base.php'] );
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', 'remove_plugin_updates' );

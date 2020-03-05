@@ -311,4 +311,15 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 #cookie-law-info-again {
   display: none !important; }
 
+.post-media-video {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#buddypress:not(.youzer) #profile-content__nav ul li > a {
+  text-transform: capitalize; }
+
+#buddypress:not(.youzer) div#item-header .profile-header__body .item-activity .activity {
+  text-transform: none; }
+
 /*# sourceMappingURL=style.css.map */
