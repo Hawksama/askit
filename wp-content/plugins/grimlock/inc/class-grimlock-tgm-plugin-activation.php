@@ -111,6 +111,17 @@ if ( ! class_exists( 'Grimlock_TGM_Plugin_Activation' ) ) :
 				);
 			}
 
+			// Compatibility with Echo Knowledge Base
+			if ( class_exists( 'Echo_Knowledge_Base' ) ) {
+				$plugins[] = array(
+					'name'         => 'Grimlock for Knowledge Base for Documents and FAQs',
+					'slug'         => 'grimlock-echo-knowledge-base',
+					'source'       => 'http://files.themosaurus.com/grimlock-jetpack/grimlock-echo-knowledge-base.zip',
+					'required'     => false,
+					'external_url' => 'https://www.themosaurus.com/',
+				);
+			}
+
 			// Compatibility with LearnDash
 			if ( class_exists( 'SFWD_LMS' ) ) {
 				$plugins[] = array(

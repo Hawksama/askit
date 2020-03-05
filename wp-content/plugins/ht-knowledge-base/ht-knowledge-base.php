@@ -355,83 +355,44 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 		*/
 
 		function register_ht_knowledge_base_cpt(){
-
 			$singular_item = __('Solutie', 'ht-knowledge-base');
-
 			$plural_item = __('Solutii', 'ht-knowledge-base');
-
 			$kb_item = __('Solutii Askit', 'ht-knowledge-base');
-
 			$rewrite = $this->get_cpt_slug();
 
-
-
 		  	$labels = array(
-
 			    'name'	      =>  $singular_item,
-
 			    'singular_name'      => __('Article', 'ht-knowledge-base'),
-
 			    'add_new'            => __('Add New', 'ht-knowledge-base') . ' ' .  $singular_item,
-
 			    'add_new_item'       => __('Add New', 'ht-knowledge-base') . ' ' .  $singular_item,
-
 			    'edit_item'          => __('Edit', 'ht-knowledge-base') . ' ' .  $singular_item,
-
 			    'new_item'           => __('New', 'ht-knowledge-base') . ' ' .  $singular_item,
-
 			    'all_items'          => __('All', 'ht-knowledge-base') . ' ' .  $plural_item,
-
 			    'view_item'          => __('View', 'ht-knowledge-base') . ' ' .  $singular_item,
-
 			    'search_items'       => __('Search', 'ht-knowledge-base') . ' ' .  $plural_item,
-
 			    'not_found'          => sprintf( __( 'No %s found', 'ht-knowledge-base' ), $plural_item ),
-
 			    'not_found_in_trash' => sprintf( __( 'No %s found in trash', 'ht-knowledge-base' ), $plural_item ),
-
 			    'parent_item_colon'  => '',
-
 			    'menu_name'          => $kb_item,
-
 		  	);
 
-
-
 			$args = array(
-
 				'labels'             => $labels,
-
 				'public'             => true,
-
 				'publicly_queryable' => true,
-
 				'show_ui'            => true,
-
 				'show_in_menu'       => true,
-
 				'show_in_nav_menus'	 => false,
-
 				'query_var'          => true,
-
 				'rewrite'            => array( 'slug' => $rewrite, 'with_front'	=>	false ),
-
 				'capability_type'    => 'post',
-
 				'has_archive'        => true,
-
 				'hierarchical'       => false,
-
 				'menu_position'      => null,
-
 				'supports'           => array( 'title', 'editor', 'author', 'comments', 'post-formats' )
-
 			);
 
-
-
-		  register_post_type( 'ht_kb', $args );
-
+		  	register_post_type( 'ht_kb', $args );
 		}
 
 
@@ -467,41 +428,23 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 		*/
 
 		function register_ht_knowledge_base_category_taxonomy(){
-
 			$singular_item = __('Knowledge Base', 'ht-knowledge-base');
-
 			$rewrite = $this->get_cat_slug();
 
-
-
 			$labels = array(
-
 				'name'                       => _x( 'Article Category', 'Taxonomy General Name', 'ht-knowledge-base' ),
-
 				'singular_name'              => _x( 'Article Category', 'Taxonomy Singular Name', 'ht-knowledge-base' ),
-
 				'menu_name'                  => __( 'Article Categories', 'ht-knowledge-base' ),
-
 				'all_items'                  => __( 'All Article Categories', 'ht-knowledge-base' ),
-
 				'parent_item'                => __( 'Parent Article Category', 'ht-knowledge-base' ),
-
 				'parent_item_colon'          => __( 'Parent Article Category:', 'ht-knowledge-base' ),
-
 				'new_item_name'              => __( 'New Article Category', 'ht-knowledge-base' ),
-
 				'add_new_item'               => __( 'Add New Article Category', 'ht-knowledge-base' ),
-
 				'edit_item'                  => __( 'Edit Article Category', 'ht-knowledge-base' ),
-
 				'update_item'                => __( 'Update Article Category', 'ht-knowledge-base' ),
-
 				'separate_items_with_commas' => __( 'Separate Article Categories with commas', 'ht-knowledge-base' ),
-
 				'search_items'               => __( 'Search Article Categories', 'ht-knowledge-base' ),
-
 				'add_or_remove_items'        => __( 'Add or remove categories', 'ht-knowledge-base' ),
-
 				'choose_from_most_used'      => __( 'Choose from the most used categories', 'ht-knowledge-base' ),
 
 			);
@@ -525,9 +468,7 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 				'show_tagcloud'              => true,
 
 			);
-
 			register_taxonomy( 'ht_kb_category', 'ht_kb', $args );
-
 		}
 
 
@@ -703,170 +644,86 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 		*/
 
 		function ht_knowledge_base_custom_template($template) {
-
 		    global $wp_query, $post;
-
-
-
 		    $this->is_single = is_single();
 
-		    $this->is_ht_kb_category_tax = is_tax('ht_kb_category');
-
+			$this->is_ht_kb_category_tax = is_tax('ht_kb_category');
 		    $this->is_ht_kb_tag_tax = is_tax('ht_kb_tag');
-
 		    $this->is_ht_kb_search = ( array_key_exists('ht-kb-search', $_REQUEST) ) ? true : false;    
 
 		    //set the taxonmy and terms if is_tax (these are used for breadcrumbs)
 
 		    if( $this->is_ht_kb_category_tax || $this->is_ht_kb_tag_tax )
-
 		    	$this->set_taxonomy_and_terms();
 
-
-
-
-
 		    //use the the theme template
-
 		    if(current_theme_supports('ht_knowledge_base_templates'))
-
 		    	return $template;
-
-
 
 		    //else use compatibility template
 
-
-
 		    //Nothing found
-
 		    if (isset($wp_query)){
-
 		    	$query_vars =  $wp_query->query_vars;
 
 		    	if( ( array_key_exists('ht_kb_category', $query_vars) || array_key_exists('ht_kb_tag', $query_vars) ) &&
-
 		    		isset($wp_query->post_count) &&
-
 		    		$wp_query->post_count == 0 ) {
 
-
-
-
-
 		    		//nothing found
-
 		    		$this->is_ht_kb_category_tax = (array_key_exists('ht_kb_category', $query_vars)) ? true : false;
-
 		    		$this->is_ht_kb_tag_tax = (array_key_exists('ht_kb_tag', $query_vars)) ? true : false;
-
 		    		$this->nothing_found = true;
-
 		    		//clone the old query
-
 					$this->temp_query = clone $wp_query;
 
-
-
 					// Reset post
-
 						$this->ht_kb_theme_compat_reset_post( array(
-
 							'ID'             => 0,
-
 							'post_title'     => 'Knowledge Base',
-
 							'post_author'    => 0,
-
 							'post_date'      => 0,
-
 							'post_content'   => '',
-
 							'post_type'      => 'ht_kb',
-
 							'is_archive'     => true,
-
 							'comment_status' => 'closed'
-
 						) );
 
-
-
-
-
 					return locate_template('page.php', false, false);
-
-
-
 		    	}
-
-		    	
-
-
-
-		    }
-
+			}
+		
+			//HT KB Category archive
+			if($wp_query->is_archive && $wp_query->query_vars['post_type'] == 'ht_kb') {
+				return locate_template('archive-ht_kb.php', false, false);
+			}
 		    
-
 			//HT KB
-
 			if (isset($post) && $post->post_type == "ht_kb"){
 
-
-
 				//clone the old query
-
 				$this->temp_query = clone $wp_query;
 
-
-
 				// Reset post
-
 					$this->ht_kb_theme_compat_reset_post( array(
-
 						'ID'             => 0,
-
 						'post_title'     => 'Knowledge Base',
-
 						'post_author'    => 0,
-
 						'post_date'      => 0,
-
 						'post_content'   => '',
-
 						'post_type'      => 'ht_kb',
-
 						'is_archive'     => true,
-
 						'comment_status' => 'closed'
-
 					) );
-
-
-
-
-
 				return locate_template('page.php', false, false);
-
-
-
-
-
 			}
 
 
-
 			//Search Results
-
 			if (isset($post) && $this->is_ht_kb_search){
 
-
-
 				//clone the old query
-
 				$this->temp_query = clone $wp_query;
-
-
 
 				// Reset post
 
@@ -896,12 +753,8 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 
 				return locate_template('page.php', false, false);
 
-
-
 			}
-
 			return $template;
-
 		}
 
 

@@ -31,9 +31,12 @@ get_header();?>
 					</ul>
 				</div>
 			</article>
+
+			<?php dynamic_sidebar( 'homepage-1' ); ?>
 		</main><!-- #main -->
-		<?php get_sidebar( 'right' ); ?>
 	</div><!-- #primary -->
+
+	<?php get_sidebar( 'right' ); ?>
 
 <?php
 get_footer();

@@ -18,4 +18,4 @@
 	 * @hooked cera_grimlock_page - 10
 	 */
 	do_action( 'cera_page' ); ?>
-</article><!-- #post-## -->
+</article><!-- #post-##  class="content-page.php"-->

@@ -5,7 +5,7 @@
  * Description: Provides components for the theme. Extends Customizer using Kirki Toolkit to modify components.
  * Author:      Themosaurus
  * Author URI:  http://www.themosaurus.com/grimlock
- * Version:     1.2.7
+ * Version:     1.2.8
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: grimlock
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GRIMLOCK_VERSION',                                '1.2.7'                             );
+define( 'GRIMLOCK_VERSION',                                '1.2.8'                             );
 define( 'GRIMLOCK_PLUGIN_FILE',                            __FILE__                            );
 define( 'GRIMLOCK_PLUGIN_DIR_PATH',                        plugin_dir_path( __FILE__ )         );
 define( 'GRIMLOCK_PLUGIN_DIR_URL',                         plugin_dir_url( __FILE__ )          );

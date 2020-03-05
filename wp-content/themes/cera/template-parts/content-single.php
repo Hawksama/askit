@@ -18,4 +18,4 @@
 	 * @hooked cera_grimlock_single - 10
 	 */
 	do_action( 'cera_single' ); ?>
-</article><!-- #post-## -->
+</article><!-- #post-##  class="content-single.php"-->

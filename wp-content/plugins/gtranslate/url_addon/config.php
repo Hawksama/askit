@@ -1,6 +1,6 @@
 <?php
 // Specify the original language code of your website
-$main_lang = 'en';
+$main_lang = 'ro';
 
 /*
 List of available language codes:

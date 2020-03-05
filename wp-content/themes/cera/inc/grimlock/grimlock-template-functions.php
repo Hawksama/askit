@@ -349,7 +349,7 @@ if ( ! function_exists( 'cera_grimlock_homepage' ) ) :
 					'size'  => array(),
 					'value' => array(),
 				),
-			) );
+			));
 			return;
 		}
 		cera_grimlock_widget_area( 'homepage-1' );

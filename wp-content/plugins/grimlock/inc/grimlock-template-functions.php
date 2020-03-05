@@ -183,7 +183,7 @@ function grimlock_post_meta( $args ) {
 			if ( ! empty( $args['post_author_displayed'] ) && 'post' === get_post_type() ) {
 				printf(
 					'<span class="byline author"><span class="byline-label">' . esc_html__( 'by', 'grimlock' ) . ' </span>%1$s %2$s</span>',
-					'<span class="author-avatar"><span class="zavatar-round-ratio medium"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_avatar( get_the_author_meta( 'ID' ), 52 ) . '</a></span></span>',
+					'<span class="author-avatar"><span class="avatar-round-ratio medium"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_avatar( get_the_author_meta( 'ID' ), 52 ) . '</a></span></span>',
 					'<span class="author-vcard vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 				);
 			} ?>

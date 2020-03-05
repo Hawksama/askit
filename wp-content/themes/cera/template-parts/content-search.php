@@ -18,4 +18,4 @@
 	 * @hooked cera_grimlock_search_post - 10
 	 */
 	do_action( 'cera_search_post' ); ?>
-</article><!-- #post-## -->
+</article><!-- #post-##  class="content-search.php"-->

@@ -34,6 +34,6 @@
 			<?php the_content(); ?>
 		</div>
 
-	</article><!-- #post-## -->
+	</article><!-- #post-##  class="content-searchform.php"-->
 
 </div>

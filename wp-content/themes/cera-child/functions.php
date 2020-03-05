@@ -19,6 +19,8 @@ $cera_child = require get_stylesheet_directory() . '/inc/class-cera-child.php';
  * Add your customizations below this line.
  */
 
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG', true );
 
 add_action('admin_notices', 'propuneri_solutii_admin_notice');
 function propuneri_solutii_admin_notice()
@@ -29,25 +31,25 @@ function propuneri_solutii_admin_notice()
     if ('edit.php' === $pagenow && ! empty($_GET['post_type']))
     {
         echo '<div style="color: tomato;
-padding-right: 30px;
-background: white;
-padding-top: 10px;
-padding-bottom: 10px;
-font-weight: bold;
-padding-left: 10px;
-font-size: 19px;"><p style="font-size:19px; font-weight:bold;">News: Preluarea temelor de solutii din Solutii Propuse. Pasi:</p>
-<ul>
-<li>- Alege titlul pentru crearea unei solutii</li>
-<li>- Verifica la Autor ca Solutia sa nu fie asignata altei persoane</li>
-<li>- Edit:</li>
-<li>- Schimba la Autor in numele tau</li>
-<li>- Schimba statusul solutiei la "In Progress"</li>
-<li>- Save</li>
-<li>- Poti edita numele titlului </li>
-<li>- Verifica in interiorul solutiei detaliile ajutatoare, la *Situatie</li>
-<li>- Trecerea solutiei la statusul "Pending Review" si save</li>
-</ul>
-</div>';
+            padding-right: 30px;
+            background: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            padding-left: 10px;
+            font-size: 19px;"><p style="font-size:19px; font-weight:bold;">News: Preluarea temelor de solutii din Solutii Propuse. Pasi:</p>
+            <ul>
+            <li>- Alege titlul pentru crearea unei solutii</li>
+            <li>- Verifica la Autor ca Solutia sa nu fie asignata altei persoane</li>
+            <li>- Edit:</li>
+            <li>- Schimba la Autor in numele tau</li>
+            <li>- Schimba statusul solutiei la "In Progress"</li>
+            <li>- Save</li>
+            <li>- Poti edita numele titlului </li>
+            <li>- Verifica in interiorul solutiei detaliile ajutatoare, la *Situatie</li>
+            <li>- Trecerea solutiei la statusul "Pending Review" si save</li>
+            </ul>
+            </div>';
     }
 }
 
@@ -123,3 +125,15 @@ function hide_editor() {
     <?php 
   }
 }
+
+/** Admin Enqueue **/
+function admin_queue( $hook ) {
+    global $post; 
+
+    if ( $hook == 'post-new.php' || $hook == 'post.php' ) {
+        if ( 'ht_kb' === $post->post_type ) { 
+            wp_enqueue_script( 'block-user-script-inserting', get_bloginfo( 'template_directory' ) . '-child/assets/js/admin/user-block-scripts.js', 'jquery', '', true );
+        }
+    }
+}
+add_action( 'admin_enqueue_scripts', 'admin_queue' );
