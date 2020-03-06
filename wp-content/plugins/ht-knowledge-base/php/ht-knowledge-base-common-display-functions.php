@@ -1645,7 +1645,7 @@ if(!function_exists('ht_kb_display_archive')){
 						}
 						?>
 
-						<div class="col-12 col-xl-7  col-forum-meta mt-4 mt-md-0">
+						<div class="col-12 col-xl-7  col-forum-meta mt-0 mt-md-4 mt-xl-0">
 							<div class="row">
 								<div class="col-12 col-md-6 col-lg-5 col-forum-meta mt-4 mt-md-0">
 									<div class="row">

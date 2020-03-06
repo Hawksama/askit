@@ -466,12 +466,17 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 					return locate_template('page.php', false, false);
 		    	}
 			}
-		
-			//HT KB Category archive
+
+			//HT KB Main Category archive
+			if($wp_query->is_page && $wp_query->query_vars['name'] == 'categorii_solutii') {
+				return locate_template('category-ht_kb-template.php', false, false);
+			}
+			
+			//HT KB Sub Category archive
 			if($wp_query->is_archive && ($wp_query->query_vars['post_type'] == 'ht_kb' || $wp_query->queried_object->taxonomy == 'ht_kb_category')) {
 				return locate_template('archive-ht_kb.php', false, false);
 			}
-		    
+
 			//HT KB
 			if (isset($post) && $post->post_type == "ht_kb"){
 
@@ -479,16 +484,16 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 				$this->temp_query = clone $wp_query;
 
 				// Reset post
-					$this->ht_kb_theme_compat_reset_post( array(
-						'ID'             => 0,
-						'post_title'     => 'Knowledge Base',
-						'post_author'    => 0,
-						'post_date'      => 0,
-						'post_content'   => '',
-						'post_type'      => 'ht_kb',
-						'is_archive'     => true,
-						'comment_status' => 'closed'
-					) );
+				$this->ht_kb_theme_compat_reset_post( array(
+					'ID'             => 0,
+					'post_title'     => 'Knowledge Base',
+					'post_author'    => 0,
+					'post_date'      => 0,
+					'post_content'   => '',
+					'post_type'      => 'ht_kb',
+					'is_archive'     => true,
+					'comment_status' => 'closed'
+				) );
 				return locate_template('page.php', false, false);
 			}
 

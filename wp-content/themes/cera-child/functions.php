@@ -106,10 +106,10 @@ function contributes_columns( $value, $column_name, $user_id ) {
     return $posts_count;
 }
 
+add_action( 'init', 'custom_post_type', 0 );
 function custom_post_type() {
     add_post_type_support( 'ht_kb', 'post-formats' );
 }
-add_action( 'init', 'custom_post_type', 0 );
 
 if ( (!current_user_can('manage_options') && is_user_logged_in()) || !is_user_logged_in() ) {
     add_filter('show_admin_bar', '__return_false');
@@ -124,6 +124,7 @@ function hide_editor() {
 }
 
 /** Admin Enqueue **/
+add_action( 'admin_enqueue_scripts', 'admin_queue' );
 function admin_queue( $hook ) {
     global $post; 
 
@@ -133,8 +134,6 @@ function admin_queue( $hook ) {
         }
     }
 }
-add_action( 'admin_enqueue_scripts', 'admin_queue' );
-
 
 
 if ( ! function_exists( 'cera_grimlock_the_post_thumbnail' ) ) :
@@ -179,9 +178,29 @@ if ( ! function_exists( 'cera_grimlock_the_post_thumbnail' ) ) :
 endif;
 
 // Remove plugins updates because of the inline modifications made inside of them
+add_filter( 'site_transient_update_plugins', 'remove_plugin_updates' );
 function remove_plugin_updates( $value ) {
     unset( $value->response['buddypress/class-buddypress.php'] );
     unset( $value->response['ht-knowledge-base/ht-knowledge-base.php'] );
     return $value;
 }
-add_filter( 'site_transient_update_plugins', 'remove_plugin_updates' );
+
+/**
+ * Redirect buddypress pages to registration page
+ */
+add_action( 'template_redirect', 'gwangi_restrict_buddypress' );
+function gwangi_restrict_buddypress() {
+	// If not logged in and on a bp page except registration or activation
+	if ( ! is_user_logged_in() && is_buddypress() && ! bp_is_blog_page() && ! bp_is_activation_page() && ! bp_is_register_page() ) {
+		wp_redirect( home_url( '/register/' ) );
+		exit();
+	}
+}
+
+add_filter( 'body_class', 'cera_child_body_classes', 10, 2 );
+function cera_child_body_classes($classes, $class){
+    if( is_archive() ){
+        $classes[] = 'archive';
+    }    
+    return $classes;
+}

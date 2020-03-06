@@ -17,3 +17,17 @@
         text-transform: none;
     }
 }
+
+.page-template-listing-posts {
+    .content-area {
+        .site-content {
+            &.region {
+                padding: 0px;
+
+                .region__container {
+                    padding: 0px;
+                }
+            }
+        }
+    }
+}

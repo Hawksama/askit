@@ -72,27 +72,27 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 
 		<?php } ?>
 
-<?php if ( have_posts() ) : ?>
-    <?php
-		/* Start the Loop */
-		while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) : ?>
+			<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post(); ?>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h2 class="entry-title" itemprop="headline">
-				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-			</h2>
-			<?php ht_kb_entry_meta_display(); ?>
-		</article>
-    
-    <?php endwhile; ?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<h2 class="entry-title" itemprop="headline">
+						<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+					</h2>
+					<?php ht_kb_entry_meta_display(); ?>
+				</article>
+			
+			<?php endwhile; ?>
 
-    <?php posts_nav_link(); ?>
-    
-    <?php else : ?>
+			<?php posts_nav_link(); ?>
+			
+			<?php else : ?>
 
-    <h2><?php _e('Nothing in this category.', 'ht-knowledge-base'); ?></h2>
-    
-<?php endif; ?>
+			<h2><?php _e('Nothing in this category.', 'ht-knowledge-base'); ?></h2>
+			
+		<?php endif; ?>
 
 </div>
 <!-- /#ht-kb -->
