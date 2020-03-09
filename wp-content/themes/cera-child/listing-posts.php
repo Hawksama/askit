@@ -24,15 +24,23 @@ get_header();?>
 								
 								<?php bbp_get_template_part( 'ht-knowledge', 'search' ); ?>
 
-								<ul class="bbp-forums b ht-posts-list">
-									<?php if(function_exists('ht_kb_display_archive')): ?>
-										<?php ht_kb_display_archive(); ?>
-									<?php endif; ?>
-
-									<?php if(function_exists('ht_kb_display_uncategorized_articles')): ?>
-										<?php ht_kb_display_uncategorized_articles(); ?>
-									<?php endif; ?>
+								<ul class="bbp-forums ht-posts-list">
+									<li class="dashboard--fake">
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+									</li>
 								</ul>
+
 							</div>
 						</article>
 
@@ -45,6 +53,14 @@ get_header();?>
 		</div>
 		
 	</div><!-- #primary -->
+
+	<script>
+		$.get(ajaxurl,{'action': 'archive_category'}, 
+			function (data) { 
+				$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
+			}
+		);
+	</script>
 
 
 <?php

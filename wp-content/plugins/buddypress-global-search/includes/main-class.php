@@ -430,8 +430,8 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 			
 			
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
-			//wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0.4', true );
-			wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search' . $min . '.js', array( 'jquery', 'jquery-ui-autocomplete' ), BUDDYBOSS_GLOBAL_SEARCH_PLUGIN_VERSION, true );
+			wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0.4', true );
+			// wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search' . $min . '.js', array( 'jquery', 'jquery-ui-autocomplete' ), BUDDYBOSS_GLOBAL_SEARCH_PLUGIN_VERSION, true );
 			
 			if(function_exists("bp_is_messages_component")) {
 				// Include the autocomplete JS for composing a message.

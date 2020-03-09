@@ -182,6 +182,7 @@ add_filter( 'site_transient_update_plugins', 'remove_plugin_updates' );
 function remove_plugin_updates( $value ) {
     unset( $value->response['buddypress/class-buddypress.php'] );
     unset( $value->response['ht-knowledge-base/ht-knowledge-base.php'] );
+    unset( $value->response['buddypress-global-search/buddypress-global-search.php'] );
     return $value;
 }
 
@@ -203,4 +204,18 @@ function cera_child_body_classes($classes, $class){
         $classes[] = 'archive';
     }    
     return $classes;
+}
+
+add_action('wp_ajax_nopriv_archive_category', 'archive_category_function');
+add_action('wp_ajax_archive_category', 'archive_category_function');
+function archive_category_function(){
+    if(function_exists('ht_kb_display_archive')): 		
+        ht_kb_display_archive();
+    endif;
+
+    if(function_exists('ht_kb_display_uncategorized_articles')):
+        ht_kb_display_uncategorized_articles();
+    endif;
+
+    exit();
 }

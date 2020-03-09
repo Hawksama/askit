@@ -322,9 +322,93 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 #buddypress:not(.youzer) div#item-header .profile-header__body .item-activity .activity {
   text-transform: none; }
 
-.page-template-listing-posts .content-area .site-content.region {
+.page-template-listing-posts .content-area .site-content.region,
+.page-template-category-ht_kb-template .content-area .site-content.region {
   padding: 0px; }
-  .page-template-listing-posts .content-area .site-content.region .region__container {
+  .page-template-listing-posts .content-area .site-content.region .region__container,
+  .page-template-category-ht_kb-template .content-area .site-content.region .region__container {
     padding: 0px; }
+
+.bp-card-list.bp-card-list--category .bp-card-list__item {
+  padding: 0 8px;
+  margin-bottom: 16px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  overflow: visible !important; }
+  @media screen and (min-width: 992px) {
+    .bp-card-list.bp-card-list--category .bp-card-list__item {
+      max-width: 33.3333333333%;
+      flex: 0 0 33.3333333333%; } }
+  @media screen and (min-width: 1200px) {
+    .bp-card-list.bp-card-list--category .bp-card-list__item {
+      max-width: 25%;
+      flex: 0 0 25%; } }
+  @media screen and (min-width: 1600px) {
+    .bp-card-list.bp-card-list--category .bp-card-list__item {
+      max-width: 20%;
+      flex: 0 0 20%; } }
+  @media screen and (max-width: 768px) and (min-width: 450px) {
+    .bp-card-list.bp-card-list--category .bp-card-list__item {
+      max-width: 50%;
+      flex: 0 0 50%; } }
+  @media screen and (min-width: 992px) {
+    .buddypress.directory.members .region--9-3-cols-left .bp-card-list.bp-card-list--category .bp-card-list__item, .buddypress.directory.members
+    .region--3-9-cols-left .bp-card-list.bp-card-list--category .bp-card-list__item {
+      max-width: 33.3333333333%;
+      flex: 0 0 33.3333333333%; } }
+  .bp-card-list.bp-card-list--category .bp-card-list__item .ovh > .item-meta {
+    display: none !important; }
+  .bp-card-list.bp-card-list--category .bp-card-list__item .card-footer {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+.bbp-forums.ht-posts-list {
+  position: relative; }
+  .bbp-forums.ht-posts-list:not(.ajax--loaded) {
+    min-height: 1500px; }
+  .bbp-forums.ht-posts-list.ajax--loaded .dashboard--fake {
+    display: none !important; }
+  .bbp-forums.ht-posts-list .dashboard--fake {
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    overflow: hidden; }
+    .bbp-forums.ht-posts-list .dashboard--fake .dashboard--fake__item {
+      height: 150px;
+      border-radius: 0.3rem;
+      -webkit-animation-duration: 1.25s;
+      animation-duration: 1.25s;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      -webkit-animation-iteration-count: 30;
+      animation-iteration-count: 30;
+      -webkit-animation-name: htCategoryFakeItem;
+      animation-name: htCategoryFakeItem;
+      -webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+      background-size: 100px 104px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 8%, rgba(0, 0, 0, 0.05) 18%, rgba(0, 0, 0, 0.1) 33%);
+      position: relative;
+      margin-bottom: 20px;
+      display: inline-block;
+      width: 100%; }
+
+@keyframes htCategoryFakeItem {
+  0% {
+    background-position: -750px 0; }
+  100% {
+    background-position: 750px 0; } }
 
 /*# sourceMappingURL=style.css.map */

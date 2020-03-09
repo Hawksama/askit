@@ -133,13 +133,24 @@ jQuery(document).ready(function($) {
                             return;
                         }
 
-                        var data = {
-                            'action': BBOSS_GLOBAL_SEARCH.action,
-                            'nonce': BBOSS_GLOBAL_SEARCH.nonce,
-                            'search_term': request.term,
-                            'forum_search_term': true,
-                            'per_page': 15
-                        };
+						debugger;
+						if($form.hasClass('search-only-ht-kb')){
+							var data = {
+								'action': BBOSS_GLOBAL_SEARCH.action,
+								'nonce': BBOSS_GLOBAL_SEARCH.nonce,
+								'search_term': request.term,
+								'per_page': 15,
+								'search-only-ht-kb': true
+							};
+						} else {
+							var data = {
+								'action': BBOSS_GLOBAL_SEARCH.action,
+								'nonce': BBOSS_GLOBAL_SEARCH.nonce,
+								'search_term': request.term,
+								'forum_search_term': true,
+								'per_page': 15
+							};
+						}
 
                         response({value: '<div class="loading-msg"><span class="bb_global_search_spinner"></span>' + BBOSS_GLOBAL_SEARCH.loading_msg + '</div>'});
 
@@ -193,6 +204,7 @@ jQuery(document).ready(function($) {
 
 		$(this).addClass("loading");
 
+		debugger;
 		get_page = $.post(BBOSS_GLOBAL_SEARCH.ajaxurl, {
 			'action': BBOSS_GLOBAL_SEARCH.action,
 			'nonce': BBOSS_GLOBAL_SEARCH.nonce,

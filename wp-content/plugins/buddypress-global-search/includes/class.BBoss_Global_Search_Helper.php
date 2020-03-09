@@ -221,14 +221,26 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 				die();
 			}
 
-			$args = array(
-				'search_term'	=> $_REQUEST['search_term'],
-				//How many results should be displyed in autosuggest?
-				//@todo: give a settings field for this value
-				'per_page'		=>  $_REQUEST['per_page'] ,
-				'count_total'	=> false,
-				'template_type'	=> 'ajax',
-			);
+			if (isset($_REQUEST['search-only-ht-kb'])) {
+				$args = array(
+					'search_term'	=> $_REQUEST['search_term'],
+					//How many results should be displyed in autosuggest?
+					//@todo: give a settings field for this value
+					'per_page'		=>  $_REQUEST['per_page'] ,
+					'count_total'	=> false,
+					'template_type'	=> 'ajax',
+					'only_ht_kb' => true
+				);
+			} else {
+				$args = array(
+					'search_term'	=> $_REQUEST['search_term'],
+					//How many results should be displyed in autosuggest?
+					//@todo: give a settings field for this value
+					'per_page'		=>  $_REQUEST['per_page'] ,
+					'count_total'	=> false,
+					'template_type'	=> 'ajax'
+				);
+			}
 
 			if( isset( $_REQUEST['forum_search_term']) ) {
 				$args['forum_search'] = true;
@@ -328,34 +340,65 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 
             $args = $this->sanitize_args( $args );
 
-			$defaults = array(
-				//the search term
-				'search_term'		=> '',
-				//Restrict search results to only this subset. eg: posts, members, groups, etc.
-				//See Setting > what to search?
-				'search_subset'		=> 'all',//
-				//What all to search for. e.g: members.
-				//See Setting > what to search?
-				//The options passed here must be a subset of all options available on Setting > what to search, nothing extra can be passed here.
-				//
-				//This is different from search_subset.
-				//If search_subset is 'all', then search is performed for all searchable items.
-				//If search_subset is 'members' then only total match count for other searchable_items is calculated( so that it can be displayed in tabs)
-				//members(23) | posts(201) | groups(2) and so on.
-				'searchable_items'	=> buddyboss_global_search()->option('items-to-search'),
-				//how many search results to display per page
-				'per_page'			=> 10,
-				//current page
-				'current_page'		=> 1,
-				//should we calculate total match count for all different types?
-				//it should be set to false while calling this function for ajax search
-				'count_total'		=> true,
-				//template type to load for each item
-				//search results will be styled differently(minimal) while in ajax search
-				//options ''|'minimal'
-				'template_type'		=> '',
-				'forum_search' => false,
-			);
+			if(array_key_exists('only_ht_kb', $args)) {
+				$defaults = array(
+					//the search term
+					'search_term'		=> '',
+					//Restrict search results to only this subset. eg: posts, members, groups, etc.
+					//See Setting > what to search?
+					'search_subset'		=> 'all',//
+					//What all to search for. e.g: members.
+					//See Setting > what to search?
+					//The options passed here must be a subset of all options available on Setting > what to search, nothing extra can be passed here.
+					//
+					//This is different from search_subset.
+					//If search_subset is 'all', then search is performed for all searchable items.
+					//If search_subset is 'members' then only total match count for other searchable_items is calculated( so that it can be displayed in tabs)
+					//members(23) | posts(201) | groups(2) and so on.
+					'searchable_items'	=> ['cpt-ht_kb'],
+					//how many search results to display per page
+					'per_page'			=> 10,
+					//current page
+					'current_page'		=> 1,
+					//should we calculate total match count for all different types?
+					//it should be set to false while calling this function for ajax search
+					'count_total'		=> true,
+					//template type to load for each item
+					//search results will be styled differently(minimal) while in ajax search
+					//options ''|'minimal'
+					'template_type'		=> '',
+					'forum_search' => false,
+				);
+			} else {
+				$defaults = array(
+					//the search term
+					'search_term'		=> '',
+					//Restrict search results to only this subset. eg: posts, members, groups, etc.
+					//See Setting > what to search?
+					'search_subset'		=> 'all',//
+					//What all to search for. e.g: members.
+					//See Setting > what to search?
+					//The options passed here must be a subset of all options available on Setting > what to search, nothing extra can be passed here.
+					//
+					//This is different from search_subset.
+					//If search_subset is 'all', then search is performed for all searchable items.
+					//If search_subset is 'members' then only total match count for other searchable_items is calculated( so that it can be displayed in tabs)
+					//members(23) | posts(201) | groups(2) and so on.
+					'searchable_items'	=> buddyboss_global_search()->option('items-to-search'),
+					//how many search results to display per page
+					'per_page'			=> 10,
+					//current page
+					'current_page'		=> 1,
+					//should we calculate total match count for all different types?
+					//it should be set to false while calling this function for ajax search
+					'count_total'		=> true,
+					//template type to load for each item
+					//search results will be styled differently(minimal) while in ajax search
+					//options ''|'minimal'
+					'template_type'		=> '',
+					'forum_search' => false,
+				);
+			}
 
 			$args = wp_parse_args( $args, $defaults );
 

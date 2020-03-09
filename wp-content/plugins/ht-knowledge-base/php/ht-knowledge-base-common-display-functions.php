@@ -1594,27 +1594,26 @@ if(!function_exists('ht_kb_display_archive')){
 						<div class="col-12 col-xl-5 col-forum-info col-posts-info">
 							<div class="row d-flex align-items-center align-items-md-start">
 								<div class="col-auto pr-0 topic-img-row">
-									<a href="<?php echo esc_attr(get_term_link($category, 'ht_kb_category')) ?> title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $category->name ) ?>"">
-									
-									<?php	
-									$term_meta = get_option( "taxonomy_$t_id" );
-									$default_preview = plugins_url( 'img/no-image.png', dirname(__FILE__) );
+									<a href="<?php echo esc_attr(get_term_link($category, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $category->name ) ?>"">
+										<?php	
+										$term_meta = get_option( "taxonomy_$t_id" );
+										$default_preview = plugins_url( 'img/no-image.png', dirname(__FILE__) );
 
-									//get the attachment thumb array
-									$attachment_thumb = ( isset ( $term_meta['meta_image'] ) ) ? wp_get_attachment_image_src( $term_meta['meta_image'], 'thumbnail' ) : null ;
-									
-									$thumbnail_url = ( !empty($attachment_thumb) ) ? $attachment_thumb[0] : $default_preview;
-									?>
+										//get the attachment thumb array
+										$attachment_thumb = ( isset ( $term_meta['meta_image'] ) ) ? wp_get_attachment_image_src( $term_meta['meta_image'], 'thumbnail' ) : null ;
 										
-									<?php if(!empty($attachment_thumb)) : ?>
-										<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">
-											<img class="img-fluid" src="<?= $thumbnail_url ?>">
-										</div>
-									<?php else: ?>
-										<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">
-											<i class="cera-icon cera-message-circle fa-2x text-primary"></i>
-										</div>
-									<?php endif; ?>
+										$thumbnail_url = ( !empty($attachment_thumb) ) ? $attachment_thumb[0] : $default_preview;
+										?>
+											
+										<?php if(!empty($attachment_thumb)) : ?>
+											<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">
+												<img class="img-fluid" src="<?= $thumbnail_url ?>">
+											</div>
+										<?php else: ?>
+											<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">
+												<i class="cera-icon cera-message-circle fa-2x text-primary"></i>
+											</div>
+										<?php endif; ?>
 									</a>
 								</div>
 

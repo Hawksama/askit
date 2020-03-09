@@ -204,6 +204,7 @@ function bbp_search_url() {
 		if ( bbp_use_pretty_urls() ) {
 
 			// Run through home_url()
+			$x = bbp_get_search_slug();
 			$url = bbp_get_root_url() . bbp_get_search_slug();
 			$url = user_trailingslashit( $url );
 			$url = home_url( $url );

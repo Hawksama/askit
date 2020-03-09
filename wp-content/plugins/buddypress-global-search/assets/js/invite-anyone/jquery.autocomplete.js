@@ -51,6 +51,7 @@
   }
   
   $.fn.devbridgeAutocomplete = function(options) {
+    debugger;
     return new devbridgeAutocomplete(this.get(0)||$('<input />'), options);
   };
 
@@ -61,6 +62,7 @@
 
     initialize: function() {
 
+      debugger;
       var me, uid, autocompleteElId;
       me = this;
       uid = Math.floor(Math.random()*0x100000).toString(16);
