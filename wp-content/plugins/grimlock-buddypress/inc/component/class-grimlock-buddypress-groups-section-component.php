@@ -88,13 +88,29 @@ class Grimlock_BuddyPress_Groups_Section_Component extends Grimlock_Section_Comp
 
                 <?php if ( bp_has_groups( $group_args ) ) : ?>
                     <div class="item-options" id="groups-list-options">
-                        <a href="<?php bp_groups_directory_permalink(); ?>" id="newest-groups"<?php if ( $this->props['group_default'] == 'newest' ) : ?> class="selected"<?php endif; ?>><?php esc_html_e( 'Newest', 'grimlock-buddypress' ); ?></a>
+                        <a href="<?php bp_groups_directory_permalink(); ?>" id="newest-groups"<?php if ( $this->props['group_default'] == 'newest' ) : ?> class="selected"<?php endif; ?>>
+							<div>
+								<?php esc_html_e( 'Newest', 'grimlock-buddypress' ); ?>
+							</div>
+						</a>
                         <span class="bp-separator" role="separator"><?php echo esc_html( $separator ); ?></span>
-                        <a href="<?php bp_groups_directory_permalink(); ?>" id="recently-active-groups"<?php if ( $this->props['group_default'] == 'active' ) : ?> class="selected"<?php endif; ?>><?php esc_html_e( 'Active', 'grimlock-buddypress' ); ?></a>
+                        <a href="<?php bp_groups_directory_permalink(); ?>" id="recently-active-groups"<?php if ( $this->props['group_default'] == 'active' ) : ?> class="selected"<?php endif; ?>>
+							<div>
+								<?php esc_html_e( 'Active', 'grimlock-buddypress' ); ?>
+							</div>
+						</a>
                         <span class="bp-separator" role="separator"><?php echo esc_html( $separator ); ?></span>
-                        <a href="<?php bp_groups_directory_permalink(); ?>" id="popular-groups" <?php if ( $this->props['group_default'] == 'popular' ) : ?> class="selected"<?php endif; ?>><?php esc_html_e( 'Popular', 'grimlock-buddypress' ); ?></a>
+                        <a href="<?php bp_groups_directory_permalink(); ?>" id="popular-groups" <?php if ( $this->props['group_default'] == 'popular' ) : ?> class="selected"<?php endif; ?>>
+							<div>
+								<?php esc_html_e( 'Popular', 'grimlock-buddypress' ); ?>
+							</div>
+						</a>
                         <span class="bp-separator" role="separator"><?php echo esc_html( $separator ); ?></span>
-                        <a href="<?php bp_groups_directory_permalink(); ?>" id="alphabetical-groups" <?php if ( $this->props['group_default'] == 'alphabetical' ) : ?> class="selected"<?php endif; ?>><?php esc_html_e( 'Alphabetical', 'grimlock-buddypress' ); ?></a>
+                        <a href="<?php bp_groups_directory_permalink(); ?>" id="alphabetical-groups" <?php if ( $this->props['group_default'] == 'alphabetical' ) : ?> class="selected"<?php endif; ?>>
+							<div>
+								<?php esc_html_e( 'Alphabetical', 'grimlock-buddypress' ); ?>
+							</div>
+						</a>
                     </div>
 
                     <ul id="groups-list" class="item-list" aria-live="polite" aria-relevant="all" aria-atomic="true">

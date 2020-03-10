@@ -202,7 +202,7 @@ class GTranslate extends WP_Widget {
             //$_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'ru-Ru'; // debug
 
             // detect browser language
-            if(!($data['pro_version'] or $data['enterprise_version']) and $data['detect_browser_language']) {
+            if($data['detect_browser_language']) {
                 if($data['widget_look'] == 'flags' or $data['widget_look'] == 'dropdown_with_flags' or $data['widget_look'] == 'flags_name' or $data['widget_look'] == 'flags_code' or $data['widget_look'] == 'popup')
                     $allowed_languages = $data['fincl_langs'];
                 elseif($data['widget_look'] == 'flags_dropdown')
@@ -1447,7 +1447,7 @@ class GTranslateWidget extends WP_Widget {
         }
 
         // detect browser language
-        if(!($data['pro_version'] or $data['enterprise_version']) and $data['detect_browser_language']) {
+        if($data['detect_browser_language']) {
             if($data['widget_look'] == 'flags' or $data['widget_look'] == 'dropdown_with_flags' or $data['widget_look'] == 'flags_name' or $data['widget_look'] == 'flags_code' or $data['widget_look'] == 'popup')
                 $allowed_languages = $data['fincl_langs'];
             elseif($data['widget_look'] == 'flags_dropdown')

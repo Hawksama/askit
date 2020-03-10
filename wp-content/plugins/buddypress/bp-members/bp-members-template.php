@@ -414,6 +414,10 @@ function bp_has_members( $args = '' ) {
 		$r['member_type__not_in']
 	);
 
+	// CARABUS
+
+	$x = $members_template->has_members();
+
 	/**
 	 * Filters whether or not BuddyPress has members to iterate over.
 	 *

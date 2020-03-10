@@ -219,7 +219,6 @@ class BuddyPress {
 	 *
 	 */
 	private function constants() {
-
 		// Place your custom code (actions/filters) in a file called
 		// '/plugins/bp-custom.php' and it will be loaded before anything else.
 		if ( file_exists( WP_PLUGIN_DIR . '/bp-custom.php' ) ) {

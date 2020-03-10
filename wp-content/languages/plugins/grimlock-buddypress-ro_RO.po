@@ -1,0 +1,344 @@
+# Copyright (C) 2020 grimlock-buddypress
+# This file is distributed under the same license as the grimlock-buddypress package.
+msgid ""
+msgstr ""
+"Project-Id-Version: grimlock-buddypress\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Themosaurus <support@themosaurus.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;"
+"esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!"
+"=0)))?2:1));\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: \n"
+"Language: ro_RO\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: grimlock-buddypress.php:41
+msgid ""
+"%1$sGrimlock BuddyPress%2$s requires %1$sGrimlock %3$s%2$s to continue "
+"running properly. Please %4$supdate Grimlock.%5$s"
+msgstr ""
+
+#: inc/class-grimlock-buddypress.php:93
+msgid "Logged In Users"
+msgstr "Utilizatori conectați"
+
+#: inc/class-grimlock-buddypress.php:94
+msgid "Logged Out Users"
+msgstr "Utilizatori deconectați"
+
+#: inc/class-grimlock-buddypress.php:147,
+#: inc/customizer/class-grimlock-buddypress-customizer.php:27
+msgid "BuddyPress"
+msgstr ""
+
+#: inc/class-grimlock-buddypress.php:148
+msgid "The right hand area for BuddyPress pages."
+msgstr "Zona din dreapta pentru paginile BuddyPress."
+
+#: inc/class-grimlock-buddypress.php:190
+msgctxt "bp_profile_menu_label"
+msgid "More"
+msgstr "Mai Mult"
+
+#: inc/class-grimlock-buddypress.php:191
+msgctxt "bp_profile_menu_mobile_label"
+msgid "Menu"
+msgstr "Meniu"
+
+#: inc/grimlock-buddypress-template-functions.php:92
+msgid "Online"
+msgstr "Online"
+
+#: inc/grimlock-buddypress-template-functions.php:107
+msgctxt "Grimlock BuddyPress text button more"
+msgid "More"
+msgstr "More"
+
+#: inc/grimlock-buddypress-template-functions.php:223
+msgid "Group secondary navigation"
+msgstr "Navigație secundară de grup"
+
+#: inc/grimlock-buddypress-template-functions.php:236,
+#: inc/customizer/class-grimlock-buddypress-customizer.php:141
+msgid "Members"
+msgstr "Membrii"
+
+#: inc/grimlock-buddypress-template-functions.php:280
+msgid "Private Message"
+msgstr "Mesaj privat"
+
+#: inc/bp-maps-for-members/class-grimlock-buddypress-bp-maps-for-members.php:43
+msgid "BP Members Map Filters"
+msgstr "Filtre cu harta membrilor BP"
+
+#: inc/bp-maps-for-members/class-grimlock-buddypress-bp-maps-for-members.php:44
+msgid "The filters area for the members map"
+msgstr "Zona de filtre pentru harta membrilor"
+
+#: inc/buddypress-media/grimlock-buddypress-buddypress-media-template-functions.php:38
+msgid "Add new media"
+msgstr "Adăugați fisiere noi"
+
+#: inc/buddypress-media/grimlock-buddypress-buddypress-media-template-functions.php:40
+msgid "View all media"
+msgstr "Vizualizați toate media"
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:27,
+#: inc/customizer/class-grimlock-buddypress-customizer.php:152,
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:151
+msgid "Groups"
+msgstr "Grupuri"
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:91,
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:84
+msgid "Newest"
+msgstr "Cele mai noi"
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:93,
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:85
+msgid "Active"
+msgstr "Activ"
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:95,
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:86
+msgid "Popular"
+msgstr "Popular"
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:97,
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:87
+msgid "Alphabetical"
+msgstr "Alfabetic"
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:133
+msgid "There are no groups to display."
+msgstr "Nu există grupuri de afișat."
+
+#: inc/component/class-grimlock-buddypress-groups-section-component.php:139
+msgid ""
+"You must activate \"User Groups component\" in the BuddyPress settings page"
+msgstr ""
+"Trebuie să activați „Componenta Grupuri de utilizatori” din pagina cu "
+"setări BuddyPress"
+
+#. translators: %s: Groups slug
+#. translators: %s: Groups slug
+#. translators: %s: Notifications slug
+#. translators: %s: Notifications slug
+#: inc/component/class-grimlock-buddypress-navbar-nav-menu-component.php:87,
+#: inc/component/class-grimlock-buddypress-navbar-nav-menu-component.php:103,
+#: inc/component/class-grimlock-buddypress-navbar-nav-menu-component.php:119,
+#: inc/component/class-grimlock-buddypress-navbar-nav-menu-component.php:135
+msgid "My %s"
+msgstr "Al meu %s"
+
+#: inc/component/class-grimlock-buddypress-navbar-nav-menu-component.php:170
+msgid "avatar"
+msgstr "avatar"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:130
+msgid "General"
+msgstr "General"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:161
+msgid "Style"
+msgstr "Stil"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:191
+msgid "Display Members Actions Text"
+msgstr "Afișați textul acțiunilor membrilor"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:192
+msgid ""
+"If this field is checked, BuddyPress action buttons for members lists will "
+"have a text in addition to the icon."
+msgstr ""
+"Dacă acest câmp este bifat, butoanele de acțiune BuddyPress pentru listele "
+"de membri vor avea un text în plus față de pictogramă."
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:243
+msgid "Members Displayed Profile Fields"
+msgstr "Membrii au afișat câmpurile de profil"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:267
+msgid "Display Groups Actions Text"
+msgstr "Afișați textul grupurilor de acțiuni"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:268
+msgid ""
+"If this field is checked, BuddyPress action buttons for group lists will "
+"have a text in addition to the icon."
+msgstr ""
+"Dacă acest câmp este bifat, butoanele de acțiune BuddyPress pentru listele "
+"de grup vor avea un text în plus față de pictogramă."
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:291
+msgid "Display Navbar Friends Icon"
+msgstr "Afișați pictograma Navbar Friends"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:315
+msgid "Display Navbar Groups Icon"
+msgstr "Afișați pictograma Grupuri Navbar"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:339
+msgid "Display Navbar Notifications Icon"
+msgstr "Afișează pictograma Notificări cu bara de navigare"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:363
+msgid "Display Navbar Messages Icon"
+msgstr "Afișează pictograma Mesaje Navbar"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:387
+msgid "Display Navbar Settings Icon"
+msgstr "Afișează pictograma Setări Navbar"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:409
+msgid "Friend Icons"
+msgstr "Icon-ul prietenului"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:487
+msgid "Member Actions Buttons Background Color"
+msgstr "Butoane acțiuni membre Culoare fundal"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:563
+msgid "Friend Buttons Color"
+msgstr "Culoarea butoanelor prietenului"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:629
+msgid "Message Buttons Color"
+msgstr "Culoarea butoanelor de mesaje"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:741
+msgid "Success Buttons Color"
+msgstr "Culoarea butoanelor de succes"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:876
+msgid "Delete Buttons Color"
+msgstr "Ștergeți culoarea butoanelor"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:984
+msgid "Miscellaneous Buttons Color"
+msgstr "Culoare butoane diverse"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1034
+msgid "Profile Header Background Color"
+msgstr "Profil Culoare fundal"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1093
+msgid "Profile Header Text Color"
+msgstr "Culoarea textului pentru antetul profilului"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1138
+msgid "Members per Page"
+msgstr "Membrii pe pagină"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1166
+msgid "Default Profile Cover"
+msgstr "Capacul implicit al profilului"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1187
+msgid "Displayed Name on Profile"
+msgstr "Numele afișat pe profil"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1192
+msgid "Full Name"
+msgstr "Numele complet"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1193
+msgid "Username"
+msgstr "Nume de utilizator"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1194
+msgid "Full Name + Username"
+msgstr "Numele complet + numele de utilizator"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1213
+msgid "Groups per Page"
+msgstr "Grupuri pe pagină"
+
+#: inc/customizer/class-grimlock-buddypress-customizer.php:1242
+msgid "Default Group Cover"
+msgstr "Capacitate implicită pentru grup"
+
+#: inc/widget/class-grimlock-buddypress-groups-section-widget.php:27
+msgid "Grimlock BuddyPress Groups Section"
+msgstr "Secțiunea Grupuri Grimlock BuddyPress"
+
+#: inc/widget/class-grimlock-buddypress-groups-section-widget.php:29
+msgid "A flexible component that showcase BuddyPress groups."
+msgstr "O componentă flexibilă care prezintă grupurile BuddyPress."
+
+#: templates/members/bps-filters.php:20, templates/members/bps-filters.php:21
+msgid "Reset Filters"
+msgstr "Resetați filtrele"
+
+#: templates/members/bps-form-directory.php:175,
+#: templates/members/bps-form-home.php:149
+msgid "Select a location"
+msgstr "Selectați o locație"
+
+#: templates/members/bps-form-directory.php:176,
+#: templates/members/bps-form-home.php:150
+msgid "Get current location"
+msgstr "Obțineți locația curentă"
+
+#: templates/members/bps-form-directory.php:292,
+#: templates/members/bps-form-home.php:266
+msgid "Submit"
+msgstr "Trimite"
+
+#: templates/members/members-map.php:152
+msgid "View directory"
+msgstr "Vizualizare director"
+
+#: templates/members/members-map.php:158
+msgid "Show filters"
+msgstr "Afișați filtrele"
+
+#: templates/members/members-map.php:161
+msgid "Hide filters"
+msgstr "Ascunde filtrele"
+
+#: templates/members/members-map.php:200
+msgid "View all members"
+msgstr "Vizualizați toți membrii"
+
+#: templates/members/members-map.php:211
+msgid "Show map"
+msgstr "Arată harta"
+
+#: templates/members/members-map.php:212
+msgid "Hide map"
+msgstr "Ascunde harta"
+
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:105
+msgid "Layout:"
+msgstr "Aspect:"
+
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:128
+msgid "Alignment:"
+msgstr "Aliniere:"
+
+#: inc/widget/fields/class-grimlock-buddypress-groups-section-widget-fields.php:153
+msgid "More groups"
+msgstr "Mai multe grupuri"
+
+#: templates/members/single/cover-image-header.php:160
+msgid "You must login to see the percentage match"
+msgstr "Trebuie să vă autentificați pentru a vedea potrivirea procentuală"
+
+#: templates/members/single/profile/change-avatar.php:21
+msgid ""
+"Your profile photo will be used on your profile and throughout the site."
+msgstr ""
+"Fotografia dvs. de profil va fi utilizată pe profilul dvs. și pe întregul "
+"site."

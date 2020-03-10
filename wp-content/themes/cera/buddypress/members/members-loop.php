@@ -12,7 +12,11 @@
 // @codingStandardsIgnoreFile
 // Allow plugin text domain in theme and unescaped template tags.
 
-do_action( 'bp_before_members_loop' ); ?>
+do_action( 'bp_before_members_loop' ); 
+
+$x = bp_ajax_querystring( 'members' );
+$y = bp_has_members($x);
+?>
 
 <?php if ( bp_get_current_member_type() ) : ?>
 	<p class="current-member-type"><?php bp_current_member_type_message(); ?></p>

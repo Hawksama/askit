@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 
 	if (BBOSS_GLOBAL_SEARCH.enable_ajax_search == 'yes') {
         var document_height = $(document).height();
-		$("form[role='search'], form.search-form, form.searchform, form#adminbarsearch").each(function() {
+		$("form[role='search']:not('.search-only-ht-kb'), form.search-form, form.searchform, form#adminbarsearch").each(function() {
 			var $form = $(this);
 			$search_field = $form.find("input[name='s']");
 			if ($search_field.length > 0) {
@@ -128,13 +128,18 @@ jQuery(document).ready(function($) {
                     source: function(request, response) {
 
                         var term = request.term;
+						var searchOnlyHtKb = false;
+						if($form.hasClass('search-only-ht-kb')){
+							searchOnlyHtKb = true;
+							term = term + '-ht-kb';
+						}
+
                         if (term in BBOSS_GLOBAL_SEARCH.cache) {
                             response(BBOSS_GLOBAL_SEARCH.cache[ term ]);
                             return;
                         }
 
-						debugger;
-						if($form.hasClass('search-only-ht-kb')){
+						if(searchOnlyHtKb){
 							var data = {
 								'action': BBOSS_GLOBAL_SEARCH.action,
 								'nonce': BBOSS_GLOBAL_SEARCH.nonce,
@@ -270,5 +275,4 @@ jQuery(document).ready(function($) {
 	$('body.bp-nouveau').on('click', '.bboss_search_page button.friendship-button, .bboss_search_page button.group-button', function(e){
 		window.location = this.getAttribute('data-bp-nonce');
 	});
-
 });

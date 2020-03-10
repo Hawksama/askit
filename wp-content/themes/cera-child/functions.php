@@ -219,3 +219,4 @@ function archive_category_function(){
 
     exit();
 }
+

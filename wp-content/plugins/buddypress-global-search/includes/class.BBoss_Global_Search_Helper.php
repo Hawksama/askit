@@ -1,4 +1,7 @@
 <?php
+
+use Google\Cloud\Translate\V3\TranslationServiceClient;
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -222,6 +225,11 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 			}
 
 			if (isset($_REQUEST['search-only-ht-kb'])) {
+				
+				$text = 'Hello World';
+				$translate = new TranslateClient();
+				$result = $translate->detectLanguage($text);
+
 				$args = array(
 					'search_term'	=> $_REQUEST['search_term'],
 					//How many results should be displyed in autosuggest?
@@ -817,6 +825,14 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 
 		public function get_search_term(){
 			return isset( $this->search_args['search_term'] ) ? $this->search_args['search_term'] : '';
+		}
+
+		public function convert_text($text = 'Hello World') {
+			$translate = new TranslateClient();
+
+			$result = $translate->detectLanguage($text);
+
+			$x = 1;
 		}
 	}
 
