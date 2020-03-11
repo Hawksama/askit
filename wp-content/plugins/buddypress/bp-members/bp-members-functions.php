@@ -592,9 +592,10 @@ function bp_core_get_active_member_count() {
 			$sql = "SELECT ID FROM {$wpdb->users} WHERE user_status != 0";
 		}
 
+		// Exclude SPAM users
 		$exclude_users     = $wpdb->get_col( $sql );
-		$exclude_users_sql = !empty( $exclude_users ) ? "AND user_id NOT IN (" . implode( ',', wp_parse_id_list( $exclude_users ) ) . ")" : '';
-		$count             = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(user_id) FROM {$bp->members->table_name_last_activity} WHERE component = %s AND type = 'last_activity' {$exclude_users_sql}", $bp->members->id ) );
+		$exclude_users_sql = !empty( $exclude_users ) ? "id NOT IN (" . implode( ',', wp_parse_id_list( $exclude_users ) ) . ")" : '';
+		$count             = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$wpdb->users} WHERE {$exclude_users_sql}", $bp->members->id ) );
 
 		set_transient( 'bp_active_member_count', $count );
 	}

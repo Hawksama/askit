@@ -183,14 +183,15 @@ function remove_plugin_updates( $value ) {
     unset( $value->response['buddypress/class-buddypress.php'] );
     unset( $value->response['ht-knowledge-base/ht-knowledge-base.php'] );
     unset( $value->response['buddypress-global-search/buddypress-global-search.php'] );
+    unset( $value->response['social-articles/social-articles.php']);
     return $value;
 }
 
 /**
  * Redirect buddypress pages to registration page
  */
-add_action( 'template_redirect', 'gwangi_restrict_buddypress' );
-function gwangi_restrict_buddypress() {
+add_action( 'template_redirect', 'cera_restrict_buddypress' );
+function cera_restrict_buddypress() {
 	// If not logged in and on a bp page except registration or activation
 	if ( ! is_user_logged_in() && is_buddypress() && ! bp_is_blog_page() && ! bp_is_activation_page() && ! bp_is_register_page() ) {
 		wp_redirect( home_url( '/register/' ) );

@@ -402,7 +402,7 @@ function bp_has_members( $args = '' ) {
 		$r['per_page'],
 		$r['max'],
 		$r['user_id'],
-		$r['search_terms'],
+		$r['search_terms'], 
 		$r['include'],
 		$r['populate_extras'],
 		$r['exclude'],

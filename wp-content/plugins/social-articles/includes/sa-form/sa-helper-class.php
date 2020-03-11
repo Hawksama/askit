@@ -29,7 +29,7 @@ class SA_Helper{
     }
 
     public static function get_post_type(){
-        $post_type= get_option(SA_Helper::POST_TYPE);
+        $post_type= 'ht_kb';
         if(empty($post_type)) {
             $post_type = 'post';
             update_option(SA_Helper::POST_TYPE, $post_type);
