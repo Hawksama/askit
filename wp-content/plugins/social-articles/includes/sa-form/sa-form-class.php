@@ -140,6 +140,18 @@ class SA_Form {
         include(SA_BASE_PATH.'/includes/sa-form/fields/templates/commons/article-status-tpart.php');
     }
 
+    public function show_article_status_custom($statusLabels = null){
+        if($statusLabels == null) {
+            $statusLabels =
+                array(  "publish"=>__('Published', 'social-articles'),
+                    "draft"=>__('Draft', 'social-articles'),
+                    "pending"=>__('Under review', 'social-articles'),
+                    "new-post"=>__('New', 'social-articles'));
+        }
+
+        include(SA_BASE_PATH.'/includes/sa-form/fields/templates/commons/article-status-tpart.php');
+    }
+
     public function get_user_message()
     {
         switch ($this->article_status) {

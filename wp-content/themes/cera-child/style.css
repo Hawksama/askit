@@ -427,15 +427,20 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
         padding-left: 10px !important;
         padding-right: 10px !important;
         letter-spacing: 1px;
-        font-weight: 600;
-        font-size: 0.6em;
+        font-size: 1em;
+        font-weight: 500;
         text-transform: uppercase;
         line-height: 2.2em;
         height: auto;
         display: inline-block !important; }
+        .acf-form-fields .acf-field .acf-label label .acf-required {
+          color: #fff; }
+      .acf-form-fields .acf-field .acf-label p.description {
+        margin: 10px 0 5px; }
     .acf-form-fields .acf-field .acf-input textarea,
     .acf-form-fields .acf-field .acf-input select {
-      background-color: #fff; }
+      background-color: #fff;
+      padding: 10px 20px; }
     .acf-form-fields .acf-field .acf-input .acf-true-false input[type=checkbox],
     .acf-form-fields .acf-field .acf-input .acf-true-false input[type=radio] {
       border: 1px solid #7e8993;
@@ -483,5 +488,29 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
       line-height: 1.25;
       display: block;
       transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+
+.acf-form-submit {
+  margin: 15px 17px 0 17px !important; }
+
+.social-articles-main .comments-listing {
+  padding-left: 0px;
+  margin-top: 30px; }
+  .social-articles-main .comments-listing,
+  .social-articles-main .comments-listing ul {
+    list-style: none; }
+  .social-articles-main .comments-listing article {
+    padding-bottom: 0px;
+    margin-bottom: 15px; }
+    .social-articles-main .comments-listing article .comment-author {
+      margin-right: 5px; }
+    .social-articles-main .comments-listing article .comment-metadata > a {
+      pointer-events: none;
+      cursor: default; }
+    .social-articles-main .comments-listing article .comment-metadata .edit-link {
+      float: right;
+      right: 30px;
+      position: absolute; }
+    .social-articles-main .comments-listing article .comment-content {
+      margin-top: 15px; }
 
 /*# sourceMappingURL=style.css.map */

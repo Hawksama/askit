@@ -353,10 +353,9 @@ msgid "on"
 msgstr "activ"
 
 #: inc/class-cera.php:479
-#, fuzzy
 msgctxt "priority_menu_label_"
 msgid "More"
-msgstr "Mai Mult!"
+msgstr "Mai mult"
 
 #: inc/class-cera.php:480
 msgctxt "priority_menu_mobile_label"
@@ -663,10 +662,9 @@ msgstr "Toate formatele de postare"
 
 #: inc/grimlock-buddypress/grimlock-buddypress-template-functions.php:17,
 #: inc/grimlock-buddypress/grimlock-buddypress-template-functions.php:35
-#, fuzzy
 msgctxt "Cera text button more"
 msgid "More"
-msgstr "Mai Mult!"
+msgstr "Mai mult"
 
 #: inc/kirki/class-cera-kirki.php:44
 msgid ""
@@ -971,3 +969,6 @@ msgstr "Află mai multe"
 
 msgid "Search for a solution..."
 msgstr "Caută o soluție..."
+
+msgid "Update"
+msgstr "Actualizează"

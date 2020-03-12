@@ -3,8 +3,8 @@ global $post, $wpdb, $bp, $socialArticles;
 
 $directWorkflow = isDirectWorkflow();
 
-$statusLabels = array("publish"=>__('Published', 'social-articles'),
-    "draft"=>__('Draft', 'social-articles'),
+$statusLabels = array("publish"=>__('Published mode', 'social-articles'),
+    "draft"=>__('Draft mode', 'social-articles'),
     "pending"=>__('Under review', 'social-articles'),
     "new-post"=>__('New', 'social-articles'));
 
@@ -46,31 +46,70 @@ if('POST' == $_SERVER['REQUEST_METHOD']){
     <div id="post-maker-container">
         <!-- <form action="" method="post" enctype="multipart/form-data" <?php do_action( 'sa_custom_attributes'); ?> > -->
             <?php 
-            // echo $error_message;
+            echo $error_message;
             //wp_nonce_field('sa_create');
+
             // $article->show_article_status();
+
+            // Include custom article status
+            $article->show_article_status_custom($statusLabels);
+
             // $article->show_fields();
             acf_form_head();
             
-            $formoptions = array(
-                'post_id'         => $article_id,
-                'post_title'      => true,
-                'post_content'    => true,
-                'post_id'         => false,
-                'new_post'        => array(
-                    'post_type'       => 'ht_kb', // change this to the post type you need
-                    'post_status'     => 'pending' // do you want the post to be published immediately? otherwise change this to 'draft', or 'publish' or 'pending'
-                ),
-                'submit_value'    => __('Pending', 'cera'),
-                'return'          => get_permalink(24), // change this ID to the page you want to send the user back to when they've submitted the form - perhaps a thank you page
-                'uploader'        => 'basic'
-            );
+            
+            // if ($article_id != 0):
+            //     $formoptions = array(
+            //         'post_id'         => $article_id,
+            //         'post_title'      => true,
+            //         'submit_value'    => __('Update', 'cera')
+            //     );
+            // else:
+                $formoptions = array(
+                    'post_id'         => $article_id,
+                    'post_title'      => true,
+                    'post_content'    => false,
+                    'new_post'        => array(
+                        'post_type'       => 'ht_kb', // change this to the post type you need
+                        'post_status'     => 'pending' // do you want the post to be published immediately? otherwise change this to 'draft', or 'publish' or 'pending'
+                    ),
+                    'submit_value'    => __('Send for review', 'social-articles'),
+                    'html_after_fields' => '<input type="hidden" id="frontendPostStatus" name="acf[current_step]" value="1"/>'
+                );?>
 
-            $formoptions2 = array(
-                'post_id'         => $article_id
-            );
+                <input type="submit" id="draft_btn" class="acf-button2 button button-primary button-large" name="draft_btn" value="<?= __('Save as Draft', 'social-articles'); ?>">
+
+                <?php
+            // endif;
             // acf_form($formoptions);
-            acf_form($formoptions2);
+            acf_form($formoptions);
+
+            if ($article_id != 0):
+                $argsComments = array(
+                    'post_id'   => $article_id,
+                    'type'      => 'editorial-comment',
+                    'status'    => 'editorial-comment',
+                    'order'     => 'ASC',
+                    'orderby' => 'comment_date',
+                );
+                $comments = get_comments($argsComments); 
+                if(sizeof($comments)):?>
+                    <ul class="comments-listing">
+                        <?php
+                        wp_list_comments(
+                            array(
+                                'type' => 'editorial-comment',
+                                'end-callback' => '__return_false'
+                            ),
+                            $comments
+                        ); ?>
+                    </ul> <?php
+                endif;
+            endif;
+
+            // $supported_post_types = $this->get_post_types_for_module( $this->module );
+            // foreach ( $supported_post_types as $post_type )
+            //     add_meta_box('edit-flow-editorial-comments', __('Editorial Comments', 'edit-flow'), array($this, 'editorial_comments_meta_box'), $post_type, 'normal' );
             ?>
 
             <!-- <div class="buttons-container" id="create-controls">

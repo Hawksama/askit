@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Social Articles\n"
 "POT-Creation-Date: 2017-01-02 09:26-0300\n"
-"PO-Revision-Date: 2020-03-05 19:34+0200\n"
+"PO-Revision-Date: 2020-03-12 16:28+0200\n"
 "Last-Translator: broobe <dev@broobe.com>\n"
 "Language-Team: Broobe <dev@broobe.com>\n"
 "Language: ro\n"
@@ -64,6 +64,9 @@ msgstr "Articole"
 msgid "Published"
 msgstr "Publicări"
 
+msgid "Published mode"
+msgstr "Publicat"
+
 #: includes/social-articles-load.php:89
 msgid "Under Review"
 msgstr "În curs de revizuire"
@@ -72,6 +75,9 @@ msgstr "În curs de revizuire"
 #: includes/templates/members/single/articles/new.php:7
 msgid "Draft"
 msgstr "Schiţe"
+
+msgid "Draft mode"
+msgstr "Schiţă"
 
 #: includes/social-articles-load.php:108
 #: includes/templates/members/single/articles/new.php:36
@@ -84,9 +90,8 @@ msgid "Articles <span class=\"count\">%s</span>"
 msgstr "Articole <span class=\"count\">%s</span>"
 
 #: includes/social-articles-load.php:152
-#, fuzzy
 msgid "New Article"
-msgstr "Postare Noua"
+msgstr "Postare Nouă"
 
 #: includes/social-articles-manage-functions.php:95
 msgid "edit article"
@@ -533,3 +538,9 @@ msgstr "Salvează"
 #: includes/templates/members/single/articles/new.php:51
 msgid "Cancel"
 msgstr "Anulare"
+
+msgid "Send for review"
+msgstr "Trimiteți pentru revizuire"
+
+msgid "Save as Draft"
+msgstr "Salvează ca și schiţă"

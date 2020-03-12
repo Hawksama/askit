@@ -165,12 +165,20 @@
                 padding-left: 10px !important;
                 padding-right: 10px !important;
                 letter-spacing: 1px;
-                font-weight: 600;
-                font-size: 0.6em;
+                font-size: 1em;
+                font-weight: 500;
                 text-transform: uppercase;
                 line-height: 2.2em;
                 height: auto;
                 display: inline-block !important;
+
+                .acf-required {
+                    color: #fff;
+                }
+            }
+
+            p.description {
+                margin: 10px 0 5px;
             }
         }
     
@@ -178,6 +186,7 @@
             textarea,
             select {
                 background-color: #fff;
+                padding: 10px 20px;
             }
     
             .acf-true-false {
@@ -233,6 +242,49 @@
                 line-height: 1.25;
                 display: block;
                 transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+        }
+    }
+}
+
+.acf-form {
+    &-submit {
+        margin: 15px 17px 0 17px !important;
+    }
+}
+
+.social-articles-main {
+    .comments-listing {
+        padding-left: 0px;
+        margin-top: 30px;
+
+        &,
+        ul {
+            list-style: none;
+        }
+
+        article {
+            padding-bottom: 0px;
+            margin-bottom: 15px;
+
+            .comment-author {
+                margin-right: 5px;
+            }
+
+            .comment-metadata {
+                & > a {
+                    pointer-events: none;
+                    cursor: default;
+                }
+                .edit-link {
+                    float: right;
+                    right: 30px;
+                    position: absolute;
+                }
+            }
+
+            .comment-content {
+                margin-top: 15px;
             }
         }
     }

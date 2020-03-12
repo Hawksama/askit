@@ -221,3 +221,31 @@ function archive_category_function(){
     exit();
 }
 
+function my_acf_save_post( $post_id ) {
+
+    // Get previous values.
+    $prev_values = get_fields( $post_id );
+
+    // Get submitted values.
+    $values = $_POST['acf'];
+
+    $submitedStatus = $_POST['acf']['current_step'];
+    if ($submitedStatus == 1){
+        $value = 'pending';
+    }else if ($submitedStatus == 2){
+        $value = 'draft';
+    }
+
+    $my_post = array(
+        'ID'     => $post_id,
+        'post_status' => $value,
+        'post_type'   => 'ht_kb',
+    );
+    remove_action('acf/save_post', 'my_acf_save_post', 20);
+    // Update the post into the database
+    wp_update_post($my_post);
+
+    // Add the action back
+    add_action('acf/save_post', 'my_acf_save_post', 20);
+}
+add_action('acf/save_post', 'my_acf_save_post', 20);

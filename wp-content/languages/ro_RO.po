@@ -2,14 +2,17 @@
 # This file is distributed under the same license as the WordPress - 5.3.x package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-05 12:47:20+0000\n"
+"PO-Revision-Date: 2020-03-12 15:54+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: Poedit 2.0.6\n"
 "Language: ro\n"
 "Project-Id-Version: WordPress - 5.3.x\n"
+"POT-Creation-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 
 #: wp-includes/js/dist/nux.js:905
 msgid "Disable tips"
@@ -3811,7 +3814,7 @@ msgstr "%1$s la %2$s"
 #: wp-includes/class-walker-comment.php:287
 #: wp-includes/class-walker-comment.php:377
 msgid "%s <span class=\"says\">says:</span>"
-msgstr "%s <span class=\"says\">spune:</span>"
+msgstr "%s <span class=\"says\">la ora: </span>"
 
 #: wp-includes/class-walker-comment.php:271
 #: wp-includes/class-walker-comment.php:361
@@ -17402,3 +17405,4 @@ msgstr "Mod recuperare &#8212; %s"
 #: wp-login.php:65
 msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
 msgstr "%1$s &lsaquo; %2$s &#8212; WordPress"
+ 

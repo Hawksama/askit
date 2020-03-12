@@ -38,4 +38,15 @@
 
         $grid.masonry('reloadItems').masonry('layout');
     });
+
+    if($('#post-maker-container').length > 0) {
+        $("#draft_btn").detach().appendTo('.acf-form-submit').on('click', function () {
+            $('#frontendPostStatus').val('2');
+        });
+
+        $('input[type=submit]').on('click', function() {
+            $(".acf-spinner").before(this);
+        });
+    }
+
 })(jQuery);

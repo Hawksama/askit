@@ -29,6 +29,10 @@
             stagger: 30,
             transitionDuration: ".4s"
         }), $grid.masonry("reloadItems").masonry("layout");
-    });
+    }), 0 < $("#post-maker-container").length && ($("#draft_btn").detach().appendTo(".acf-form-submit").on("click", function() {
+        $("#frontendPostStatus").val("2");
+    }), $("input[type=submit]").on("click", function() {
+        $(".acf-spinner").before(this);
+    }));
 }(jQuery);
 //# sourceMappingURL=main.js.map
