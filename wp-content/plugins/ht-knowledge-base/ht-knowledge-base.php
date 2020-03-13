@@ -494,7 +494,7 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 					'is_archive'     => true,
 					'comment_status' => 'closed'
 				) );
-				return locate_template('page.php', false, false);
+				return locate_template('single.php', false, false);
 			}
 
 
@@ -800,7 +800,7 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 
 				if( $this->is_single ){
 					//check the theme does not override template
-					$theme_template_exists = locate_template( 'single-ht_kb.php' ) != '' ? true : false ;
+					$theme_template_exists = locate_template( 'single.php' ) != '' ? true : false ;
 	 				$load_file_name = plugin_dir_path( __FILE__ ) . '/templates/ht-knowledge-base-single-template.php';
 				    if(file_exists($load_file_name) && !$theme_template_exists){
 				    	include $load_file_name;

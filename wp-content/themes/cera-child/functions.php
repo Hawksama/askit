@@ -249,3 +249,85 @@ function my_acf_save_post( $post_id ) {
     add_action('acf/save_post', 'my_acf_save_post', 20);
 }
 add_action('acf/save_post', 'my_acf_save_post', 20);
+
+if ( ! function_exists( 'cera_single_custom' ) ) :
+	/**
+	 * Prints HTML for the single post.
+	 *
+	 * @since 1.0.0
+	 */
+	function cera_single_custom() {
+		?>
+
+		<header class="grimlock--page-header entry-header">
+			<?php
+			cera_the_category_list();
+			the_title( '<h1 class="page-title entry-title">', '</h1>' ); ?>
+			<?php
+			do_action( 'cera_breadcrumb' );
+
+			if ( 'ht_kb' === get_post_type() ) : ?>
+				<span class="entry-meta">
+					<?php cera_the_author(); ?>
+					<?php cera_the_date(); ?>
+				</span><!-- .entry-meta -->
+			<?php
+			endif; ?>
+		</header><!-- .entry-header -->
+
+		<div class="grimlock--single-content grimlock--page-content entry-content">
+			<?php
+            //the_content();
+            ?>
+
+            <p><h3>Situatie</h3><?php the_field('situatie'); ?></p>
+			<?php if (get_field('tip') == 'Rezolvare problema (Fix IT)') { if(get_field('simptome')) {?> <h3>Simptome</h3><p><?php the_field('simptome'); ?></p><?php } ?><?php } ?>
+			<?php if(get_field('backup')) { ?> <h3>Backup</h3> <?php the_field('backup'); } ?>
+			<h3>Solutie</h3>
+			<?php if(get_field('add_step_2')) { ?> <h5>Pasi de urmat</h5><?php } ?>
+			<div id="solutie_1"><?php the_field('solutie_1'); ?></div>
+			<?php if(get_field('add_step_2')) { ?> <div id="solutie_2"><?php the_field('solutie_2'); ?></div><?php } ?>
+			<?php if(get_field('add_step_3')) { ?> <div id="solutie_3"><?php the_field('solutie_3'); ?></div><?php } ?>
+			<?php if(get_field('add_step_4')) { ?> <div id="solutie_4"><?php the_field('solutie_4'); ?></div><?php } ?>
+			<?php if(get_field('add_step_5')) { ?> <div id="solutie_5"><?php the_field('solutie_5'); ?></div><?php } ?>
+			<?php if(get_field('add_step_6')) { ?> <div id="solutie_6"><?php the_field('solutie_6'); ?></div><?php } ?>
+			<?php if(get_field('add_step_7')) { ?> <div id="solutie_7"><?php the_field('solutie_7'); ?></div><?php } ?>
+			<?php if(get_field('add_step_8')) { ?> <div id="solutie_8"><?php the_field('solutie_8'); ?></div><?php } ?>
+			<?php if(get_field('add_step_9')) { ?> <div id="solutie_9"><?php the_field('solutie_9'); ?></div><?php } ?>
+			<?php if(get_field('add_step_10')) { ?> <div id="solutie_10"><?php the_field('solutie_10'); ?></div><?php } ?>
+			<?php if(get_field('add_step_11')) { ?> <div id="solutie_11"><?php the_field('solutie_11'); ?></div><?php } ?>
+			<?php if(get_field('add_step_12')) { ?> <div id="solutie_12"><?php the_field('solutie_12'); ?></div><?php } ?>
+			<?php if(get_field('add_step_13')) { ?> <div id="solutie_13"><?php the_field('solutie_13'); ?></div><?php } ?>
+			<?php if(get_field('add_step_14')) { ?> <div id="solutie_14"><?php the_field('solutie_14'); ?></div><?php } ?>
+			<?php if(get_field('add_step_15')) { ?> <div id="solutie_15"><?php the_field('solutie_15'); ?></div><?php } ?>
+			<?php if(get_field('add_step_16')) { ?> <div id="solutie_16"><?php the_field('solutie_16'); ?></div><?php } ?>
+			<?php if(get_field('add_step_17')) { ?> <div id="solutie_17"><?php the_field('solutie_17'); ?></div><?php } ?>
+			<?php if(get_field('add_step_18')) { ?> <div id="solutie_18"><?php the_field('solutie_18'); ?></div><?php } ?>
+			<?php if(get_field('add_step_19')) { ?> <div id="solutie_19"><?php the_field('solutie_19'); ?></div><?php } ?>
+			<?php if(get_field('add_step_20')) { ?> <div id="solutie_20"><?php the_field('solutie_20'); ?></div><?php } ?>
+			<h3>Tip solutie</h3><?php the_field('solutie_select'); ?>
+			<?php if(get_field('solutie_impact')) { ?> <h3>Impact colateral</h3> <?php the_field('solutie_impact'); } ?>
+			<?php if(get_field('solutie_backout')) { ?><h3>Plan de restaurare in caz de nefunctionare</h3><?php the_field('solutie_backout');?><?php } ?>
+
+            <?php
+
+
+			wp_link_pages( array(
+				'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'cera' ) . '</span>',
+				'after'       => '</div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+				'pagelink'    => '<span class="screen-reader-text sr-only">' . esc_html__( 'Page', 'cera' ) . ' </span>%',
+				'separator'   => '<span class="screen-reader-text sr-only">, </span>',
+			) );
+			cera_the_author_biography(); ?>
+		</div><!-- .entry-content -->
+
+		<footer class="grimlock--single-footer entry-footer d-none">
+			<?php cera_the_tag_list(); ?>
+		</footer><!-- .entry-footer -->
+
+		<?php
+	}
+endif;
+add_action( 'cera_single_custom','cera_single_custom',       10 );
