@@ -56,9 +56,9 @@ msgstr "Editează %s"
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "S-a gândit la &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s gânduri la &ldquo;%2$s&rdquo;"
-msgstr[2] "%1$s gânduri la &ldquo;%2$s&rdquo;"
+msgstr[0] "O părere pentru &ldquo;%2$s&rdquo; ?"
+msgstr[1] "%1$s păreri pentru &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s păreri pentru &ldquo;%2$s&rdquo;"
 
 #: comments.php:42, comments.php:64
 msgid "Comment navigation"

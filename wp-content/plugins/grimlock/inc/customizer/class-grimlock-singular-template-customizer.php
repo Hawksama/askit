@@ -28,8 +28,9 @@ abstract class Grimlock_Singular_Template_Customizer extends Grimlock_Template_C
 	public function add_custom_header_args( $args ) {
 		$args = parent::add_custom_header_args( $args );
 
-		if ( $this->is_template() ) {
+		if ($this->is_template() || is_singular('ht_kb')) {
 			$args['title']            = single_post_title( '', false );
+
 
 			$header_image_id          = attachment_url_to_postid( get_header_image() );
 			$header_layout            = $this->get_theme_mod( "{$this->id}_custom_header_layout" );

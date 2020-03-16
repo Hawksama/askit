@@ -191,7 +191,8 @@ class Grimlock_Region_Component extends Grimlock_Component {
 	 * @since 1.0.0
 	 */
 	public function render() {
-		if ( $this->is_displayed() ) : ?>
+		// Carabus editing to let ht_kb use this.
+		if ( $this->is_displayed() || is_singular('ht_kb') ) : ?>
 			<<?php $this->render_el(); ?> <?php $this->render_id(); ?> <?php $this->render_class(); ?> <?php $this->render_style(); ?> <?php $this->render_role(); ?> <?php $this->render_data_attributes(); ?>>
 			<div class="region__inner" <?php $this->render_inner_style(); ?>>
 				<div class="region__container">

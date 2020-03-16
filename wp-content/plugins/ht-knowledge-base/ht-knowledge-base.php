@@ -452,16 +452,16 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 					$this->temp_query = clone $wp_query;
 
 					// Reset post
-						$this->ht_kb_theme_compat_reset_post( array(
-							'ID'             => 0,
-							'post_title'     => 'Knowledge Base',
-							'post_author'    => 0,
-							'post_date'      => 0,
-							'post_content'   => '',
-							'post_type'      => 'ht_kb',
-							'is_archive'     => true,
-							'comment_status' => 'closed'
-						) );
+					$this->ht_kb_theme_compat_reset_post( array(
+						'ID'             => 0,
+						'post_title'     => 'Knowledge Base',
+						'post_author'    => 0,
+						'post_date'      => 0,
+						'post_content'   => '',
+						'post_type'      => 'ht_kb',
+						'is_archive'     => true,
+						'comment_status' => 'closed'
+					) );
 
 					return locate_template('page.php', false, false);
 		    	}
@@ -483,6 +483,28 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 				//clone the old query
 				$this->temp_query = clone $wp_query;
 
+				// THE BELLOW CODE : is adding 'Knwledge Base' to the breadcrumbs.
+
+				// Reset post 
+				$this->ht_kb_theme_compat_reset_post( array(
+					'ID'             => 0,
+					'post_title'     => $this->temp_query->queried_object->post_title,
+					'post_author'    => 0,
+					'post_date'      => 0,
+					'post_content'   => '',
+					'post_type'      => 'ht_kb',
+					'is_archive'     => true,
+					'comment_status' => 'closed'
+				) );
+				return locate_template('single-ht_kb.php', false, false);
+			}
+
+
+			//Search Results
+			if (isset($post) && $this->is_ht_kb_search){
+				//clone the old query
+				$this->temp_query = clone $wp_query;
+
 				// Reset post
 				$this->ht_kb_theme_compat_reset_post( array(
 					'ID'             => 0,
@@ -494,44 +516,8 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 					'is_archive'     => true,
 					'comment_status' => 'closed'
 				) );
-				return locate_template('single.php', false, false);
-			}
-
-
-			//Search Results
-			if (isset($post) && $this->is_ht_kb_search){
-
-				//clone the old query
-				$this->temp_query = clone $wp_query;
-
-				// Reset post
-
-					$this->ht_kb_theme_compat_reset_post( array(
-
-						'ID'             => 0,
-
-						'post_title'     => __( 'Knowledge Base', 'ht-knowledge-base' ),
-
-						'post_author'    => 0,
-
-						'post_date'      => 0,
-
-						'post_content'   => '',
-
-						'post_type'      => 'ht_kb',
-
-						'is_archive'     => true,
-
-						'comment_status' => 'closed'
-
-					) );
-
-
-
-
 
 				return locate_template('page.php', false, false);
-
 			}
 			return $template;
 		}
@@ -800,7 +786,7 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 
 				if( $this->is_single ){
 					//check the theme does not override template
-					$theme_template_exists = locate_template( 'single.php' ) != '' ? true : false ;
+					$theme_template_exists = locate_template( 'single-ht_kb.php' ) != '' ? true : false ;
 	 				$load_file_name = plugin_dir_path( __FILE__ ) . '/templates/ht-knowledge-base-single-template.php';
 				    if(file_exists($load_file_name) && !$theme_template_exists){
 				    	include $load_file_name;
@@ -849,8 +835,8 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 					wp_reset_query();
 
 				//skip over first post
-				if($this->is_single)
-					the_post();
+				// if($this->is_single)
+				// 	the_post();
 
 				add_filter( 'the_content', array($this, 'ht_knowledge_base_custom_content') );
 				$output = ob_get_clean();
@@ -1523,23 +1509,14 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 				return $title;
 
 			} else {
-
 				$post_type = $post->post_type;
 
-
-
 				//filter types for post types
-
 				$types = array(
-
 					array( 
-
 						'post_type' => 'ht_kb', 
-
 						'title' => __('Knowledge Base - ', 'ht-knowledge-base') 
-
 					)
-
 				);
 
 

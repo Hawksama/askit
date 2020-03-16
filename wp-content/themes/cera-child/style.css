@@ -513,4 +513,8 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
     .social-articles-main .comments-listing article .comment-content {
       margin-top: 15px; }
 
+.the_champ_horizontal_counter,
+.the_champ_horizontal_sharing {
+  margin-top: 20px; }
+
 /*# sourceMappingURL=style.css.map */

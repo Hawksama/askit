@@ -52,7 +52,7 @@ class Grimlock_Single_Customizer extends Grimlock_Singular_Template_Customizer {
 	public function add_custom_header_args( $args ) {
 		$args = parent::add_custom_header_args( $args );
 
-		if ( $this->is_template() ) {
+		if ( $this->is_template() || is_singular('ht_kb') ) {
 			$args['post']                         = get_queried_object();
 			$args['single_category_displayed']    = $this->get_theme_mod( 'single_category_custom_header_displayed' );
 			$args['single_post_format_displayed'] = $this->get_theme_mod( 'single_post_format_custom_header_displayed' );

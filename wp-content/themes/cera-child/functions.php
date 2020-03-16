@@ -183,9 +183,34 @@ function remove_plugin_updates( $value ) {
     unset( $value->response['buddypress/class-buddypress.php'] );
     unset( $value->response['ht-knowledge-base/ht-knowledge-base.php'] );
     unset( $value->response['buddypress-global-search/buddypress-global-search.php'] );
-    unset( $value->response['social-articles/social-articles.php']);
+	unset( $value->response['social-articles/social-articles.php']);
+	unset( $value->response['grimlock-animate/grimlock-animate.php']);
+	unset( $value->response['grimlock/grimlock.php']);
     return $value;
 }
+
+/**
+ * Remove the "Time to Update" nag message in WordPress
+ */
+function keel_hide_core_updates_nag() {
+    remove_action( 'admin_notices', 'update_nag', 3 );
+}
+add_action( 'admin_menu', 'keel_hide_core_updates_nag' );
+
+/**
+ * Remove the ability to update from the Dashboard
+ */
+function keel_remove_core_updates_action() {
+	?>
+		<style type="text/css">
+			.core-updates {
+				display: none;
+				visibility: hidden;
+			}
+		</style>
+	<?php
+}
+add_action( 'admin_head', 'keel_remove_core_updates_action' );
 
 /**
  * Redirect buddypress pages to registration page
@@ -221,6 +246,7 @@ function archive_category_function(){
     exit();
 }
 
+add_action('acf/save_post', 'my_acf_save_post', 20);
 function my_acf_save_post( $post_id ) {
 
     // Get previous values.
@@ -248,9 +274,28 @@ function my_acf_save_post( $post_id ) {
     // Add the action back
     add_action('acf/save_post', 'my_acf_save_post', 20);
 }
-add_action('acf/save_post', 'my_acf_save_post', 20);
 
-if ( ! function_exists( 'cera_single_custom' ) ) :
+add_filter( 'body_class', 'cpt_ht_kb_customizations' );
+function cpt_ht_kb_customizations( $classes ) {
+
+	if ( is_singular( 'ht_kb' ) ) {
+        $classes[] = 'layout-no-sidebar';
+        $classes[] = 'single';
+        $classes[] = 'single-post';
+        $classes[] = 'single-format-standard';
+        $classes[] = 'post-template-default';
+        $classes[] = 'grimlock--single';
+        $classes[] = 'grimlock--custom_header-title-displayed';
+		$classes[] = 'grimlock--custom_header-subtitle-displayed';
+		$classes[] = 'grimlock--custom_header-displayed';
+	} 
+	return $classes;
+}
+
+// Single Post functions ---------------------------------------------------------
+
+add_action( 'cera_single_custom','cera_single_custom',10 );
+if (!function_exists('cera_single_custom')):
 	/**
 	 * Prints HTML for the single post.
 	 *
@@ -262,13 +307,15 @@ if ( ! function_exists( 'cera_single_custom' ) ) :
 		<header class="grimlock--page-header entry-header">
 			<?php
 			cera_the_category_list();
-			the_title( '<h1 class="page-title entry-title">', '</h1>' ); ?>
-			<?php
-			do_action( 'cera_breadcrumb' );
+            // the_title( '<h1 class="page-title entry-title">', '</h1>' );
+            ?>
+            <h1 class="page-title entry-title"><?= get_the_title() ?></h1>
+            <?php
+            do_action( 'cera_breadcrumb' );
 
 			if ( 'ht_kb' === get_post_type() ) : ?>
 				<span class="entry-meta">
-					<?php cera_the_author(); ?>
+					<?php cera_the_author_custom(); ?>
 					<?php cera_the_date(); ?>
 				</span><!-- .entry-meta -->
 			<?php
@@ -276,11 +323,8 @@ if ( ! function_exists( 'cera_single_custom' ) ) :
 		</header><!-- .entry-header -->
 
 		<div class="grimlock--single-content grimlock--page-content entry-content">
-			<?php
-            //the_content();
-            ?>
 
-            <p><h3>Situatie</h3><?php the_field('situatie'); ?></p>
+			<p><h3>Situatie</h3><?php the_field('situatie'); ?></p>
 			<?php if (get_field('tip') == 'Rezolvare problema (Fix IT)') { if(get_field('simptome')) {?> <h3>Simptome</h3><p><?php the_field('simptome'); ?></p><?php } ?><?php } ?>
 			<?php if(get_field('backup')) { ?> <h3>Backup</h3> <?php the_field('backup'); } ?>
 			<h3>Solutie</h3>
@@ -310,7 +354,10 @@ if ( ! function_exists( 'cera_single_custom' ) ) :
 			<?php if(get_field('solutie_backout')) { ?><h3>Plan de restaurare in caz de nefunctionare</h3><?php the_field('solutie_backout');?><?php } ?>
 
             <?php
-
+			// the_content();
+			// $content = $item->post_content;
+			
+			echo apply_filters( 'the_content', $GLOBALS['post']->post_content );
 
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'cera' ) . '</span>',
@@ -324,10 +371,192 @@ if ( ! function_exists( 'cera_single_custom' ) ) :
 		</div><!-- .entry-content -->
 
 		<footer class="grimlock--single-footer entry-footer d-none">
-			<?php cera_the_tag_list(); ?>
+			<?php cera_the_tag_list_custom(); ?>
 		</footer><!-- .entry-footer -->
 
 		<?php
 	}
 endif;
-add_action( 'cera_single_custom','cera_single_custom',       10 );
+
+if (!function_exists('cera_the_tag_list_custom')):
+	/**
+	 * Prints HTML with meta information for the post tags.
+	 */
+	function cera_the_tag_list_custom(){
+		if ('ht_kb' === get_post_type()) {
+			$tags_list = get_the_tag_list( '', ' ' );
+			if ($tags_list){
+				// $tags_list doesn't need to be escaped here cause it comes from native WP get_the_tag_list() function
+				printf( '<span class="tags-links">%1$s</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}
+	}
+endif;
+
+if (!function_exists('cera_the_author_custom')):
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function cera_the_author_custom() {
+		if ('post' === get_post_type() || 'ht_kb' === get_post_type()) {
+			printf(
+				'<span class="byline author"><span class="byline-label">' . esc_html__( 'by', 'cera' ) . ' </span>%1$s %2$s</span>',
+				'<span class="author-avatar"><span class="avatar-round-ratio"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_avatar( get_the_author_meta( 'ID' ), 50 ) . '</a></span></span>',
+				'<span class="author-vcard vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			);
+		}
+	}
+endif;
+
+if (!function_exists('cera_the_date')):
+	/**
+	 * Prints HTML with meta information for the current post-date/time.
+	 */
+	function cera_the_date() {
+		if ( 'post' === get_post_type() || 'attachment' === get_post_type() || 'ht_kb' === get_post_type()) {
+			$allowed_html = array(
+				'time' => array(
+					'class'    => true,
+					'datetime' => true,
+				),
+			);
+
+			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			}
+
+			$time_string = sprintf( $time_string,
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() ),
+				esc_attr( get_the_modified_date( 'c' ) ),
+				esc_html( get_the_modified_date() )
+			);
+
+			printf(
+				'<span class="posted-on"><span class="posted-on-label">' . esc_html__( 'Posted on', 'cera' ) . ' </span>%s</span>',
+				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . wp_kses( $time_string, $allowed_html ) . '</a>'
+			);
+		}
+	}
+endif;
+
+if (!function_exists('cera_the_category_list')):
+	/**
+	 * Prints HTML with meta information for the categories.
+	 */
+	function cera_the_category_list() {
+		if ('post' === get_post_type() || 'ht_kb' === get_post_type()) {
+
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ' ', 'cera' ) );
+			if ( $categories_list && cera_categorized_blog() ) {
+				// $categories_list doesn't need to be escaped here cause it comes from native WP get_the_category_list() function
+				printf( '<span class="cat-links">%1$s</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}
+	}
+endif;
+
+if (!function_exists('cera_the_author_biography')):
+	/**
+	 * Display the author biography.
+	 */
+	function cera_the_author_biography() {
+		if ( '' !== get_the_author_meta( 'description' ) && ('post' === get_post_type() || 'ht_kb' === get_post_type())) :
+			$avatar_args = array(
+				'class' => array( 'd-flex', 'align-self-start', 'mr-3' ),
+			); ?>
+			<div class="card card-static card--author-info bg-black-faded">
+				<div class="media author-info">
+					<span class="avatar-round-ratio big">
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+							<?php echo get_avatar( get_the_author_meta( 'user_email' ), 140, '', '', $avatar_args ); ?>
+						</a>
+					</span>
+					<div class="author-description media-body">
+						<h4 class="author-title h5"><span class="author-heading"><?php esc_html_e( 'By', 'cera' ); ?></span> <?php echo get_the_author(); ?></h4>
+						<div class="author-bio">
+							<?php the_author_meta( 'description' ); ?>
+							<div class="mt-1">
+								<a class="btn btn-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+									<?php
+									/* translators: %s: The author name */
+									printf( esc_html__( 'View all posts by %s', 'cera' ), esc_html( get_the_author() ) ); ?>
+								</a>
+							</div>
+						</div><!-- .author-bio -->
+					</div><!-- .author-description -->
+				</div><!-- .author-info -->
+			</div>
+			<?php
+		endif;
+	}
+endif;
+
+if (!function_exists('cera_search_post')):
+	/**
+	 * Prints HTML for the post.
+	 *
+	 * @since 1.0.0
+	 */
+	function cera_search_post() {
+		?>
+		<div class="card">
+
+			<?php if ( has_post_format( array( 'video', 'audio', 'image', 'gallery' ) ) ) : ?>
+				<div class="post-media"><?php the_content(); ?></div>
+			<?php elseif ( has_post_thumbnail() ) : ?>
+				<?php
+				cera_the_post_thumbnail( 'thumbnail-6-6-cols-classic', array(
+					'class' => 'card-img wp-post-image',
+				) ); ?>
+			<?php endif; ?>
+
+			<div class="card-body">
+				<?php
+				if (('post' === get_post_type() || 'ht_kb' === get_post_type()) &&  has_post_format() || is_sticky()): ?>
+					<div class="card-body-labels entry-labels">
+						<?php
+						cera_the_sticky_mark();
+						cera_the_post_format(); ?>
+					</div>
+					<?php
+				endif; ?>
+
+				<header class="card-body-header entry-header">
+					<div class="card-body-meta entry-meta">
+						<?php cera_the_category_list(); ?>
+					</div><!-- .entry-meta -->
+					<?php the_title( '<h2 class="entry-title h4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+				</header><!-- .entry-header -->
+
+				<div class="card-body-content entry-content">
+					<?php if ( has_post_format( array( 'link', 'quote' ) ) ) : ?>
+						<?php the_content(); ?>
+						<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Continue reading', 'cera' ); ?></a>
+					<?php else : ?>
+						<?php the_excerpt(); ?>
+						<a href="<?php the_permalink(); ?>" class="more-link btn btn-secondary btn-sm"><?php esc_html_e( 'Continue reading', 'cera' ); ?></a>
+						<?php if ( has_tag() ): cera_the_tag_list_custom(); endif; ?>
+					<?php endif; ?>
+
+				</div><!-- .entry-content -->
+
+			</div><!-- .card-body-->
+
+			<?php if ( 'post' === get_post_type() || 'ht_kb' === get_post_type()) : ?>
+				<footer class="card-footer entry-footer">
+					<?php
+					cera_the_author();
+					cera_the_date();
+					cera_comments_link();
+					?>
+				</footer><!-- .entry-footer -->
+			<?php endif; ?>
+
+		</div><!-- .card-->
+		<?php
+	}
+endif;

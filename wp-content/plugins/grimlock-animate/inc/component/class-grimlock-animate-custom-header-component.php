@@ -262,8 +262,15 @@ class Grimlock_Animate_Custom_Header_Component extends Grimlock_Custom_Header_Co
 	 * @since 1.0.0
 	 */
 	public function render() {
-		if ( $this->is_displayed() ) : ?>
-			<<?php $this->render_el(); ?> <?php $this->render_id(); ?> <?php $this->render_class(); ?> <?php $this->render_style(); ?> <?php $this->render_role(); ?> <?php $this->render_data_attributes(); ?>>
+		// Carabus editing to let ht_kb use this.
+		//if ( $this->is_displayed() ) : ?>
+			<<?php $this->render_el(); ?> <?php $this->render_id(); ?> <?php 
+				if(is_singular('ht_kb')) {
+					echo 'class="' . 'ht_kb-header grimlock-custom_header region grimlock-region grimlock-region--pt-4 grimlock-region--pb-4 region--12-cols-center region--container-classic grimlock-section section' . '"';
+				} else {
+					$this->render_class(); 
+				}
+				?> <?php $this->render_style(); ?> <?php $this->render_role(); ?> <?php $this->render_data_attributes(); ?>>
 			<div class="region__inner" <?php $this->render_inner_style(); ?>>
 				<div class="region__container">
 					<div class="region__row">
@@ -288,6 +295,6 @@ class Grimlock_Animate_Custom_Header_Component extends Grimlock_Custom_Header_Co
 				}
 			</style>
 		<?php
-		endif;
+		//endif;
 	}
 }

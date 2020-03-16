@@ -1321,7 +1321,7 @@ function wp_comment_form_unfiltered_html_nonce() {
 function comments_template( $file = '/comments.php', $separate_comments = false ) {
 	global $wp_query, $withcomments, $post, $wpdb, $id, $comment, $user_login, $user_ID, $user_identity, $overridden_cpage;
 
-	if ( ! ( is_single() || is_page() || $withcomments ) || empty( $post ) ) {
+	if ( ! ( is_single() || is_page() || $withcomments || is_singular('ht_kb') ) || empty( $post )) {
 		return;
 	}
 

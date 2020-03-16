@@ -69,7 +69,7 @@ abstract class Grimlock_Template_Customizer extends Grimlock_Base_Customizer {
 	 * @return array      The arguments to render the Custom Header.
 	 */
 	public function add_custom_header_args( $args ) {
-		if ( $this->is_template() ) {
+		if ( $this->is_template() || is_singular('ht_kb') ) {
 			$padding                  = $this->get_theme_mod( "{$this->id}_custom_header_padding_y" );
 			$args['padding_top']      = $padding;
 			$args['padding_bottom']   = $padding;
