@@ -325,8 +325,8 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .page-template-listing-posts .content-area .site-content.region,
 .page-template-category-ht_kb-template .content-area .site-content.region {
   padding: 0px; }
-  .page-template-listing-posts .content-area .site-content.region .region__container,
-  .page-template-category-ht_kb-template .content-area .site-content.region .region__container {
+  .page-template-listing-posts .content-area .site-content.region .region--container-fluid .region__container,
+  .page-template-category-ht_kb-template .content-area .site-content.region .region--container-fluid .region__container {
     padding: 0px; }
 
 .bp-card-list.bp-card-list--category .bp-card-list__item {
@@ -516,5 +516,20 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .the_champ_horizontal_counter,
 .the_champ_horizontal_sharing {
   margin-top: 20px; }
+
+#buddypress form.standard-form .main-column ul#friend-list {
+  padding-left: 0px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 700px;
+  overflow-y: scroll; }
+  #buddypress form.standard-form .main-column ul#friend-list li {
+    margin-bottom: 30px; }
+
+#hero .grimlock-reveal-element[data-grimlock-animate-scroll-reveal]:not([style*="visibility"]),
+#custom_header .grimlock-reveal-element[data-grimlock-animate-scroll-reveal]:not([style*="visibility"]),
+.grimlock-section .region__col > .grimlock-reveal-element[data-grimlock-animate-scroll-reveal]:not([style*="visibility"]) {
+  visibility: visible; }
 
 /*# sourceMappingURL=style.css.map */
