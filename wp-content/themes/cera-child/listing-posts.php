@@ -43,12 +43,12 @@ get_header();?>
 
 							</div>
 						</article>
-
-						<?php dynamic_sidebar( 'homepage-1' ); ?>
 					</main><!-- #main -->
 					
 					<?php get_sidebar( 'right' ); ?>
 				</div>
+				
+				<?php dynamic_sidebar( 'homepage-1' ); ?>
 			</div>
 		</div>
 		
