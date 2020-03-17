@@ -263,7 +263,7 @@ class Grimlock_Animate_Custom_Header_Component extends Grimlock_Custom_Header_Co
 	 */
 	public function render() {
 		// Carabus editing to let ht_kb use this.
-		//if ( $this->is_displayed() ) : ?>
+		if ( $this->is_displayed() || is_singular('ht_kb') ) : ?>
 			<<?php $this->render_el(); ?> <?php $this->render_id(); ?> <?php 
 				if(is_singular('ht_kb')) {
 					echo 'class="' . 'ht_kb-header grimlock-custom_header region grimlock-region grimlock-region--pt-4 grimlock-region--pb-4 region--12-cols-center region--container-classic grimlock-section section' . '"';
@@ -295,6 +295,6 @@ class Grimlock_Animate_Custom_Header_Component extends Grimlock_Custom_Header_Co
 				}
 			</style>
 		<?php
-		//endif;
+		endif;
 	}
 }
