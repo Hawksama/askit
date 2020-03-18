@@ -532,4 +532,10 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .grimlock-section .region__col > .grimlock-reveal-element[data-grimlock-animate-scroll-reveal]:not([style*="visibility"]) {
   visibility: visible; }
 
+.home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-left #custom_header, .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-right #custom_header {
+  margin-top: 1.6vw; }
+
+.home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-left .site-content > .region__container, .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-right .site-content > .region__container {
+  padding-top: 0px; }
+
 /*# sourceMappingURL=style.css.map */
