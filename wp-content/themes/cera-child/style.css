@@ -533,7 +533,8 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
   visibility: visible; }
 
 .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-left #custom_header, .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-right #custom_header {
-  margin-top: 1.6vw; }
+  margin-top: 1.6vw;
+  margin-bottom: 1.6vw; }
 
 .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-left .site-content > .region__container, .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-right .site-content > .region__container {
   padding-top: 0px; }
