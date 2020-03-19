@@ -539,4 +539,8 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-left .site-content > .region__container, .home-page.grimlock--navigation-fixed.grimlock--navigation-fixed-right .site-content > .region__container {
   padding-top: 0px; }
 
+.buttonizer.buttonizer-desktop-has-1 .buttonizer-button.button-desktop-1 {
+  width: 60px;
+  height: 60px; }
+
 /*# sourceMappingURL=style.css.map */
