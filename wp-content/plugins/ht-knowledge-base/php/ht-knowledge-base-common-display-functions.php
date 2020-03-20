@@ -1459,11 +1459,6 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 								<div class="col-12 col-md-6 col-lg-5 col-forum-meta mt-4 mt-md-0">
 									<div class="row">
 										<div class="col forum-topic-count">
-											<div class="small text-uppercase font-weight-bold">
-											</div>
-											<div class="h3">
-												<?= $subcat_no; ?>
-											</div>
 										</div>
 										<div class="col forum-reply-count">
 											<div class="small text-uppercase font-weight-bold">
@@ -1479,14 +1474,13 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 								<div class="col-12 col-md-6 col-lg-7 col-forum-meta mt-4 mt-md-0">
 									<div class="forum-freshness">
 										<div class="small text-uppercase font-weight-bold">
-											<?php esc_html_e( 'Latest - ', 'bbpress' ); 
-											echo $category->name;
+											<?php esc_html_e( 'Latest', 'bbpress' ); 
 											?>
 										</div>
 										<div class="d-flex mt-2 small align-items-center">
 											<ul class="ht-kb-article-list">
 												<?php 
-												foreach( $uncategorized_posts as $post ) :
+												foreach( $uncategorized_posts as $post ):
 													//set post format class
 
 													if ( get_post_format( $post->ID )=='video') { 
@@ -1507,7 +1501,7 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 																			<span>
 																				<?php
 																				$meta = get_post_meta( $post->ID );
-																				echo $meta['_ht_kb_post_views_count'][0];
+																				echo ($meta) ? $meta['_ht_kb_post_views_count'][0] : 0 ;
 																				?>
 																			</span>
 																		</a>
