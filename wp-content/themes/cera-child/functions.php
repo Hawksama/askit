@@ -186,6 +186,8 @@ function remove_plugin_updates( $value ) {
 	unset( $value->response['social-articles/social-articles.php']);
 	unset( $value->response['grimlock-animate/grimlock-animate.php']);
 	unset( $value->response['grimlock/grimlock.php']);
+	unset( $value->response['custom-menu-class/custom-menu-class.php']); // PHP7.3 fixes
+	unset( $value->response['wp-super-cache/wp-cache.php']); // php $post array error fix
     return $value;
 }
 

@@ -28,11 +28,16 @@ abstract class Grimlock_Singular_Template_Customizer extends Grimlock_Template_C
 	public function add_custom_header_args( $args ) {
 		$args = parent::add_custom_header_args( $args );
 
-		if ($this->is_template() || is_singular('ht_kb')) {
+		if (($this->is_template() || is_singular('ht_kb')) && !is_front_page()) {
 			$args['title']            = single_post_title( '', false );
 
+			$header_img_url = get_header_image();
+			if(strlen($header_img_url) > 0){
+				$header_image_id          = attachment_url_to_postid( get_header_image() );
+			} else {
+				$header_image_id          = '';
+			}
 
-			$header_image_id          = attachment_url_to_postid( get_header_image() );
 			$header_layout            = $this->get_theme_mod( "{$this->id}_custom_header_layout" );
 			$background_image_size    = apply_filters( "grimlock_{$this->id}_customizer_custom_header_background_image_size", 'custom-header', $header_layout );
 			$thumbnail_size           = apply_filters( "grimlock_{$this->id}_customizer_custom_header_thumbnail_size", "thumbnail-{$header_layout}", $header_layout );

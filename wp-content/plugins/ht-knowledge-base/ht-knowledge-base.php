@@ -483,19 +483,31 @@ if( !class_exists( 'HT_Knowledge_Base' ) ){
 				//clone the old query
 				$this->temp_query = clone $wp_query;
 
-				// THE BELLOW CODE : is adding 'Knwledge Base' to the breadcrumbs.
-
 				// Reset post 
-				$this->ht_kb_theme_compat_reset_post( array(
-					'ID'             => $this->temp_query->queried_object->ID,
-					'post_title'     => $this->temp_query->queried_object->post_title,
-					'post_author'    => $this->temp_query->queried_object->post_author,
-					'post_date'      => $this->temp_query->queried_object->post_date,
-					'post_content'   => $this->temp_query->queried_object->post_content,
-					'post_type'      => 'ht_kb',
-					'is_archive'     => $this->temp_query->is_archive,
-					'comment_status' => $this->temp_query->queried_object->comment_status
-				) );
+				if($this->temp_query->is_search) {
+					$this->ht_kb_theme_compat_reset_post( array(
+						'ID'             => $this->temp_query->post->ID,
+						'post_title'     => $this->temp_query->post->post_title,
+						'post_author'    => $this->temp_query->post->post_author,
+						'post_date'      => $this->temp_query->post->post_date,
+						'post_content'   => $this->temp_query->post->post_content,
+						'post_type'      => 'ht_kb',
+						'is_archive'     => $this->temp_query->is_archive,
+						'comment_status' => $this->temp_query->post->comment_status
+						) );
+				} else {
+					$this->ht_kb_theme_compat_reset_post( array(
+						'ID'             => $this->temp_query->queried_object->ID,
+						'post_title'     => $this->temp_query->queried_object->post_title,
+						'post_author'    => $this->temp_query->queried_object->post_author,
+						'post_date'      => $this->temp_query->queried_object->post_date,
+						'post_content'   => $this->temp_query->queried_object->post_content,
+						'post_type'      => 'ht_kb',
+						'is_archive'     => $this->temp_query->is_archive,
+						'comment_status' => $this->temp_query->queried_object->comment_status
+					) );
+				}
+				
 				return locate_template('single-ht_kb.php', false, false);
 			}
 

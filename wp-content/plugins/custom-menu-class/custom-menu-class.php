@@ -34,7 +34,7 @@ class Custom_Menu_Class
 		{
 			add_action('admin_init', 'Custom_Menu_Class::admin_init');
 			add_action('wp_update_nav_menu_item', 'Custom_Menu_Class::wp_update_nav_menu_item', 10, 2);
-			add_filter('wp_edit_nav_menu_walker', create_function('', 'return "Custom_Menu_Class_Walker_Nav_Menu_Edit";'));
+			add_filter('wp_edit_nav_menu_walker', function(){return "Custom_Menu_Class_Walker_Nav_Menu_Edit";});
 		}
 		else if (!is_admin())
 		{

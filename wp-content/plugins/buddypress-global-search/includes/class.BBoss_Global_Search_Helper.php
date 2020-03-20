@@ -225,11 +225,6 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 			}
 
 			if (isset($_REQUEST['search-only-ht-kb'])) {
-				
-				$text = 'Hello World';
-				$translate = new TranslateClient();
-				$result = $translate->detectLanguage($text);
-
 				$args = array(
 					'search_term'	=> $_REQUEST['search_term'],
 					//How many results should be displyed in autosuggest?

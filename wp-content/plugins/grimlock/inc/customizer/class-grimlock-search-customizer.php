@@ -56,7 +56,14 @@ class Grimlock_Search_Customizer extends Grimlock_Grid_Template_Customizer {
 		$args = parent::add_custom_header_args( $args );
 
 		if ( $this->is_template() ) {
-			$header_image_id = attachment_url_to_postid( get_header_image() );
+			//Carabus optimization to skip slow query when the image is not found
+
+			$header_img_url = get_header_image();
+			if(strlen($header_img_url) > 0){
+				$header_image_id          = attachment_url_to_postid( get_header_image() );
+			} else {
+				$header_image_id          = '';
+			}
 			$size            = apply_filters( "grimlock_{$this->id}_customizer_custom_header_size", 'custom-header', $this->get_theme_mod( "{$this->id}_custom_header_layout" ) );
 
 			$args['title']            = sprintf( esc_html__( 'Search Results for: %s', 'grimlock' ), '<span>' . get_search_query() . '</span>' );

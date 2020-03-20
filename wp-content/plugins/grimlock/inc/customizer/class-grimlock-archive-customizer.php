@@ -324,6 +324,7 @@ class Grimlock_Archive_Customizer extends Grimlock_Grid_Template_Customizer {
 	 */
 	protected function get_custom_header_background_image_default() {
 		$posts_page_thumbnail_url = '';
+		$default_custom_header_image = '';
 
 		$size = apply_filters( "grimlock_{$this->id}_customizer_custom_header_size", 'custom-header', $this->get_theme_mod( 'archive_custom_header_layout' ) );
 
@@ -333,10 +334,12 @@ class Grimlock_Archive_Customizer extends Grimlock_Grid_Template_Customizer {
 			$posts_page_thumbnail_url  = ! empty( $posts_page_thumbnail_atts[0] ) ? $posts_page_thumbnail_atts[0] : '';
 		}
 
-		$header_image_id = attachment_url_to_postid( $this->get_default( 'archive_custom_header_background_image' ) );
-		$default_custom_header_image = wp_get_attachment_image_url( $header_image_id, $size );
+		if($this->get_default( 'archive_custom_header_background_image' ) || strlen($this->get_default( 'archive_custom_header_background_image' )) > 0 ){
+			$header_image_id = attachment_url_to_postid( $this->get_default( 'archive_custom_header_background_image' ) );
+			$default_custom_header_image = wp_get_attachment_image_url( $header_image_id, $size );
+		}
 
-		return ! empty( $posts_page_thumbnail_url ) ? $posts_page_thumbnail_url : $default_custom_header_image;
+		return !empty( $posts_page_thumbnail_url ) ? $posts_page_thumbnail_url : $default_custom_header_image;
 	}
 
 	/**
