@@ -1501,7 +1501,7 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 																			<span>
 																				<?php
 																				$meta = get_post_meta( $post->ID );
-																				echo ($meta) ? $meta['_ht_kb_post_views_count'][0] : 0 ;
+																				echo (isset($meta['_ht_kb_post_views_count'])) ? $meta['_ht_kb_post_views_count'][0] : 0 ;
 																				?>
 																			</span>
 																		</a>

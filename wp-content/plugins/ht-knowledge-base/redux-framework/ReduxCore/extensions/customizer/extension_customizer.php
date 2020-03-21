@@ -256,8 +256,8 @@
                         }
 
                         // Wordpress doesn't support multi-select
-                        if ( $option['type'] == "select" && isset( $option['multi'] ) && $option['multi'] == true ) {
-                            continue;
+                        if ( !($option['type'] == "select" && isset( $option['multi'] ) && $option['multi'] == true )) {
+                            break;
                         }
 
                         $customSetting = array(
@@ -310,8 +310,8 @@
                                 break;
 
                             case 'text':
-                                if ( isset( $option['data'] ) && $option['data'] ) {
-                                    continue;
+                                if ( !(isset( $option['data'] ) && $option['data']) ) {
+                                    break;
                                 }
                                 $wp_customize->add_control( $option['id'], array(
                                     'label'    => $option['title'],
@@ -324,8 +324,8 @@
 
                             case 'select':
                             case 'button_set':
-                                if ( ( isset( $option['sortable'] ) && $option['sortable'] ) ) {
-                                    continue;
+                                if ( !((isset( $option['sortable'] ) && $option['sortable'] )) ) {
+                                    break;
                                 }
                                 $wp_customize->add_control( $option['id'], array(
                                     'label'    => $option['title'],
@@ -350,8 +350,8 @@
                                 break;
 
                             case 'checkbox':
-                                if ( ( isset( $option['data'] ) && $option['data'] ) || ( ( isset( $option['multi'] ) && $option['multi'] ) ) || ( ( isset( $option['options'] ) && ! empty( $option['options'] ) ) ) ) {
-                                    continue;
+                                if ( !(( isset( $option['data'] ) && $option['data'] ) || ( ( isset( $option['multi'] ) && $option['multi'] ) ) || ( ( isset( $option['options'] ) && ! empty( $option['options'] ) ) ) )) {
+                                    break;
                                 }
                                 $wp_customize->add_control( $option['id'], array(
                                     'label'    => $option['title'],
@@ -363,7 +363,6 @@
                                 break;
 
                             case 'media':
-                                continue;
                                 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $option['id'], array(
                                     'label'    => $option['title'],
                                     'section'  => $section['id'],
@@ -382,7 +381,6 @@
                                 break;
 
                             case 'switch':
-                                continue;
                                 $wp_customize->add_control( new Redux_customizer_switch( $wp_customize, $option['id'], array(
                                     'label'          => $option['title'],
                                     'section'        => $section['id'],
