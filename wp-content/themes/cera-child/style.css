@@ -411,6 +411,58 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
   100% {
     background-position: 750px 0; } }
 
+.aside-fake .aside--fake__item .contents-fake {
+  margin-bottom: 0px; }
+  .aside-fake .aside--fake__item .contents-fake li {
+    height: 50px;
+    border-radius: 0.3rem;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 30;
+    animation-iteration-count: 30;
+    -webkit-animation-name: asideFakeItem;
+    animation-name: asideFakeItem;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    background-size: 100px 104px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 8%, rgba(0, 0, 0, 0.05) 18%, rgba(0, 0, 0, 0.1) 33%);
+    position: relative;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%; }
+    .aside-fake .aside--fake__item .contents-fake li:last-of-type {
+      margin-bottom: 0px; }
+
+.aside-fake .aside--fake__item .title-fake span {
+  color: transparent !important;
+  border-radius: 0.3rem;
+  -webkit-animation-duration: 1s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 30;
+  animation-iteration-count: 30;
+  -webkit-animation-name: asideFakeItem;
+  animation-name: asideFakeItem;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background-size: 90px 30px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 8%, rgba(0, 0, 0, 0.05) 18%, rgba(0, 0, 0, 0.1) 33%); }
+
+@keyframes asideFakeItem {
+  0% {
+    background-position: -250px 0; }
+  100% {
+    background-position: 250px 0; } }
+
+@keyframes asideFakeItemTitle {
+  0% {
+    background-position: -80px 0; }
+  100% {
+    background-position: 80px 0; } }
+
 .acf-form-fields {
   display: inline-block; }
   .acf-form-fields .acf-field {
@@ -542,5 +594,65 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .buttonizer.buttonizer-desktop-has-1 .buttonizer-button.button-desktop-1 {
   width: 60px;
   height: 60px; }
+
+.call-us-button-wrapper {
+  position: fixed;
+  z-index: 99999;
+  transition: ease-in-out 250ms;
+  right: 80px;
+  bottom: 15px; }
+  .call-us-button-wrapper .call-us-button {
+    width: 60px;
+    height: 60px;
+    left: 0 !important;
+    bottom: 0 !important;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    background-color: #ec7923;
+    border-radius: 50%;
+    color: white;
+    display: block;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    max-width: none !important;
+    color: #FFFFFF;
+    background-color: #ec7923;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    text-align: center;
+    text-decoration: none;
+    margin-top: 5px; }
+    .call-us-button-wrapper .call-us-button-label {
+      position: absolute;
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      font-size: 12px;
+      white-space: nowrap;
+      padding: 5px 15px;
+      height: auto !important;
+      line-height: initial;
+      background-color: #ec7923;
+      color: white;
+      right: 65px;
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px; }
+    .call-us-button-wrapper .call-us-button i {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      color: white;
+      font-size: 25px; }
+
+.slideout-wrapper {
+  background-color: #242a34; }
 
 /*# sourceMappingURL=style.css.map */

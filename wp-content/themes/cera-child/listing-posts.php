@@ -62,21 +62,73 @@ get_header();?>
 						</article>
 					</main><!-- #main -->
 					
-					<?php get_sidebar( 'right' ); ?>
+					<div id="secondary-right" class="widget-area sidebar region__col region__col--3 aside-fake">
+						<div class="aside--fake__item widget buddypress widget">
+							<h2 class="widget-title title-fake">
+								<span>placeholder</span>
+							</h2>
+
+							<ul class="contents-fake">
+								<li></li>
+							</ul>
+						</div>
+
+						<div class="aside--fake__item widget buddypress widget">
+							<h2 class="widget-title title-fake">
+								<span>placeholder</span>
+							</h2>
+
+							<ul class="contents-fake">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+
+						
+						<div class="aside--fake__item widget buddypress widget">
+							<h2 class="widget-title title-fake">
+								<span>placeholder</span>
+							</h2>
+
+							<ul class="contents-fake">
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 				
-				<?php dynamic_sidebar( 'homepage-1' ); ?>
+				<div id="homepage_1"></div>
+				<?php //dynamic_sidebar( 'homepage-1' ); ?>
 			</div>
 		</div>
 		
 	</div><!-- #primary -->
 
 	<script>
-		$.get(ajaxurl,{'action': 'archive_category'}, 
-			function (data) { 
-				$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
-			}
-		);
+		$(document).ready(function(){
+			$.get(ajaxurl,{'action': 'archive_category'}, 
+				function (data) { 
+					$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
+				}
+			);
+
+			$.get(ajaxurl,{'action': 'sidebar_right'}, 
+				function (data) { 
+					$('#secondary-right').remove();
+					$('.site-main').after(data);
+				}
+			);
+
+			$.get(ajaxurl,{'action': 'homepage_1'}, 
+				function (data) { 
+					$('#homepage_1').after(data);
+					$('#homepage_1').remove();
+				}
+			);
+		});
 	</script>
 
 

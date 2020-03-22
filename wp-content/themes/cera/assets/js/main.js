@@ -121,72 +121,77 @@ jQuery( function( $ ) {
         } );
     }
 
-    /**
+    /** CUSTOM FIX CARABUS
      * Small vertical navigation
      */
     var $slideOutWrapper = $( '.slideout-wrapper' );
-    var $navBarToggler = $( '#navbar-toggler-mini' );
+    
+    $slideOutWrapper.on('classAdded', function(){
+        if($(this).hasClass('menu-ajax-loaded')){
 
-    if ( $slideOutWrapper.length && $navBarToggler.length ) {
-
-        var openVerticalNav = function() {
-            $body.removeClass( 'slideout-mini-hover' );
-            $body.removeClass( 'slideout-mini' );
-            $slideOutWrapper.removeClass( 'mini' );
-            $navBarToggler.removeClass( 'collapsed' );
-        };
-
-        var closeVerticalNav = function() {
-            $body.addClass( 'slideout-mini' );
-            $slideOutWrapper.addClass( 'mini' );
-            $navBarToggler.addClass( 'collapsed' );
-            $( '.slideout-wrapper.mini .menu-item .sub-menu' ).removeClass('is-open');
-        };
-
-        var windowWidth = $( window ).width();
-        var breakPointWidth = 1400;
-
-        if ( windowWidth <= breakPointWidth ) {
-            closeVerticalNav();
+            var $navBarToggler = $( '#navbar-toggler-mini' );
+            if ( $slideOutWrapper.length && $navBarToggler.length ) {
+        
+                var openVerticalNav = function() {
+                    $body.removeClass( 'slideout-mini-hover' );
+                    $body.removeClass( 'slideout-mini' );
+                    $slideOutWrapper.removeClass( 'mini' );
+                    $navBarToggler.removeClass( 'collapsed' );
+                };
+        
+                var closeVerticalNav = function() {
+                    $body.addClass( 'slideout-mini' );
+                    $slideOutWrapper.addClass( 'mini' );
+                    $navBarToggler.addClass( 'collapsed' );
+                    $( '.slideout-wrapper.mini .menu-item .sub-menu' ).removeClass('is-open');
+                };
+        
+                var windowWidth = $( window ).width();
+                var breakPointWidth = 1400;
+        
+                if ( windowWidth <= breakPointWidth ) {
+                    closeVerticalNav();
+                }
+        
+                $( window ).on( 'resize', function() {
+                    var previousWindowWidth = windowWidth;
+                    windowWidth = $( window ).width();
+        
+                    if ( previousWindowWidth > breakPointWidth && windowWidth <= breakPointWidth ) {
+                        closeVerticalNav();
+                    }
+                    else if ( previousWindowWidth <= breakPointWidth && windowWidth > breakPointWidth ) {
+                        openVerticalNav();
+                    }
+                } );
+        
+                // Open / Close vertical navigation
+                $navBarToggler.on( 'click', function() {
+                    if ( $body.hasClass( 'slideout-mini-hover' ) || $body.hasClass( 'slideout-mini' ) ) {
+                        openVerticalNav();
+                    }
+                    else if ( ! $slideOutWrapper.hasClass( 'mini' ) ) {
+                        closeVerticalNav();
+                    }
+        
+                    // Reload masonry
+                    $( '.masonry' ).masonry('reloadItems').masonry('layout');
+                } );
+        
+                // Open vertical navigation on mouse enter
+                $body.on( 'mouseenter', '.slideout-wrapper.mini', function() {
+                    $body.addClass( 'slideout-mini-hover' ).removeClass( 'slideout-mini' );
+                } );
+        
+                // Close vertical navigation when mouse leaves
+                $body.on( 'mouseleave', '.slideout-wrapper.mini', function() {
+                    $body.removeClass( 'slideout-mini-hover' ).addClass( 'slideout-mini' );
+                    $( '.slideout-wrapper.mini .menu-item' ).removeClass('is-toggled');
+                    $( '.slideout-wrapper.mini .menu-item .sub-menu' ).removeClass('is-open');
+                } );
+            }
         }
-
-        $( window ).on( 'resize', function() {
-            var previousWindowWidth = windowWidth;
-            windowWidth = $( window ).width();
-
-            if ( previousWindowWidth > breakPointWidth && windowWidth <= breakPointWidth ) {
-                closeVerticalNav();
-            }
-            else if ( previousWindowWidth <= breakPointWidth && windowWidth > breakPointWidth ) {
-                openVerticalNav();
-            }
-        } );
-
-        // Open / Close vertical navigation
-        $navBarToggler.on( 'click', function() {
-            if ( $body.hasClass( 'slideout-mini-hover' ) || $body.hasClass( 'slideout-mini' ) ) {
-                openVerticalNav();
-            }
-            else if ( ! $slideOutWrapper.hasClass( 'mini' ) ) {
-                closeVerticalNav();
-            }
-
-            // Reload masonry
-            $( '.masonry' ).masonry('reloadItems').masonry('layout');
-        } );
-
-        // Open vertical navigation on mouse enter
-        $body.on( 'mouseenter', '.slideout-wrapper.mini', function() {
-            $body.addClass( 'slideout-mini-hover' ).removeClass( 'slideout-mini' );
-        } );
-
-        // Close vertical navigation when mouse leaves
-        $body.on( 'mouseleave', '.slideout-wrapper.mini', function() {
-            $body.removeClass( 'slideout-mini-hover' ).addClass( 'slideout-mini' );
-            $( '.slideout-wrapper.mini .menu-item' ).removeClass('is-toggled');
-            $( '.slideout-wrapper.mini .menu-item .sub-menu' ).removeClass('is-open');
-        } );
-    }
+    });
 
     /**
      * Recalculate masonry when dashboard content changes

@@ -19,6 +19,54 @@ $cera_child = require get_stylesheet_directory() . '/inc/class-cera-child.php';
  * Add your customizations below this line.
  */
 
+
+add_action('admin_init', 'my_general_section');  
+function my_general_section() {  
+    add_settings_section(  
+        'phone_section', // Section ID 
+        'Phone number', // Section Title
+        'my_section_options_callback', // Callback
+        'general' // What Page?  This makes the section show up on the General Settings Page
+    );
+
+    add_settings_field( // Option 1
+        'phone_number', // Option ID
+        'Number', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'phone_section', // Name of our section
+        array( // The $args
+            'phone_number' // Should match Option ID
+        )  
+	); 
+
+	add_settings_field( // Option 1
+        'phone_number_label', // Option ID
+        'Label', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'phone_section', // Name of our section
+        array( // The $args
+            'phone_number_label' // Should match Option ID
+        )  
+    ); 
+
+	register_setting('general','phone_number', 'esc_attr');
+    register_setting('general','phone_number_label', 'esc_attr');
+}
+
+function my_section_options_callback() { // Section Callback
+    echo '<p>Number displayed on call to action button</p>';  
+}
+
+function my_textbox_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+
+
+
+
 add_action('admin_notices', 'propuneri_solutii_admin_notice');
 function propuneri_solutii_admin_notice()
 {
@@ -234,9 +282,9 @@ function cera_child_body_classes($classes, $class){
     return $classes;
 }
 
-add_action('wp_ajax_nopriv_archive_category', 'archive_category_function');
+// add_action('wp_ajax_nopriv_archive_category', 'archive_category_function');
 add_action('wp_ajax_archive_category', 'archive_category_function');
-function archive_category_function(){
+function archive_category_function() {
     if(function_exists('ht_kb_display_archive')): 		
         ht_kb_display_archive();
     endif;
@@ -245,7 +293,49 @@ function archive_category_function(){
         ht_kb_display_uncategorized_articles();
     endif;
 
-    exit();
+    wp_die();
+}
+
+add_action('wp_ajax_sidebar_right', 'sidebar_right_function');
+function sidebar_right_function() {
+    get_sidebar( 'right' );
+
+    wp_die();
+}
+
+add_action('wp_ajax_cera_footer', 'cera_footer_function');
+function cera_footer_function() {
+    do_action( 'cera_footer' );
+
+    wp_die();
+}
+
+add_action('wp_ajax_cera_after_site', 'cera_after_site_function');
+function cera_after_site_function() {
+    do_action( 'cera_after_site' );
+
+    wp_die();
+}
+
+add_action('wp_ajax_cera_header', 'cera_header_function');
+function cera_header_function() {
+	do_action( 'cera_header' );
+
+    wp_die();
+}
+
+add_action('wp_ajax_homepage_1', 'homepage1_function');
+function homepage1_function() {
+	dynamic_sidebar( 'homepage-1' );
+
+    wp_die();
+}
+
+add_action('wp_ajax_grimlock_vertical_navbar', 'grimlock_vertical_navbar_function');
+function grimlock_vertical_navbar_function() {
+	do_action( 'grimlock_vertical_navbar', $_GET[props] );
+
+    wp_die();
 }
 
 add_action('acf/save_post', 'my_acf_save_post', 20);
