@@ -26,7 +26,7 @@ class Grimlock_Vertical_Navigation_Component extends Grimlock_Component {
 					case 'hamburger-right' :
 					case 'hamburger-left' : ?>
 						<script>
-							if(true){
+							if(false){
 								$(document).ready(function(){
 									$.get(ajaxurl,{
 										'action': 'grimlock_vertical_navbar',
@@ -43,7 +43,7 @@ class Grimlock_Vertical_Navigation_Component extends Grimlock_Component {
 						<div id="slideout-backdrop" class="slideout-backdrop slideout-close"></div>
 
 						<div id="slideout-wrapper" class="slideout-wrapper">
-							<?php //do_action( 'grimlock_vertical_navbar', $this->props ); ?> 
+							<?php do_action( 'grimlock_vertical_navbar', $this->props ); ?> 
 						</div><!-- .slideout-wrapper -->
 						<?php
 						break;
