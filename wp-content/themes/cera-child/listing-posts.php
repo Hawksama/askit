@@ -108,7 +108,7 @@ get_header();?>
 	</div><!-- #primary -->
 
 	<script>
-	$(document).ready(function(){
+	$(window).load(function(){
 		if(true){
 			$.get(ajaxurl,{'action': 'archive_category'}, 
 				function (data) { 
