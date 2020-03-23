@@ -108,7 +108,8 @@ get_header();?>
 	</div><!-- #primary -->
 
 	<script>
-		$(document).ready(function(){
+	$(document).ready(function(){
+		if(true){
 			$.get(ajaxurl,{'action': 'archive_category'}, 
 				function (data) { 
 					$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
@@ -128,7 +129,8 @@ get_header();?>
 					$('#homepage_1').remove();
 				}
 			);
-		});
+		}
+	});
 	</script>
 
 

@@ -46,7 +46,7 @@ if ( ! class_exists( 'Cera_Grimlock_Vertical_Navbar_Component' ) ) :
 		public function render() {
 			?>
 			<<?php $this->render_el(); ?> <?php $this->render_id(); ?> <?php $this->render_class(); ?> <?php $this->render_style(); ?> <?php $this->render_role(); ?>>
-			<div class="navbar-wrapper">
+			<div class="navbar-wrapper test">
 				<?php
 				$this->render_brand();
 				$this->render_search_form();

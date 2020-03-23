@@ -375,8 +375,9 @@ function bbp_get_statistics( $args = array() ) {
 			$topics = $topic_titles = array();
 
 			// Pending
+
 			$topics['pending'] = ( ! empty( $r['count_pending_topics'] ) && current_user_can( 'edit_others_topics' ) )
-				? (int) $all_topics->{$pending}
+				? isset($all_topics->{$pending}) ? (int) $all_topics->{$pending} : 0
 				: 0;
 
 			// Private
@@ -434,7 +435,7 @@ function bbp_get_statistics( $args = array() ) {
 
 			// Pending
 			$replies['pending'] = ( ! empty( $r['count_pending_replies'] ) && current_user_can( 'edit_others_replies' ) )
-				? (int) $all_replies->{$pending}
+				? isset($all_replies->{$pending}) ? (int) $all_replies->{$pending} : 0
 				: 0;
 
 			// Private

@@ -235,7 +235,7 @@ function remove_plugin_updates( $value ) {
 	unset( $value->response['grimlock-animate/grimlock-animate.php']);
 	unset( $value->response['grimlock/grimlock.php']);
 	unset( $value->response['custom-menu-class/custom-menu-class.php']); // PHP7.3 fixes
-	unset( $value->response['wp-super-cache/wp-cache.php']); // php $post array error fix
+	unset( $value->response['wp-super-cache/wp-cache.php']); // wordpress error on wp-content/plugins/wp-super-cache/wp-cache-phase2.php line 3096
     return $value;
 }
 
@@ -282,7 +282,7 @@ function cera_child_body_classes($classes, $class){
     return $classes;
 }
 
-// add_action('wp_ajax_nopriv_archive_category', 'archive_category_function');
+add_action('wp_ajax_nopriv_archive_category', 'archive_category_function');
 add_action('wp_ajax_archive_category', 'archive_category_function');
 function archive_category_function() {
     if(function_exists('ht_kb_display_archive')): 		
@@ -297,6 +297,7 @@ function archive_category_function() {
 }
 
 add_action('wp_ajax_sidebar_right', 'sidebar_right_function');
+add_action('wp_ajax_nopriv_sidebar_right', 'sidebar_right_function');
 function sidebar_right_function() {
     get_sidebar( 'right' );
 
@@ -304,6 +305,7 @@ function sidebar_right_function() {
 }
 
 add_action('wp_ajax_cera_footer', 'cera_footer_function');
+add_action('wp_ajax_nopriv_cera_footer', 'cera_footer_function');
 function cera_footer_function() {
     do_action( 'cera_footer' );
 
@@ -311,6 +313,7 @@ function cera_footer_function() {
 }
 
 add_action('wp_ajax_cera_after_site', 'cera_after_site_function');
+add_action('wp_ajax_nopriv_cera_after_site', 'cera_after_site_function');
 function cera_after_site_function() {
     do_action( 'cera_after_site' );
 
@@ -318,6 +321,7 @@ function cera_after_site_function() {
 }
 
 add_action('wp_ajax_cera_header', 'cera_header_function');
+add_action('wp_ajax_nopriv_cera_header', 'cera_header_function');
 function cera_header_function() {
 	do_action( 'cera_header' );
 
@@ -325,15 +329,17 @@ function cera_header_function() {
 }
 
 add_action('wp_ajax_homepage_1', 'homepage1_function');
+add_action('wp_ajax_nopriv_homepage_1', 'homepage1_function');
 function homepage1_function() {
 	dynamic_sidebar( 'homepage-1' );
 
     wp_die();
 }
 
+add_action('wp_ajax_nopriv_grimlock_vertical_navbar', 'grimlock_vertical_navbar_function');
 add_action('wp_ajax_grimlock_vertical_navbar', 'grimlock_vertical_navbar_function');
 function grimlock_vertical_navbar_function() {
-	do_action( 'grimlock_vertical_navbar', $_GET[props] );
+	do_action( 'grimlock_vertical_navbar', $_GET['props'] );
 
     wp_die();
 }

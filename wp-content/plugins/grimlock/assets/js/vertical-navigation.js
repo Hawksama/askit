@@ -60,7 +60,8 @@
             slideout.toggle();
         });
 
-        $('.slideout-close').on('click', function () {
+        // CARABUS MODIFIED FOR DYNAMIC BIND
+        $('#site-wrapper').on("click", '.slideout-close', function() {
             slideout.close();
         });
 

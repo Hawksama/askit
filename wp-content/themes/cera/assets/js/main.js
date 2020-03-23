@@ -158,6 +158,7 @@ jQuery( function( $ ) {
                     windowWidth = $( window ).width();
         
                     if ( previousWindowWidth > breakPointWidth && windowWidth <= breakPointWidth ) {
+                        debugger;
                         closeVerticalNav();
                     }
                     else if ( previousWindowWidth <= breakPointWidth && windowWidth > breakPointWidth ) {

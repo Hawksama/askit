@@ -26,8 +26,8 @@ class Grimlock_Vertical_Navigation_Component extends Grimlock_Component {
 					case 'hamburger-right' :
 					case 'hamburger-left' : ?>
 						<script>
-							// $(document).ready(function(){
-								if(true){
+							if(true){
+								$(document).ready(function(){
 									$.get(ajaxurl,{
 										'action': 'grimlock_vertical_navbar',
 										'props': <?= json_encode($this->props) ?>
@@ -36,13 +36,14 @@ class Grimlock_Vertical_Navigation_Component extends Grimlock_Component {
 											$('#slideout-wrapper').append(data).addClass('menu-ajax-loaded').trigger('classAdded');
 										}
 									);
-								}
-							// });
+								});
+							}
 						</script>
 
 						<div id="slideout-backdrop" class="slideout-backdrop slideout-close"></div>
 
 						<div id="slideout-wrapper" class="slideout-wrapper">
+							<?php //do_action( 'grimlock_vertical_navbar', $this->props ); ?> 
 						</div><!-- .slideout-wrapper -->
 						<?php
 						break;

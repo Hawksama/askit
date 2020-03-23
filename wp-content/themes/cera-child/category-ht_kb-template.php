@@ -25,12 +25,11 @@ get_header();?>
 								$args = array(
 									'orderby'       =>  'term_order',
 									'depth'         =>  1,
-									'child_of'      => 	$term->term_id,
 									'hide_empty'    =>  0,
-									'pad_counts'   	=>	true
+									'pad_counts'   	=>	true,
+									'parent'		=>  0
 								); 
 								$sub_categories = get_terms('ht_kb_category', $args);
-								$sub_categories = wp_list_filter($sub_categories,array('parent'=>$term->term_id));
 						
 								foreach ($sub_categories as $category) { ?>
 									<li class="bp-card-list__item has-post-thumbnail element-animated fade-in short element-animated-delay element-animated-both odd is-online">
@@ -39,18 +38,16 @@ get_header();?>
 												<div class="card-img">
 													<a href="<?php echo esc_attr(get_term_link($category, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $category->name ) ?>"">
 														<?php	
+														$t_id = $category->term_id;
 														$term_meta = get_option( "taxonomy_$t_id" );
-														$default_preview = plugins_url( 'img/no-image.png', dirname(__FILE__) );
 
 														//get the attachment thumb array
 														$attachment_thumb = ( isset ( $term_meta['meta_image'] ) ) ? wp_get_attachment_image_src( $term_meta['meta_image'], 'thumbnail' ) : null ;
-														
-														$thumbnail_url = ( !empty($attachment_thumb) ) ? $attachment_thumb[0] : $default_preview;
 														?>
 															
 														<?php if(!empty($attachment_thumb)) : ?>
 															<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">
-																<img class="img-fluid" src="<?= $thumbnail_url ?>">
+																<img class="img-fluid" src="<?= $attachment_thumb[0] ?>">
 															</div>
 														<?php else: ?>
 															<div class="bg-secondary p-3 rounded-full d-flex justify-content-center align-items-center">

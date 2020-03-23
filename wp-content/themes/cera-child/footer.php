@@ -37,27 +37,29 @@
 </div>
 
 <script>
-	$(document).ready(function(){
-		$.get(ajaxurl,{'action': 'cera_footer'}, 
-			function (data) { 
-				$('#cera_footer_function').after(data);
-				$('#cera_footer_function').remove();
-			}
-		);
+	$(window).load(function(){
+		if(true){
+			$.get(ajaxurl,{'action': 'cera_footer'}, 
+				function (data) { 
+					$('#cera_footer_function').after(data);
+					$('#cera_footer_function').remove();
+				}
+			);
 
-		$.get(ajaxurl,{'action': 'cera_after_site'}, 
-			function (data) { 
-				$('#cera_after_site_function').after(data);
-				$('#cera_after_site_function').remove();
-			}
-		);
+			$.get(ajaxurl,{'action': 'cera_after_site'}, 
+				function (data) { 
+					$('#cera_after_site_function').after(data);
+					$('#cera_after_site_function').remove();
+				}
+			);
 
-		$.get(ajaxurl,{'action': 'cera_header'}, 
-			function (data) { 
-				$('#cera_header_function').after(data);
-				$('#cera_header_function').remove();
-			}
-		);
+			$.get(ajaxurl,{'action': 'cera_header'}, 
+				function (data) { 
+					$('#cera_header_function').after(data);
+					$('#cera_header_function').remove();
+				}
+			);
+		}
 	});
 </script>
 

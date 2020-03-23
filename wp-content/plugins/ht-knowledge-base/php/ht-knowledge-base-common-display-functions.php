@@ -1494,7 +1494,7 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 															<div class="col-2 views-counter-wrapper">
 																<div class="row no-gutters ">
 																	<div class="col-4">
-																		<i class="far fa-eye"></i>
+																		<i class="fa fa-eye"></i>
 																	</div>
 																	<div class="col-8">
 																		<a href="<?php echo get_permalink($post->ID); ?>">
@@ -1705,7 +1705,7 @@ if(!function_exists('ht_kb_display_archive')){
 																<div class="col-2 views-counter-wrapper">
 																	<div class="row no-gutters ">
 																		<div class="col-4">
-																			<i class="far fa-eye"></i>
+																			<i class="fa fa-eye"></i>
 																		</div>
 																		<div class="col-8">
 																			<a href="<?php echo get_permalink($post->ID); ?>">
