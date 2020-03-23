@@ -209,7 +209,6 @@ jQuery(document).ready(function($) {
 
 		$(this).addClass("loading");
 
-		debugger;
 		get_page = $.post(BBOSS_GLOBAL_SEARCH.ajaxurl, {
 			'action': BBOSS_GLOBAL_SEARCH.action,
 			'nonce': BBOSS_GLOBAL_SEARCH.nonce,
