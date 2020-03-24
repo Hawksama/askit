@@ -42,27 +42,22 @@ get_header();?>
 								<?php bbp_get_template_part( 'ht-knowledge', 'search' ); ?>
 
 								<ul class="bbp-forums ht-posts-list">
-									<li class="dashboard--fake">
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-									</li>
+									<?php 
+									if(function_exists('ht_kb_display_archive')): 		
+										ht_kb_display_archive();
+									endif;
+								
+									if(function_exists('ht_kb_display_uncategorized_articles')):
+										ht_kb_display_uncategorized_articles();
+									endif;
+									?>
 								</ul>
 
 							</div>
 						</article>
 					</main><!-- #main -->
 					
-					<div id="secondary-right" class="widget-area sidebar region__col region__col--3 aside-fake">
+					<!-- <div id="secondary-right" class="widget-area sidebar region__col region__col--3 aside-fake">
 						<div class="aside--fake__item widget buddypress widget">
 							<h2 class="widget-title title-fake">
 								<span>placeholder</span>
@@ -97,11 +92,12 @@ get_header();?>
 								<li></li>
 							</ul>
 						</div>
-					</div>
+					</div> -->
+					<?php get_sidebar( 'right' ); ?>
 				</div>
 				
-				<div id="homepage_1"></div>
-				<?php //dynamic_sidebar( 'homepage-1' ); ?>
+				<!-- <div id="homepage_1"></div> -->
+				<?php dynamic_sidebar( 'homepage-1' ); ?>
 			</div>
 		</div>
 		
@@ -110,25 +106,25 @@ get_header();?>
 	<script>
 	$(window).load(function(){
 		if(true){
-			$.get(ajaxurl,{'action': 'archive_category'}, 
-				function (data) { 
-					$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
-				}
-			);
+			// $.get(ajaxurl,{'action': 'archive_category'}, 
+			// 	function (data) { 
+			// 		$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
+			// 	}
+			// );
 
-			$.get(ajaxurl,{'action': 'sidebar_right'}, 
-				function (data) { 
-					$('#secondary-right').remove();
-					$('.site-main').after(data);
-				}
-			);
+			// $.get(ajaxurl,{'action': 'sidebar_right'}, 
+			// 	function (data) { 
+			// 		$('#secondary-right').remove();
+			// 		$('.site-main').after(data);
+			// 	}
+			// );
 
-			$.get(ajaxurl,{'action': 'homepage_1'}, 
-				function (data) { 
-					$('#homepage_1').after(data);
-					$('#homepage_1').remove();
-				}
-			);
+			// $.get(ajaxurl,{'action': 'homepage_1'}, 
+			// 	function (data) { 
+			// 		$('#homepage_1').after(data);
+			// 		$('#homepage_1').remove();
+			// 	}
+			// );
 		}
 	});
 	</script>

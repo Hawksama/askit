@@ -23,10 +23,12 @@
 	 * @hooked cera_grimlock_after_content - 10
 	 * @hooked cera_grimlock_footer        - 20
 	 */
+	do_action( 'cera_footer' );
 	?>
-	<div id="cera_footer_function"></div>
+	<!-- <div id="cera_footer_function"></div> -->
 		
-	<div id="cera_after_site_function"></div>
+	<!-- <div id="cera_after_site_function"></div> -->
+	<?php do_action( 'cera_after_site' ); ?>
 
 <?php wp_footer(); ?>
 
@@ -38,28 +40,26 @@
 
 <script>
 	$(window).load(function(){
-		if(true){
-			$.get(ajaxurl,{'action': 'cera_footer'}, 
-				function (data) { 
-					$('#cera_footer_function').after(data);
-					$('#cera_footer_function').remove();
-				}
-			);
+		// $.get(ajaxurl,{'action': 'cera_footer'}, 
+		// 	function (data) { 
+		// 		$('#cera_footer_function').after(data);
+		// 		$('#cera_footer_function').remove();
+		// 	}
+		// );
 
-			$.get(ajaxurl,{'action': 'cera_after_site'}, 
-				function (data) { 
-					$('#cera_after_site_function').after(data);
-					$('#cera_after_site_function').remove();
-				}
-			);
+		// $.get(ajaxurl,{'action': 'cera_after_site'}, 
+		// 	function (data) { 
+		// 		$('#cera_after_site_function').after(data);
+		// 		$('#cera_after_site_function').remove();
+		// 	}
+		// );
 
-			$.get(ajaxurl,{'action': 'cera_header'}, 
-				function (data) { 
-					$('#cera_header_function').after(data);
-					$('#cera_header_function').remove();
-				}
-			);
-		}
+		// $.get(ajaxurl,{'action': 'cera_header'}, 
+		// 	function (data) { 
+		// 		$('#cera_header_function').after(data);
+		// 		$('#cera_header_function').remove();
+		// 	}
+		// );
 	});
 </script>
 
