@@ -130,19 +130,17 @@ function the_champ_sync_woocom_profile($userId, $userdata, $profileData){
 function the_champ_load_event(){
 	?>
 	<script type ="text/javascript"> 
-		document.addEventListener("DOMContentLoaded", function(event) {
-			function theChampLoadEvent(e) {
-				var t = window.onload;
-				if (typeof window.onload != "function") {
-					window.onload = e
-				} else {
-					window.onload = function () {
-						t();
-						e()
-					}
+		function theChampLoadEvent(e) {
+			var t = window.onload;
+			if (typeof window.onload != "function") {
+				window.onload = e
+			} else {
+				window.onload = function () {
+					t();
+					e()
 				}
-			} 
-		});
+			}
+		} 
 	</script>
 	<?php
 }
