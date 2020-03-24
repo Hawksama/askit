@@ -481,3 +481,9 @@ $background-main-color: #242a34;
 .slideout-wrapper {
     background-color: $background-main-color;
 }
+
+.grimlock--navigation-fixed-left.grimlock--navigation-fixed.single-ht_kb {
+    .site-preheader {
+        display: none;
+    }
+}

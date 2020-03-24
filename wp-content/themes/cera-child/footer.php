@@ -39,7 +39,7 @@
 </div>
 
 <script>
-	$(window).load(function(){
+	// $(window).load(function(){
 		// $.get(ajaxurl,{'action': 'cera_footer'}, 
 		// 	function (data) { 
 		// 		$('#cera_footer_function').after(data);
@@ -60,7 +60,7 @@
 		// 		$('#cera_header_function').remove();
 		// 	}
 		// );
-	});
+	// });
 </script>
 
 </body>

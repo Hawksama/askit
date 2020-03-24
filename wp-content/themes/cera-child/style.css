@@ -655,4 +655,7 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .slideout-wrapper {
   background-color: #242a34; }
 
+.grimlock--navigation-fixed-left.grimlock--navigation-fixed.single-ht_kb .site-preheader {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */
