@@ -237,6 +237,7 @@ function remove_plugin_updates( $value ) {
 	unset( $value->response['custom-menu-class/custom-menu-class.php']); // PHP7.3 fixes
 	unset( $value->response['wp-super-cache/wp-cache.php']); // wordpress error on wp-content/plugins/wp-super-cache/wp-cache-phase2.php line 3096
 	unset( $value->response['super-socializer/super_socializer.php']);
+	unset( $value->response['grimlock-buddypress/grimlock-buddypress.php']);
     return $value;
 }
 
@@ -659,3 +660,26 @@ if (!function_exists('cera_search_post')):
 		<?php
 	}
 endif;
+
+add_filter('autoptimize_filter_noptimize','invoice_noptimize',10,0);
+function invoice_noptimize() {
+	$noOptimize = false;
+	if (strpos($_SERVER['REQUEST_URI'],'members')!==false) {
+		if (strpos($_SERVER['REQUEST_URI'],'profile')!==false) {
+			$noOptimize = true;
+		}
+
+		if (strpos($_SERVER['REQUEST_URI'],'friends')!==false) {
+			$noOptimize = true;
+		}
+
+		if (strpos($_SERVER['REQUEST_URI'],'groups')!==false) {
+			$noOptimize = true;
+		}
+
+		if (strpos($_SERVER['REQUEST_URI'],'articles')!==false) {
+			$noOptimize = true;
+		}
+	}	
+
+}

@@ -10,7 +10,8 @@
  */
 
 ?>
-			</div>
+			<?php do_action( 'cera_footer' ); ?>
+			<!-- </div> -->
 		</div><!-- #site -->
 		
 	</div><!-- #site-wrapper -->
@@ -23,7 +24,6 @@
 	 * @hooked cera_grimlock_after_content - 10
 	 * @hooked cera_grimlock_footer        - 20
 	 */
-	do_action( 'cera_footer' );
 	?>
 	<!-- <div id="cera_footer_function"></div> -->
 		

@@ -482,13 +482,13 @@ $background-main-color: #242a34;
     background-color: $background-main-color;
 }
 
-.grimlock--navigation-fixed-left.grimlock--navigation-fixed.single-ht_kb {
+.grimlock--navigation-fixed-left.grimlock--navigation-fixed.single-ht_kb:not(.logged-in) {
     .site-preheader {
         display: none;
     }
 }
 
-.grimlock--navigation-fixed.single-ht_kb {
+.grimlock--navigation-fixed.single-ht_kb:not(.logged-in) {
     .site-preheader+.site-header .hamburger-navbar {
         top: 0px!important;
     }
@@ -496,4 +496,9 @@ $background-main-color: #242a34;
     .grimlock-preheader+.grimlock-header #custom_header {
         margin-top: 60px;
     }
+}
+
+.btn-back-to-top {
+    right: 17px;
+    bottom: 100px;
 }

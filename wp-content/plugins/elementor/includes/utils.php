@@ -397,8 +397,11 @@ class Utils {
 	 * @static
 	 */
 	public static function do_not_cache() {
-		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
-			define( 'DONOTCACHEPAGE', true );
+
+		if ( 1 === (int) get_option( 'wp_super_cache_disabled' ) ) {
+			if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+				define( 'DONOTCACHEPAGE', true );
+			}
 		}
 
 		if ( ! defined( 'DONOTCACHEDB' ) ) {

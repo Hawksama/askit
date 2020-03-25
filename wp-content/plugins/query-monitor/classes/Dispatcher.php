@@ -93,9 +93,11 @@ abstract class QM_Dispatcher {
 		if ( ! $this->user_can_view() ) {
 			return;
 		}
-
-		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
-			define( 'DONOTCACHEPAGE', 1 );
+		
+		if ( 1 === (int) get_option( 'wp_super_cache_disabled' ) ) {
+			if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+				define( 'DONOTCACHEPAGE', 1 );
+			}
 		}
 
 		add_action( 'send_headers', 'nocache_headers' );
