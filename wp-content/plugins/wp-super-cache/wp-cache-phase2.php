@@ -3093,7 +3093,7 @@ function wp_cache_post_id() {
 	if ($post_ID > 0 ) return $post_ID;
 	if ($comment_post_ID > 0 )  return $comment_post_ID;
 	//CARABUS FIXES return $posts->posts[0]->ID
-	if (is_singular() && !empty($posts)) return $posts[0]->ID;
+	if (is_singular() && !empty($posts)) return ($posts->posts[0]) ? $posts->posts[0]->ID : $posts[0]->ID;
 	if (isset( $_GET[ 'p' ] ) && $_GET['p'] > 0) return $_GET['p'];
 	if (isset( $_POST[ 'p' ] ) && $_POST['p'] > 0) return $_POST['p'];
 	return 0;

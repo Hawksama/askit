@@ -236,6 +236,7 @@ function remove_plugin_updates( $value ) {
 	unset( $value->response['grimlock/grimlock.php']);
 	unset( $value->response['custom-menu-class/custom-menu-class.php']); // PHP7.3 fixes
 	unset( $value->response['wp-super-cache/wp-cache.php']); // wordpress error on wp-content/plugins/wp-super-cache/wp-cache-phase2.php line 3096
+	unset( $value->response['super-socializer/super_socializer.php']);
     return $value;
 }
 

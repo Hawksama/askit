@@ -789,8 +789,8 @@
   }
 
   Tools.prototype.isNodeList = function (object) {
-    var prototypeToString = Object.prototype.toString.call(object)
-    var regex = /^\[object (HTMLCollection|NodeList|Object)\]$/
+    var prototypeToString = Object.prototype.toString.call(object);
+    var regex = /^\[object (HTMLCollection|NodeList|Object)\]$/;
 
     return typeof window.NodeList === 'object'
       ? object instanceof window.NodeList

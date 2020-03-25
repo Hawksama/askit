@@ -658,4 +658,10 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 .grimlock--navigation-fixed-left.grimlock--navigation-fixed.single-ht_kb .site-preheader {
   display: none; }
 
+.grimlock--navigation-fixed.single-ht_kb .site-preheader + .site-header .hamburger-navbar {
+  top: 0px !important; }
+
+.grimlock--navigation-fixed.single-ht_kb .grimlock-preheader + .grimlock-header #custom_header {
+  margin-top: 60px; }
+
 /*# sourceMappingURL=style.css.map */

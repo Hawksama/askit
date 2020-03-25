@@ -487,3 +487,13 @@ $background-main-color: #242a34;
         display: none;
     }
 }
+
+.grimlock--navigation-fixed.single-ht_kb {
+    .site-preheader+.site-header .hamburger-navbar {
+        top: 0px!important;
+    }
+
+    .grimlock-preheader+.grimlock-header #custom_header {
+        margin-top: 60px;
+    }
+}

@@ -596,55 +596,59 @@ function theChampGetSharingCounts(){
 	if(targetUrls.length == 0){
 		return;
 	}
-	jQuery.ajax({
-		type: 'GET',
-		dataType: 'json',
-		url: theChampSharingAjaxUrl,
-		data: {
-			action: 'the_champ_sharing_count',
-			urls: targetUrls,
-		},
-		success: function(data, textStatus, XMLHttpRequest){
-			if(data.status == 1){
-				if(data.facebook){
-					heateorSsFacebookTargetUrls = data.facebook_urls;
-				}
-				for(var i in data.message){
-					var sharingContainers = jQuery("div[super-socializer-data-href='"+i+"']");
+	
+	jQuery(window).load(function(){
+		alert('here  sharing.js');
+		jQuery.ajax({
+			type: 'GET',
+			dataType: 'json',
+			url: theChampSharingAjaxUrl,
+			data: {
+				action: 'the_champ_sharing_count',
+				urls: targetUrls,
+			},
+			success: function(data, textStatus, XMLHttpRequest){
+				if(data.status == 1){
+					if(data.facebook){
+						heateorSsFacebookTargetUrls = data.facebook_urls;
+					}
+					for(var i in data.message){
+						var sharingContainers = jQuery("div[super-socializer-data-href='"+i+"']");
 
-					jQuery(sharingContainers).each(function(){
-						var totalCount = 0;
-						for(var j in data.message[i]){
-							var sharingCount = parseInt(data.message[i][j]) || 0;
+						jQuery(sharingContainers).each(function(){
+							var totalCount = 0;
+							for(var j in data.message[i]){
+								var sharingCount = parseInt(data.message[i][j]) || 0;
 
-							var targetElement = jQuery(this).find('.the_champ_'+j+'_count');
-							
-							if(jQuery(targetElement).attr('ss_st_count')){
-								sharingCount = parseInt(sharingCount) + parseInt(jQuery(targetElement).attr('ss_st_count'));
+								var targetElement = jQuery(this).find('.the_champ_'+j+'_count');
+								
+								if(jQuery(targetElement).attr('ss_st_count')){
+									sharingCount = parseInt(sharingCount) + parseInt(jQuery(targetElement).attr('ss_st_count'));
+								}
+								totalCount += parseInt(sharingCount);
+								if(sharingCount < 1){ continue; }
+								jQuery(targetElement).html(theChampCalculateApproxCount(sharingCount)).css({'visibility': 'visible', 'display': 'block'});
+								
+								if ( ( typeof theChampReduceHorizontalSvgWidth != 'undefined' && jQuery(this).hasClass('the_champ_horizontal_sharing') ) || ( typeof theChampReduceVerticalSvgWidth != 'undefined' && jQuery(this).hasClass('the_champ_vertical_sharing') ) ) {
+									jQuery(targetElement).parents('li').find('.theChampSharingSvg').css('float', 'left');
+								}
+								if ( ( typeof theChampReduceHorizontalSvgHeight != 'undefined' && jQuery(this).hasClass('the_champ_horizontal_sharing') ) || ( typeof theChampReduceVerticalSvgHeight != 'undefined' && jQuery(this).hasClass('the_champ_vertical_sharing') ) ) {
+									jQuery(targetElement).parents('li').find('.theChampSharingSvg').css('marginTop', '0');
+								}
 							}
-							totalCount += parseInt(sharingCount);
-							if(sharingCount < 1){ continue; }
-							jQuery(targetElement).html(theChampCalculateApproxCount(sharingCount)).css({'visibility': 'visible', 'display': 'block'});
-							
-							if ( ( typeof theChampReduceHorizontalSvgWidth != 'undefined' && jQuery(this).hasClass('the_champ_horizontal_sharing') ) || ( typeof theChampReduceVerticalSvgWidth != 'undefined' && jQuery(this).hasClass('the_champ_vertical_sharing') ) ) {
-								jQuery(targetElement).parents('li').find('.theChampSharingSvg').css('float', 'left');
-							}
-							if ( ( typeof theChampReduceHorizontalSvgHeight != 'undefined' && jQuery(this).hasClass('the_champ_horizontal_sharing') ) || ( typeof theChampReduceVerticalSvgHeight != 'undefined' && jQuery(this).hasClass('the_champ_vertical_sharing') ) ) {
-								jQuery(targetElement).parents('li').find('.theChampSharingSvg').css('marginTop', '0');
-							}
-						}
-						var totalCountContainer = jQuery(this).find('.theChampTCBackground');
-						jQuery(totalCountContainer).each(function(){
-							var containerHeight = jQuery(this).css('height');
-							jQuery(this).html('<div class="theChampTotalShareCount" style="font-size: '+ (parseInt(containerHeight) * 62/100) +'px">' + theChampCalculateApproxCount(totalCount) + '</div><div class="theChampTotalShareText" style="font-size: '+ (parseInt(containerHeight) * 38/100) +'px">' + (totalCount == 0 || totalCount > 1 ? heateorSsSharesText : heateorSsShareText) + '</div>').css('visibility', 'visible');
+							var totalCountContainer = jQuery(this).find('.theChampTCBackground');
+							jQuery(totalCountContainer).each(function(){
+								var containerHeight = jQuery(this).css('height');
+								jQuery(this).html('<div class="theChampTotalShareCount" style="font-size: '+ (parseInt(containerHeight) * 62/100) +'px">' + theChampCalculateApproxCount(totalCount) + '</div><div class="theChampTotalShareText" style="font-size: '+ (parseInt(containerHeight) * 38/100) +'px">' + (totalCount == 0 || totalCount > 1 ? heateorSsSharesText : heateorSsShareText) + '</div>').css('visibility', 'visible');
+							});
 						});
-					});
-				}
-				if(heateorSsFacebookTargetUrls.length != 0){
-					theChampFetchFacebookShares(heateorSsFacebookTargetUrls);
+					}
+					if(heateorSsFacebookTargetUrls.length != 0){
+						theChampFetchFacebookShares(heateorSsFacebookTargetUrls);
+					}
 				}
 			}
-		}
+		});
 	});
 }
 
