@@ -197,7 +197,10 @@ function bp_core_menu_highlight_parent_page( $retval, $page ) {
 			$retval[] = 'current_page_ancestor';
 		}
 		if ( $page->ID === $page_id ) {
-			$retval[] = 'current_page_item';
+			$current = $page->guid;
+			if ( strpos( $current, $_SERVER['REQUEST_URI'] ) !== false ) {
+				$retval[] = 'current_page_item';
+			}
 		} elseif ( $_bp_page && $page->ID === $_bp_page->post_parent ) {
 			$retval[] = 'current_page_parent';
 		}
