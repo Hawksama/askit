@@ -466,7 +466,7 @@ if ( ! class_exists( 'Cera' ) ) :
 
 			wp_enqueue_script( 'modernizr',                get_template_directory_uri() . '/assets/js/libs/modernizr.js',       array(), '3.6.0', false );
 			wp_enqueue_script( 'popper',                   get_template_directory_uri() . '/assets/js/vendor/popper.min.js',    array(), '1.14.3', true );
-			wp_enqueue_script( 'bootstrap',                get_template_directory_uri() . '/assets/js/vendor/bootstrap.min.js', array( 'jquery', 'popper' ), '4.1.3', true );
+			wp_enqueue_script( 'bootstrap',                get_template_directory_uri() . '/assets/js/vendor/bootstrap.js', array( 'jquery', 'popper' ), '4.1.3', true );
 			wp_enqueue_script( 'cera',                   get_template_directory_uri() . '/assets/js/main.js',                 array( 'bootstrap' ), CERA_VERSION, true );
 			wp_enqueue_script( 'cera-navigation-search', get_template_directory_uri() . '/assets/js/navigation-search.js',    array( 'jquery' ), CERA_VERSION, true );
 

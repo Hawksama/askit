@@ -498,7 +498,9 @@ $background-main-color: #242a34;
     }
 }
 
-.btn-back-to-top {
-    right: 17px;
-    bottom: 100px;
+body {
+    .btn-back-to-top {
+        right: 17px;
+        bottom: 100px;
+    }
 }
