@@ -23,10 +23,12 @@ get_header();?>
 			$posts = new WP_Query( $args );
 			if ($posts->have_posts()):
 				foreach ($posts->posts as $key => $item): ?>
-
 					<?php
 					$GLOBALS['post'] = $item;
+					ht_kb_set_post_views($item->ID);
+					
 					get_template_part( 'template-parts/content', 'single-ht_kb' );
+
 					do_action( 'cera_the_post_navigation' );
 					
 					// If comments are open or we have at least one comment, load up the comment template.

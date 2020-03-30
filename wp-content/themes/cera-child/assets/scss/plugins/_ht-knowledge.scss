@@ -13,3 +13,11 @@
 .ht-kb-article-list {
     width: 100%;
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .views-counter-wrapper {
+        padding-right: 0px;
+    }
+}

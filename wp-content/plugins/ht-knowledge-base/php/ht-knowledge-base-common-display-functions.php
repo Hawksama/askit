@@ -1491,7 +1491,7 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 
 													<li class="<?php echo $ht_kb_format_class; ?>">
 														<div class="row">
-															<div class="col-2 views-counter-wrapper">
+															<div class="col-3 col-md-2 views-counter-wrapper">
 																<div class="row no-gutters ">
 																	<div class="col-4">
 																		<i class="fa fa-eye"></i>
@@ -1509,7 +1509,7 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 																</div>
 															</div>
 
-															<div class="col-10">
+															<div class="col-9 col-md-10">
 																<a href="<?php echo get_permalink($post->ID); ?>">
 																	<span>
 																		<?php echo get_the_title($post->ID); ?>
@@ -1702,7 +1702,7 @@ if(!function_exists('ht_kb_display_archive')){
 
 														<li class="<?php echo $ht_kb_format_class; ?>">
 															<div class="row">
-																<div class="col-2 views-counter-wrapper">
+																<div class="col-3 col-md-2 views-counter-wrapper">
 																	<div class="row no-gutters ">
 																		<div class="col-4">
 																			<i class="fa fa-eye"></i>
@@ -1720,7 +1720,7 @@ if(!function_exists('ht_kb_display_archive')){
 																	</div>
 																</div>
 
-																<div class="col-10">
+																<div class="col-9 col-md-10">
 																	<a href="<?php echo get_permalink($post->ID); ?>">
 																		<span>
 																			<?php

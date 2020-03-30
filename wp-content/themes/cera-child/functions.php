@@ -459,6 +459,22 @@ if (!function_exists('cera_single_custom')):
 			
 			echo apply_filters( 'the_content', $GLOBALS['post']->post_content );
 
+			$voting =  get_post_meta( get_the_ID(), 'ht_knowledge_base_voting_checkbox', true );
+			$allow_voting_on_this_article = $voting ? true : false;
+			if( class_exists('HT_Voting') ): ?>
+				<div id="ht-kb-rate-article">
+				<?php // voting
+				global $ht_knowledge_base_options;
+				if( $ht_knowledge_base_options['voting-display'] && $allow_voting_on_this_article ){ ?>
+					<h3 id="ht-kb-rate-article-title"><?php echo "Voteaza";?></h3>
+					<?php if( $ht_knowledge_base_options['anon-voting'])
+						echo do_shortcode('[ht_voting allow="anon"]');
+					else
+						echo do_shortcode('[ht_voting allow="user"]');
+					} ?>
+				</div>
+			<?php endif;
+
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'cera' ) . '</span>',
 				'after'       => '</div>',

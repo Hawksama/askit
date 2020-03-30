@@ -29,13 +29,48 @@ get_header();?>
 					</div><!-- .region__row -->
 				</div><!-- .region__container -->
 			</div><!-- .region__inner -->
+			
 		</div><!-- .grimlock-section -->
+		
+		<div class="swiper-wrapper">
+			<div class="latest-news">
+				<?php 
+
+				$args = array(
+					'post_type'=> 'post',
+					'orderby'    => 'ID',
+					'post_status' => 'publish',
+					'order'    => 'DESC',
+					'posts_per_page' => 10 // this will retrive all the post that is published 
+				);
+				$result = new WP_Query( $args );
+				if ( $result-> have_posts() ) :
+					while ( $result->have_posts() ) : $result->the_post();
+
+						$post_thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+						if(!empty($post_thumbnail_id)) {
+							$img_ar =  wp_get_attachment_image_src( $post_thumbnail_id, 'full' ); 
+						}?>    
+						<div>
+							<a href="<?= get_permalink() ?>" class="slick-content" style="background-image: url('<?= $img_ar[0] ?>');">
+								<div class="slick-overlay">
+									<?php the_title(); ?>
+								</div>
+							</a>
+						</div>
+						<?php
+					endwhile;
+				endif; wp_reset_postdata();
+				?>
+			</div>
+		</div>
 
 		<div class="site-content region region--9-3-cols-left region--container-fluid">
 			<div class="region__container">
 				<div class="region__row">
 					<main id="main" class="site-main region__col region__col--2">
 						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 							<div id="bbpress-forums">
 								<?php bbp_breadcrumb(); ?>
 								
