@@ -389,13 +389,13 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
 
 /* Slider */
 .slick-loading .slick-list {
-  background: #fff url("./ajax-loader.gif") center center no-repeat; }
+  background: #fff url("./assets/ajax-loader.gif") center center no-repeat; }
 
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url("./fonts/slick.eot");
-  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  src: url("./assets/fonts/slick.eot");
+  src: url("./assets/fonts/slick.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/slick.woff") format("woff"), url("./assets/fonts/slick.ttf") format("truetype"), url("./assets/fonts/slick.svg#slick") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -934,7 +934,7 @@ div.the_champ_counter_container .the_champ_sharing_ul li {
     .latest-news.slick-initialized .slick-dots {
       bottom: 0px; }
       .latest-news.slick-initialized .slick-dots li button:before {
-        font-size: 25px; }
+        font-size: 15px; }
 
 @media screen and (max-width: 768px) {
   .site-content .region__col#primary {
@@ -949,7 +949,7 @@ div.the_champ_counter_container .the_champ_sharing_ul li {
     margin-right: 0px;
     margin-left: 0px; }
     .latest-news.slick-initialized .slick-dots li button:before {
-      font-size: 20px; } }
+      font-size: 10px; } }
 
 .main-navigation .navbar-nav.navbar-nav--buddypress > .menu-item.menu-item--friends > a:before {
   content: "";
