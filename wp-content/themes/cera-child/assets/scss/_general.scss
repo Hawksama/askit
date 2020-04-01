@@ -1,4 +1,5 @@
 $background-main-color: #242a34;
+$secondary-main-color: #ec7923;
 
 #cookie-law-info-again {
     display: none !important;
@@ -474,6 +475,18 @@ $background-main-color: #242a34;
             -webkit-transform: translate(-50%, -50%);
             color: rgba(255,255,255,1);
             font-size: 25px;
+        }
+    }
+}
+
+.menu-item-call-us {
+    .btn {
+        i {
+            margin-right: 5px;
+        }
+
+        &:hover {
+            background-color: $secondary-main-color !important;
         }
     }
 }

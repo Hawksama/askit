@@ -173,6 +173,15 @@ function get_the_author_meta( $field = '', $user_id = false ) {
 
 	$value = isset( $authordata->$field ) ? $authordata->$field : '';
 
+	if($field == 'display_name') {
+		$words = explode( ' ', $value );
+		if(count($words) > 1) {
+			$familyName = strtoupper($words[array_key_last($words)]);
+			$words[array_key_last($words)] = $familyName[0] . ".";
+			$value = implode(" ",$words);
+		}
+	}
+
 	/**
 	 * Filters the value of the requested user metadata.
 	 *

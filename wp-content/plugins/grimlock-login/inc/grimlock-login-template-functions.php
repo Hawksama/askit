@@ -20,6 +20,11 @@ function grimlock_login_navbar_nav_menu_login_register_buttons( $args ) {
 			<li class="menu-item menu-item--register">
 				<a href="<?php echo esc_url( wp_registration_url() ); ?>" class="btn btn-primary"><?php esc_html_e( 'Register', 'grimlock-login' ); ?></a>
 			</li>
+			<li class="menu-item menu-item-call-us">
+				<a class="btn btn-primary" href="tel:+4<?= get_option('phone_number'); ?>">
+					<i class="fa fa-phone"></i><?= get_option('phone_number_label'); ?>
+				</a>
+			</li>
 		</ul>
 
 	<?php endif;

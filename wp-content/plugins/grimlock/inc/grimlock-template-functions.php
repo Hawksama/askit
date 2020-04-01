@@ -800,6 +800,7 @@ function grimlock_single_custom_header_post_date( $args ) {
  */
 function grimlock_single_custom_header_post_author( $args ) {
 	if ( ! empty( $args['single_post_author_displayed'] ) && ! empty( $args['post'] ) ) {
+		$x = get_the_author_meta( 'display_name', $args['post']->post_author );
 		$byline = sprintf(
 			'<span class="byline-label">' . esc_html__( 'by', 'grimlock' ) . ' </span>%1$s %2$s',
 			'<span class="avatar-round-ratio medium"><span class="author-avatar">' . '<a class="url fn n" href="' . esc_url( get_author_posts_url( $args['post']->post_author ) ) . '">' . get_avatar( $args['post']->post_author, 52 ) . '</a></span></span>',

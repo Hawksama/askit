@@ -861,6 +861,12 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
       color: white;
       font-size: 25px; }
 
+.menu-item-call-us .btn i {
+  margin-right: 5px; }
+
+.menu-item-call-us .btn:hover {
+  background-color: #ec7923 !important; }
+
 .slideout-wrapper {
   background-color: #242a34; }
 

@@ -232,12 +232,13 @@ function remove_plugin_updates( $value ) {
     unset( $value->response['ht-knowledge-base/ht-knowledge-base.php'] );
     unset( $value->response['buddypress-global-search/buddypress-global-search.php'] );
 	unset( $value->response['social-articles/social-articles.php']);
-	unset( $value->response['grimlock-animate/grimlock-animate.php']);
-	unset( $value->response['grimlock/grimlock.php']);
 	unset( $value->response['custom-menu-class/custom-menu-class.php']); // PHP7.3 fixes
 	unset( $value->response['wp-super-cache/wp-cache.php']); // wordpress error on wp-content/plugins/wp-super-cache/wp-cache-phase2.php line 3096
 	unset( $value->response['super-socializer/super_socializer.php']);
+	unset( $value->response['grimlock/grimlock.php']);
 	unset( $value->response['grimlock-buddypress/grimlock-buddypress.php']);
+	unset( $value->response['grimlock-login/grimlock-login.php']);
+	unset( $value->response['grimlock-animate/grimlock-animate.php']);
     return $value;
 }
 
