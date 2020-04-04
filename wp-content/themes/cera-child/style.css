@@ -861,11 +861,26 @@ This stylesheet follow the basic principles of CSS Guidilines http://cssguidelin
       color: white;
       font-size: 25px; }
 
-.menu-item-call-us .btn i {
-  margin-right: 5px; }
+.menu-item-call-us .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .menu-item-call-us .btn i {
+    margin-right: 5px; }
+  .menu-item-call-us .btn:hover {
+    background-color: #ec7923 !important; }
+  .menu-item-call-us .btn .phone_number_wrapper {
+    display: block;
+    line-height: 1; }
+    .menu-item-call-us .btn .phone_number_wrapper .phone_number_label {
+      font-size: 0.7em; }
 
-.menu-item-call-us .btn:hover {
-  background-color: #ec7923 !important; }
+.menu-item-call-us.mobile {
+  right: 60px;
+  position: absolute;
+  padding: 0rem; }
+  .menu-item-call-us.mobile .btn {
+    padding: 0.3rem 1rem; }
 
 .slideout-wrapper {
   background-color: #242a34; }
@@ -936,6 +951,9 @@ div.the_champ_counter_container .the_champ_sharing_ul li {
       .latest-news.slick-initialized .slick-dots li button:before {
         font-size: 15px; }
 
+.search-results .grimlock--page-footer .edit-link {
+  display: none; }
+
 @media screen and (max-width: 768px) {
   .site-content .region__col#primary {
     padding: 0px; }
@@ -949,7 +967,9 @@ div.the_champ_counter_container .the_champ_sharing_ul li {
     margin-right: 0px;
     margin-left: 0px; }
     .latest-news.slick-initialized .slick-dots li button:before {
-      font-size: 10px; } }
+      font-size: 10px; }
+  .navbar-nav .menu-item-call-us {
+    display: none !important; } }
 
 .main-navigation .navbar-nav.navbar-nav--buddypress > .menu-item.menu-item--friends > a:before {
   content: "";

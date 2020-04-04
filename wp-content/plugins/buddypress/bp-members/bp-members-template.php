@@ -382,7 +382,7 @@ function bp_has_members( $args = '' ) {
 	), 'has_members' );
 
 	// Pass a filter if ?s= is set.
-	if ( is_null( $r['search_terms'] ) ) {
+	if (strlen($r['search_terms']) == 0) {
 		if ( !empty( $_REQUEST['s'] ) ) {
 			$r['search_terms'] = $_REQUEST['s'];
 		} else {

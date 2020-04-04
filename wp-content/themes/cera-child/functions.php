@@ -142,18 +142,6 @@ function remove_fields_from_profile_tab($hook) {
 
 }
 
-add_action('manage_users_custom_column', 'contributes_columns', 10, 3);
-function contributes_columns( $value, $column_name, $user_id ) {
-
-    if ( 'solutii' != $column_name )//Replace 'contributes' with the column name from the filter you previously created
-        return $value;
-    global $wp_query;
-    $posts = query_posts('post_type=ht_kb&author='.$user_id.'&order=ASC&posts_per_page=30');//Replace post_type=contribute with the post_type=yourCustomPostName
-    $posts_count = count($posts);
-    $posts_count = "<a href='".site_url()."/wp-admin/edit.php?author={$user_id}&post_type=ht_kb'>{$posts_count}</a>";
-    return $posts_count;
-}
-
 add_action( 'init', 'custom_post_type', 0 );
 function custom_post_type() {
     add_post_type_support( 'ht_kb', 'post-formats' );
@@ -700,3 +688,20 @@ function invoice_noptimize() {
 	}	
 
 }
+
+function contributes($columns) {
+    $columns['solutii'] = __('Solutii', 'solutii');
+    return $columns;
+}
+add_filter('manage_users_columns', 'contributes');
+
+function contributes_columns( $value, $column_name, $user_id ) {
+    if ( 'solutii' != $column_name )//Replace 'contributes' with the column name from the filter you previously created
+        return $value;
+    global $wp_query;
+    $posts = query_posts('post_type=ht_kb&author='.$user_id.'&order=ASC&posts_per_page=30');//Replace post_type=contribute with the post_type=yourCustomPostName
+    $posts_count = count($posts);
+    $posts_count = "<a href='".site_url()."/wp-admin/edit.php?author={$user_id}&post_type=ht_kb'>{$posts_count}</a>";
+    return $posts_count;
+}
+add_action('manage_users_custom_column', 'contributes_columns', 10, 3);

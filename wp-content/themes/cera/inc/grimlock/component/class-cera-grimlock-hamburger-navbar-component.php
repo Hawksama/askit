@@ -61,6 +61,23 @@ if ( ! class_exists( 'Cera_Grimlock_Hamburger_Navbar_Component' ) ) :
 			<<?php $this->render_el(); ?> <?php $this->render_id(); ?> <?php $this->render_class( 'navbar-full' ); ?> <?php $this->render_style(); ?> <?php $this->render_role(); ?>>
 			<div class="navbar__container d-flex">
 				<div class="navbar__header d-lg-none">
+
+					<div class="menu-item menu-item-call-us mobile">
+						<a class="btn btn-primary" href="tel:+4<?= get_option('phone_number'); ?>">
+							<div>
+								<i class="fa fa-phone"></i>
+							</div>
+							<div class="phone_number_wrapper">
+								<div class="phone_number_label">
+									<?= get_option('phone_number_label'); ?>
+								</div>
+								<div class="phone_number">
+									<?= get_option('phone_number'); ?>
+								</div>
+							</div>
+						</a>
+					</div>
+
 					<?php
 						$this->render_toggler();
 						$this->render_brand(); ?>

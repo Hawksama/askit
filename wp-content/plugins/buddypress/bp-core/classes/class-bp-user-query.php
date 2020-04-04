@@ -360,13 +360,13 @@ class BP_User_Query {
 		}
 
 		/* WHERE *************************************************************/
-
+		
 		// 'include' - User ids to include in the results.
 		$include     = false !== $include ? wp_parse_id_list( $include ) : array();
 		$include_ids = $this->get_include_ids( $include );
 
 		// An array containing nothing but 0 should always fail.
-		if ( 1 === count( $include_ids )) {
+		if ( 0 === count( $include_ids )) {
 			if(0 != reset($include_ids)) {
 				$sql['where'][] = $this->no_results['where'];
 			}

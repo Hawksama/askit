@@ -22,11 +22,21 @@ function grimlock_login_navbar_nav_menu_login_register_buttons( $args ) {
 			</li>
 			<li class="menu-item menu-item-call-us">
 				<a class="btn btn-primary" href="tel:+4<?= get_option('phone_number'); ?>">
-					<i class="fa fa-phone"></i><?= get_option('phone_number_label'); ?>
+					<div>
+						<i class="fa fa-phone"></i>
+					</div>
+					<div class="phone_number_wrapper">
+						<div class="phone_number_label">
+							<?= get_option('phone_number_label'); ?>
+						</div>
+						<div class="phone_number">
+							<?= get_option('phone_number'); ?>
+						</div>
+					</div>
 				</a>
 			</li>
 		</ul>
-
+		
 	<?php endif;
 }
 

@@ -481,12 +481,35 @@ $secondary-main-color: #ec7923;
 
 .menu-item-call-us {
     .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         i {
             margin-right: 5px;
         }
 
         &:hover {
             background-color: $secondary-main-color !important;
+        }
+
+        .phone_number_wrapper {
+            display: block;
+            line-height: 1;
+
+            .phone_number_label {
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    &.mobile {
+        right: 60px;
+        position: absolute;
+        padding: 0rem;
+
+        .btn {    
+            padding: 0.3rem 1rem;
         }
     }
 }
@@ -604,6 +627,14 @@ div.the_champ_counter_container {
     }
 }
 
+.search-results {
+    .grimlock--page-footer {
+        .edit-link {
+            display: none;
+        }
+    }
+}
+
 @media screen and (max-width: 991px) {
 }
 
@@ -633,6 +664,10 @@ div.the_champ_counter_container {
                 }
             }
         }
+    }
+
+    .navbar-nav .menu-item-call-us {
+        display: none !important;
     }
 }
 
