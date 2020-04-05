@@ -984,7 +984,7 @@ body.logged-in nav .only-logged-out {
     display: none !important; } }
 
 .main-navigation .navbar-nav.navbar-nav--buddypress > .menu-item.menu-item--friends > a:before {
-  content: "";
+  content: "" !important;
   font: normal normal normal 17px/1 FontAwesome !important; }
 
 /*# sourceMappingURL=style.css.map */
