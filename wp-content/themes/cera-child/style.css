@@ -954,6 +954,18 @@ div.the_champ_counter_container .the_champ_sharing_ul li {
 .search-results .grimlock--page-footer .edit-link {
   display: none; }
 
+body:not(.logged-in) nav .only-logged-in {
+  display: none !important; }
+
+body.logged-in nav .only-logged-in {
+  display: initial; }
+
+body.logged-in nav .only-logged-out {
+  display: none !important; }
+
+.vertical-navbar .navbar-nav .menu-item > a i.number {
+  font-size: 1rem; }
+
 @media screen and (max-width: 768px) {
   .site-content .region__col#primary {
     padding: 0px; }

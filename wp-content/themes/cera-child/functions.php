@@ -705,3 +705,35 @@ function contributes_columns( $value, $column_name, $user_id ) {
     return $posts_count;
 }
 add_action('manage_users_custom_column', 'contributes_columns', 10, 3);
+
+function new_nav_menu_items($items, $args) {
+	if($args->theme_location == 'primary') {
+		if(!is_user_logged_in()) {
+			$args = array(
+				'orderby'       =>  'term_order',
+				'depth'         =>  0,
+				'child_of'      => 	0,
+				'hide_empty'    =>  0,
+				'pad_counts'   	=>	true,
+			); 
+			$master_tax_terms = get_terms('ht_kb_category', $args);
+			$categories = (array) wp_list_filter($master_tax_terms,array('parent'=>0));
+			
+			function reverseOrder($a,$b) {
+				return $b->count <=> $a->count;
+			}
+
+			usort($categories, "reverseOrder"); 
+
+			foreach($categories as $key=>$category) { 
+				if($key < 5) {
+					$categoryScript .= '<li id="menu-item-' . $category->term_id .'" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-' . $category->term_id .'"><a href="' . get_term_link( $category ) . '"><i class="number text-primary" aria-hidden="true">'. $category->count . '</i> <span>' . $category->name.'</span></a></li>';
+				}
+			} 
+
+			$items = $items . $categoryScript;
+		}
+	}
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'new_nav_menu_items', 1, 2);

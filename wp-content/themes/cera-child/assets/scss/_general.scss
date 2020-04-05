@@ -635,6 +635,33 @@ div.the_champ_counter_container {
     }
 }
 
+body {
+    &:not(.logged-in) {
+        nav {
+            .only-logged-in {
+                display: none !important;
+            }
+        }
+    }
+
+    &.logged-in {
+        nav {
+            .only-logged-in {
+                display: initial;
+            }
+
+            .only-logged-out {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.vertical-navbar .navbar-nav .menu-item>a i.number {
+
+    font-size: 1rem;
+}
+
 @media screen and (max-width: 991px) {
 }
 
