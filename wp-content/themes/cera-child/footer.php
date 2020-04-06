@@ -38,29 +38,15 @@
 	</a>
 </div>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55371530-1"></script>
 <script>
-	// $(window).load(function(){
-		// $.get(ajaxurl,{'action': 'cera_footer'}, 
-		// 	function (data) { 
-		// 		$('#cera_footer_function').after(data);
-		// 		$('#cera_footer_function').remove();
-		// 	}
-		// );
-
-		// $.get(ajaxurl,{'action': 'cera_after_site'}, 
-		// 	function (data) { 
-		// 		$('#cera_after_site_function').after(data);
-		// 		$('#cera_after_site_function').remove();
-		// 	}
-		// );
-
-		// $.get(ajaxurl,{'action': 'cera_header'}, 
-		// 	function (data) { 
-		// 		$('#cera_header_function').after(data);
-		// 		$('#cera_header_function').remove();
-		// 	}
-		// );
-	// });
+	$(document).ready(function () {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-55371530-1');
+	});
 </script>
 
 </body>
