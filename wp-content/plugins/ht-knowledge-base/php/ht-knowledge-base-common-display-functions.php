@@ -1462,7 +1462,7 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 										</div>
 										<div class="col forum-reply-count">
 											<div class="small text-uppercase font-weight-bold">
-												<?php _e(' Solutions', 'ht-knowledge-base'); ?>
+												Soluții
 											</div>
 											<div class="h3">
 												<?= sizeof($uncategorized_posts); ?>
@@ -1644,7 +1644,7 @@ if(!function_exists('ht_kb_display_archive')){
 									<div class="row">
 										<div class="col forum-topic-count">
 											<div class="small text-uppercase font-weight-bold">
-												<?php _e('Subcategories', 'ht-knowledge-base');?>
+												Subcategorii
 											</div>
 											<div class="h3">
 												<?= $subcat_no; ?>
@@ -1652,7 +1652,7 @@ if(!function_exists('ht_kb_display_archive')){
 										</div>
 										<div class="col forum-reply-count">
 											<div class="small text-uppercase font-weight-bold">
-												<?php _e(' Solutions', 'ht-knowledge-base'); ?>
+												Soluții
 											</div>
 											<div class="h3">
 												<?= $category->count; ?>
