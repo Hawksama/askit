@@ -49,7 +49,7 @@ get_header();?>
 
 						$post_thumbnail_id = get_post_thumbnail_id( get_the_ID() );
 						if(!empty($post_thumbnail_id)) {
-							$img_ar =  wp_get_attachment_image_src( $post_thumbnail_id, 'full' ); 
+							$img_ar =  wp_get_attachment_image_src( $post_thumbnail_id, 'medium' ); 
 						}?>    
 						<div>
 							<a href="<?= get_permalink() ?>" class="slick-content" style="background-image: url('<?= $img_ar[0] ?>');">

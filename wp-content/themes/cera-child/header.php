@@ -31,6 +31,13 @@
 		<link rel="mask-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/icons/safari-pinned-tab.svg' ); ?>" color="#000000">
 	<?php endif; ?>
 
+	<link rel="preload" href="/wp-content/fonts/poppins/pxiEyp8kv8JHgFVrJJfedHFHGPc.woff">
+	<link rel="preload" href="/wp-content/fonts/poppins/pxiGyp8kv8JHgFVrJJLucHtGOvWDSA.woff">
+	<link rel="preload" href="/wp-content/themes/cera-child/assets/fonts/slick.woff">
+	<link rel="preload" href="/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
+	<link rel="preload" href="/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
+	<link rel="preload" href="/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLDz8Z1xlE92JQEk.woff">
+	
 	<?php wp_head(); ?>
 </head>
 
