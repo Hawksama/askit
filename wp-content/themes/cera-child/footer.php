@@ -40,8 +40,8 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55371530-1"></script>
-<script>
-	$(document).ready(function () {
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) { 
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
