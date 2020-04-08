@@ -1183,7 +1183,8 @@ body.bp-docs-body-theme-twentysixteen article.type-bp_doc .entry-content {
 
 // Genericons
 @font-face {
-    font-family: 'Genericons';
+	font-family: 'Genericons';
+	font-display: swap;
     src: url('../fonts/genericons/genericons-regular-webfont.eot');
 }
 

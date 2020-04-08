@@ -308,6 +308,7 @@ $cera-zoom-out: "\ea17";
 
 @font-face {
 	font-family: 'cera';
+	font-display: swap;
 	src:
 		//url('#{$cera-font-path}/cera.ttf?foirwg') format('truetype'),
 		url('#{$cera-font-path}/cera.woff?foirwg') format('woff');

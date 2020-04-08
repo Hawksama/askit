@@ -932,7 +932,9 @@ function the_champ_frontend_scripts(){
 	}
 
 	if($combinedScript){
-		wp_enqueue_script('the_champ_combined_script', plugins_url('js/front/combined.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
+		if ( !is_front_page() ) {
+			wp_enqueue_script('the_champ_combined_script', plugins_url('js/front/combined.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
+		}
 	}
 }
 

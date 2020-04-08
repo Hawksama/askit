@@ -227,6 +227,12 @@ function remove_plugin_updates( $value ) {
 	unset( $value->response['grimlock-buddypress/grimlock-buddypress.php']);
 	unset( $value->response['grimlock-login/grimlock-login.php']);
 	unset( $value->response['grimlock-animate/grimlock-animate.php']);
+	unset( $value->response['author-avatars/author-avatars.php']);
+	unset( $value->response['buddypress-docs/loader.php']);
+	unset( $value->response['cookie-law-info/public/class-cookie-law-info-public.php']);
+	unset( $value->response['kirki/kirki.php']);
+	unset( $value->response['super-socializer/super_socializer.php']);
+	unset( $value->response['wp-live-chat-software-for-wordpress/livechat.php']);
     return $value;
 }
 

@@ -144,6 +144,10 @@ class LiveChat {
 	 * Injects widget script code
 	 */
 	public function widget_script() {
+		global $token;
+		global $api_url;
+		global $livechatVersion;
+
 		try {
 			$token   = ConnectToken::load(
 				Store::get_instance()->get_store_token(),
@@ -156,14 +160,16 @@ class LiveChat {
 				$token->get_store_uuid()
 			);
 
-			wp_register_script(
-				'livechat-widget',
-				$widget_url,
-				array(),
-				$this->module->get_plugin_version(),
-				$in_footer = true
-			);
-			wp_enqueue_script( 'livechat-widget' );
+			$livechatVersion = $this->module->get_plugin_version();
+
+			// wp_register_script(
+			// 	'livechat-widget',
+			// 	$widget_url,
+			// 	array(),
+			// 	$this->module->get_plugin_version(),
+			// 	$in_footer = true
+			// );
+			// wp_enqueue_script( 'livechat-widget' );
 		} catch ( Exception $exception ) {
 			echo wp_kses(
 				( new TrackingCodeHelper() )->render(),

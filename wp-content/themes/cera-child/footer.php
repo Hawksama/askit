@@ -49,5 +49,59 @@
 	});
 </script>
 
+<?php 
+try {
+	global $token;
+	global $api_url;
+	global $livechatVersion;
+
+	$widget_url = sprintf(
+		$api_url . '/api/v1/script/%s/widget.js',
+		$token->get_store_uuid()
+	);
+
+	$livechatScripts = $widget_url. '?ver=' . $livechatVersion;
+	?>
+
+	<script type="text/javascript">
+		jQuery(window).load(function(){
+			setTimeout(function(){ 
+
+				var head_ID = document.getElementsByTagName("head")[0]; 
+				var script_element = document.createElement('script');
+				script_element.type = 'text/javascript';
+				script_element.src = '<?= $livechatScripts ?>';
+				head_ID.appendChild(script_element);
+
+			}, 100);
+		});
+	</script>
+	<?php
+} catch ( Exception $exception ) {
+	echo wp_kses(
+		( new TrackingCodeHelper() )->render(),
+		array(
+			'script'   => array(
+				'type' => array(),
+			),
+			'noscript' => array(),
+			'a'        => array(
+				'href'   => array(),
+				'rel'    => array(),
+				'target' => array(),
+			),
+		)
+	);
+}
+?>
+
+<script type="text/javascript">
+	jQuery(window).load(function(){
+		setTimeout(function(){
+			jQuery('.call-us-button-wrapper').css('display', 'block');
+		}, 3000);
+	});
+</script>
+
 </body>
 </html>

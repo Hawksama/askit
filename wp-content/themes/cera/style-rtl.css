@@ -9855,7 +9855,7 @@ a.text-dark:hover, a.text-dark:focus {
  */
 @font-face {
   font-family: 'cera';
-  src: url("assets/fonts/cera/cera.woff?foirwg") format("woff");
+  src: url("/wp-content/themes/cera/assets/fonts/cera/cera.woff?foirwg") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -27685,7 +27685,12 @@ div.grimlock-buddypress-groups-section .section__content--2-2-2-2-2-2-cols-grid 
   padding-left: 0;
 }
 
-/** * bbPress * * Forum plugin * https://wordpress.org/plugins/bbpress/ */
+/**
+ * bbPress
+ *
+ * Forum plugin
+ * https://wordpress.org/plugins/bbpress/
+ */
 body:not([class*="yz-"]) #bbpress-forums {
   line-height: inherit;
 }
@@ -27790,13 +27795,27 @@ body:not([class*="yz-"]) #bbpress-forums {
   position: relative;
   overflow: visible;
   font-size: inherit;
-  /**		 * Avatars		 */
-  /**		 * Forum lists		 */
-  /**		 * Topic detail		 */
-  /**		 * New reply form		 */
-  /**		 * New reply form		 */
-  /**		 * All forms		 */
-  /**		 * Notices & Alerts		 */
+  /**
+		 * Avatars
+		 */
+  /**
+		 * Forum lists
+		 */
+  /**
+		 * Topic detail
+		 */
+  /**
+		 * New reply form
+		 */
+  /**
+		 * New reply form
+		 */
+  /**
+		 * All forms
+		 */
+  /**
+		 * Notices & Alerts
+		 */
 }
 
 body:not([class*="yz-"]) #bbpress-forums img.avatar {
@@ -33812,7 +33831,12 @@ div.nsl-container-block .nsl-container-buttons a {
   max-width: 1140px;
 }
 
-/** * Paid Memberships Pro * * Member management and membership subscriptions plugin. * https://wordpress.org/plugins/paid-memberships-pro/ */
+/**
+ * Paid Memberships Pro
+ *
+ * Member management and membership subscriptions plugin.
+ * https://wordpress.org/plugins/paid-memberships-pro/
+ */
 .pmpro_message {
   color: #ffffff;
   background-color: #007BFF;

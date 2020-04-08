@@ -410,7 +410,7 @@ $secondary-main-color: #ec7923;
 
 .buttonizer.buttonizer-desktop-has-1 .buttonizer-button.button-desktop-1 {
     width: 60px;
-    height: 60px;
+    height: 60px; 
 }
 
 .call-us-button-wrapper {
@@ -418,7 +418,8 @@ $secondary-main-color: #ec7923;
     z-index: 99999;
     transition: ease-in-out 250ms;
     right: 80px;
-    bottom: 20px;
+    bottom: 1em;
+    display: none;
 
     .call-us-button {
         width: 60px;
@@ -709,3 +710,7 @@ nav.main-navigation .navbar-nav.navbar-nav--buddypress>.menu-item.menu-item--fri
     content: "" !important; 
     font: normal normal normal 17px/1 FontAwesome !important;
 } 
+ 
+html {
+    display: none;
+}

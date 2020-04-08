@@ -6,7 +6,7 @@
  */
 @font-face {
   font-family: 'cera';
-  src: url("assets/fonts/cera/cera.woff?foirwg") format("woff");
+  src: url("/wp-content/themes/cera/assets/fonts/cera/cera.woff?foirwg") format("woff");
   font-weight: normal;
   font-style: normal;
 }
