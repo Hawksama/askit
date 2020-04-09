@@ -49,7 +49,7 @@
         });
     }
 
-    $(document).ready(function(){
+    $(window).load(function(){
         $('.latest-news').slick({
             infinite: true,
             slidesToShow: 6,
