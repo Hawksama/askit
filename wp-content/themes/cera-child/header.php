@@ -31,12 +31,26 @@
 		<link rel="mask-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/icons/safari-pinned-tab.svg' ); ?>" color="#000000">
 	<?php endif; ?>
 
-	<link rel="preload" href="<?= $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiEyp8kv8JHgFVrJJfedHFHGPc.woff">
-	<link rel="preload" href="<?= $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiGyp8kv8JHgFVrJJLucHtGOvWDSA.woff">
-	<link rel="preload" href="<?= $_SERVER['SERVER_NAME'] ?>/wp-content/themes/cera-child/assets/fonts/slick.woff">
-	<link rel="preload" href="<?= $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
-	<link rel="preload" href="<?= $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
-	<link rel="preload" href="<?= $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLDz8Z1xlE92JQEk.woff">
+	<?php
+	
+	if (isset($_SERVER['HTTPS']) &&
+    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+		isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+		$protocol = 'https://';
+	} else {
+		$protocol = 'http://';
+	}
+	
+	?>
+
+	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiEyp8kv8JHgFVrJJfedHFHGPc.woff">
+	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiGyp8kv8JHgFVrJJLucHtGOvWDSA.woff">
+	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/themes/cera-child/assets/fonts/slick.woff">
+	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
+	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
+	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLDz8Z1xlE92JQEk.woff">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	
 	<?php wp_head(); ?>
 </head>

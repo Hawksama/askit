@@ -60,6 +60,7 @@ class Cera_Child {
 		 * Enqueue scripts.
 		 */
 		wp_enqueue_script( 'cera-child', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'jquery' ), CERA_CHILD_VERSION, true );
+		wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/assets/js/slick.min.js', '', 1, true );
 	}
 }
 

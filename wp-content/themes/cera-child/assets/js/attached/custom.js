@@ -15,12 +15,12 @@
  */
 
 (function($){
-    $(function() {
-        /**
-         * Initiate Masonry grid for posts.
-         */
-        var $grid = $('.bp-card-list--category bp-card-list__item');
+    /**
+     * Initiate Masonry grid for posts.
+     */
+    var $grid = $('.bp-card-list--category bp-card-list__item');
 
+    if($grid.length > 0) {
         $grid.on( 'layoutComplete', function() {
             setTimeout(function(){
                 $grid.addClass('masonry--loaded');
@@ -37,7 +37,7 @@
         } );
 
         $grid.masonry('reloadItems').masonry('layout');
-    });
+    }
 
     if($('#post-maker-container').length > 0) {
         $("#draft_btn").detach().appendTo('.acf-form-submit').on('click', function () {

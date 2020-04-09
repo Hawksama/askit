@@ -26,8 +26,8 @@ class Kirki_Fonts_Downloader {
 	 * @return string
 	 */
 	public function get_styles( $url ) {
-		$css = $this->get_cached_url_contents( $url );
-		return $this->get_local_font_styles( $css );
+		// $css = $this->get_cached_url_contents( $url );
+		// return $this->get_local_font_styles( $css );
 	}
 
 	/**

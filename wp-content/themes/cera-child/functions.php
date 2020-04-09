@@ -714,6 +714,8 @@ add_action('manage_users_custom_column', 'contributes_columns', 10, 3);
 
 function new_nav_menu_items($items, $args) {
 	if($args->theme_location == 'primary') {
+		$categoryScript = '';
+		
 		$args = array(
 			'orderby'       =>  'term_order',
 			'depth'         =>  0,

@@ -19,8 +19,6 @@ global $ht_knowledge_base_options; ?>
 	<?php ht_kb_display_archive(); ?>
 <?php endif; ?>
 
-
-
 <?php if(function_exists('ht_kb_display_uncategorized_articles')): ?>
 	<?php ht_kb_display_uncategorized_articles(); ?>
 <?php endif; ?>

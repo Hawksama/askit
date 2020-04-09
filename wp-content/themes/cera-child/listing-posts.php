@@ -82,9 +82,9 @@ get_header();?>
 										ht_kb_display_archive();
 									endif;
 								
-									if(function_exists('ht_kb_display_uncategorized_articles')):
-										ht_kb_display_uncategorized_articles();
-									endif;
+									// if(function_exists('ht_kb_display_uncategorized_articles')):
+									// 	ht_kb_display_uncategorized_articles();
+									// endif;
 									?>
 								</ul>
 
