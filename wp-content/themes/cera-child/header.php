@@ -22,7 +22,6 @@
 
 	<link rel="profile" href="<?php echo esc_url( 'http' . ( is_ssl() ? 's' : '' ) . '://gmpg.org/xfn/11' ); ?>">
 
-	<!-- Icons -->
 	<?php if ( ! ( function_exists( 'has_site_icon' ) && has_site_icon() ) ) : ?>
 		<link rel="apple-touch-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/icons/apple-touch-icon.png' ); ?>" sizes="180x180"/>
 		<link rel="icon" type="image/png" href="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/icons/favicon-32x32.png' ); ?>" sizes="32x32">
@@ -32,24 +31,9 @@
 	<?php endif; ?>
 
 	<?php
-	
-	if (isset($_SERVER['HTTPS']) &&
-    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-		isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
-		$protocol = 'https://';
-	} else {
-		$protocol = 'http://';
-	}
-	
+	$protocol = is_ssl() ? 'https://' : 'http://';
 	?>
-
-	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiEyp8kv8JHgFVrJJfedHFHGPc.woff">
-	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiGyp8kv8JHgFVrJJLucHtGOvWDSA.woff">
 	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/themes/cera-child/assets/fonts/slick.woff">
-	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
-	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLCz7Z1xlE92JQEk.woff">
-	<link rel="preload" href="<?= $protocol . $_SERVER['SERVER_NAME'] ?>/wp-content/fonts/poppins/pxiByp8kv8JHgFVrLDz8Z1xlE92JQEk.woff">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	
 	<?php wp_head(); ?>

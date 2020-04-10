@@ -265,9 +265,12 @@ add_action( 'admin_head', 'keel_remove_core_updates_action' );
 add_action( 'template_redirect', 'cera_restrict_buddypress' );
 function cera_restrict_buddypress() {
 	// If not logged in and on a bp page except registration or activation
-	if ( ! is_user_logged_in() && is_buddypress() && ! bp_is_blog_page() && ! bp_is_activation_page() && ! bp_is_register_page() ) {
-		wp_redirect( home_url( '/register/' ) );
-		exit();
+	$redirect = class_exists('is_buddypress') || class_exists('bp_is_blog_page') || class_exists('bp_is_activation_page') || class_exists('bp_is_register_page');
+	if($redirect) {
+		if ( ! is_user_logged_in() && is_buddypress() && ! bp_is_blog_page() && ! bp_is_activation_page() && ! bp_is_register_page() ) {
+			wp_redirect( home_url( '/register/' ) );
+			exit();
+		}
 	}
 }
 

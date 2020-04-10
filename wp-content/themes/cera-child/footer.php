@@ -54,29 +54,31 @@ try {
 	global $token;
 	global $api_url;
 	global $livechatVersion;
+	
+	if($token != null) {
+		$widget_url = sprintf(
+			$api_url . '/api/v1/script/%s/widget.js',
+			$token->get_store_uuid()
+		);
 
-	$widget_url = sprintf(
-		$api_url . '/api/v1/script/%s/widget.js',
-		$token->get_store_uuid()
-	);
+		$livechatScripts = $widget_url. '?ver=' . $livechatVersion;
+		?>
 
-	$livechatScripts = $widget_url. '?ver=' . $livechatVersion;
-	?>
+		<script type="text/javascript">
+			jQuery(window).load(function(){
+				setTimeout(function(){ 
 
-	<script type="text/javascript">
-		jQuery(window).load(function(){
-			setTimeout(function(){ 
+					var head_ID = document.getElementsByTagName("head")[0]; 
+					var script_element = document.createElement('script');
+					script_element.type = 'text/javascript';
+					script_element.src = '<?= $livechatScripts ?>';
+					head_ID.appendChild(script_element);
 
-				var head_ID = document.getElementsByTagName("head")[0]; 
-				var script_element = document.createElement('script');
-				script_element.type = 'text/javascript';
-				script_element.src = '<?= $livechatScripts ?>';
-				head_ID.appendChild(script_element);
-
-			}, 100);
-		});
-	</script>
-	<?php
+				}, 100);
+			});
+		</script>
+		<?php
+	}
 } catch ( Exception $exception ) {
 	echo wp_kses(
 		( new TrackingCodeHelper() )->render(),

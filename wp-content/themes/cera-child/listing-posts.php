@@ -4,7 +4,12 @@ Template Name:Homepage Template: Posts
 */
 
 get_header();?>
-
+<?php 
+if(is_user_logged_in()) {
+	$loggedIn = true;
+} else {
+	$loggedIn = false;
+}?>
 	<div id="primary" class="content-area region__col region__col--2">
 		
 		<div id="custom_header"
@@ -72,19 +77,35 @@ get_header();?>
 						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 							<div id="bbpress-forums">
-								<?php bbp_breadcrumb(); ?>
+								<?php if(function_exists('bbp_breadcrumb')){ bbp_breadcrumb(); } ?>
 								
-								<?php bbp_get_template_part( 'ht-knowledge', 'search' ); ?>
+								<?php if(function_exists('bbp_get_template_part')){  bbp_get_template_part( 'ht-knowledge', 'search' ); }?>
 
 								<ul class="bbp-forums ht-posts-list">
-									<?php 
-									if(function_exists('ht_kb_display_archive')): 		
-										ht_kb_display_archive();
-									endif;
-								
-									// if(function_exists('ht_kb_display_uncategorized_articles')):
-									// 	ht_kb_display_uncategorized_articles();
-									// endif;
+									<?php if(!$loggedIn){ ?>
+									<li class="dashboard--fake">
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+										<div class="dashboard--fake__item"></div>
+									</li>
+									<?php } else {
+										if(function_exists('ht_kb_display_archive')): 		
+											ht_kb_display_archive();
+										endif;
+									
+										// if(function_exists('ht_kb_display_uncategorized_articles')):
+										// 	ht_kb_display_uncategorized_articles();
+										// endif;
+									}
 									?>
 								</ul>
 
@@ -92,43 +113,46 @@ get_header();?>
 						</article>
 					</main><!-- #main -->
 					
-					<!-- <div id="secondary-right" class="widget-area sidebar region__col region__col--3 aside-fake">
-						<div class="aside--fake__item widget buddypress widget">
-							<h2 class="widget-title title-fake">
-								<span>placeholder</span>
-							</h2>
+					<?php if(!$loggedIn){ ?>
+						<div id="secondary-right" class="widget-area sidebar region__col region__col--3 aside-fake">
+							<div class="aside--fake__item widget buddypress widget">
+								<h2 class="widget-title title-fake">
+									<span>placeholder</span>
+								</h2>
 
-							<ul class="contents-fake">
-								<li></li>
-							</ul>
+								<ul class="contents-fake">
+									<li></li>
+								</ul>
+							</div>
+
+							<div class="aside--fake__item widget buddypress widget">
+								<h2 class="widget-title title-fake">
+									<span>placeholder</span>
+								</h2>
+
+								<ul class="contents-fake">
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+							</div>
+
+							
+							<div class="aside--fake__item widget buddypress widget">
+								<h2 class="widget-title title-fake">
+									<span>placeholder</span>
+								</h2>
+
+								<ul class="contents-fake">
+									<li></li>
+									<li></li>
+								</ul>
+							</div>
 						</div>
-
-						<div class="aside--fake__item widget buddypress widget">
-							<h2 class="widget-title title-fake">
-								<span>placeholder</span>
-							</h2>
-
-							<ul class="contents-fake">
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</div>
-
-						
-						<div class="aside--fake__item widget buddypress widget">
-							<h2 class="widget-title title-fake">
-								<span>placeholder</span>
-							</h2>
-
-							<ul class="contents-fake">
-								<li></li>
-								<li></li>
-							</ul>
-						</div>
-					</div> -->
-					<?php get_sidebar( 'right' ); ?>
+					<?php } else {
+						get_sidebar( 'right' );
+					}?>
 				</div>
 				
 				<!-- <div id="homepage_1"></div> -->
@@ -138,31 +162,35 @@ get_header();?>
 		
 	</div><!-- #primary -->
 
-	<script>
-	// $(window).load(function(){
-	// 	if(true){
-			// $.get(ajaxurl,{'action': 'archive_category'}, 
-			// 	function (data) { 
-			// 		$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
-			// 	}
-			// );
 
-			// $.get(ajaxurl,{'action': 'sidebar_right'}, 
-			// 	function (data) { 
-			// 		$('#secondary-right').remove();
-			// 		$('.site-main').after(data);
-			// 	}
-			// );
+	<?php if(!$loggedIn){ ?>
+		<script type="text/javascript">
+		$ = jQuery;
+		$(window).load(function(){
+			if(true){
+				$.get(ajaxurl,{'action': 'archive_category'}, 
+					function (data) { 
+						$('.bbp-forums.ht-posts-list').prepend(data).addClass('ajax--loaded');
+					}
+				);
 
-			// $.get(ajaxurl,{'action': 'homepage_1'}, 
-			// 	function (data) { 
-			// 		$('#homepage_1').after(data);
-			// 		$('#homepage_1').remove();
-			// 	}
-			// );
-	// 	}
-	// });
-	</script>
+				$.get(ajaxurl,{'action': 'sidebar_right'}, 
+					function (data) { 
+						$('#secondary-right').remove();
+						$('.site-main').after(data);
+					}
+				);
+
+				// $.get(ajaxurl,{'action': 'homepage_1'}, 
+				// 	function (data) { 
+				// 		$('#homepage_1').after(data);
+				// 		$('#homepage_1').remove();
+				// 	}
+				// );
+			}
+		});
+		</script>
+	<?php } ?>
 
 
 <?php

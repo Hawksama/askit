@@ -1417,26 +1417,26 @@ if(!function_exists('ht_kb_display_uncategorized_articles')){
 		}
 
 		$args = array( 
-				'numberposts' => $numberposts, 
-				'post_type'  => 'ht_kb',
-				'orderby' => 'date',
-				'suppress_filters' => false,
-				'tax_query' => array(
-					array(
-						'taxonomy' => 'ht_kb_category',
-						'field' => 'term_id',
-						'include_children' => false,
-						'terms' => $tax_terms_ids,
-						'operator'  => 'NOT IN'
-					)
+			'numberposts' => $numberposts, 
+			'post_type'  => 'ht_kb',
+			'orderby' => 'date',
+			'suppress_filters' => false,
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'ht_kb_category',
+					'field' => 'term_id',
+					'include_children' => false,
+					'terms' => $tax_terms_ids,
+					'operator'  => 'NOT IN'
 				)
-			);
+			)
+		);
 		
 		$uncategorized_posts = get_posts( $args );
 		if( !empty( $uncategorized_posts ) && !is_a( $uncategorized_posts, 'WP_Error' ) ): ?>
 
 			<li class="bbp-body ht-knowledge-uncategoriezed">
-				<div id="bbp-forum-uncategorized" <?php bbp_forum_class( '', array( 'p-3 p-sm-4 card card-static mb-3 ov-v' ) ); ?>>
+				<div id="bbp-forum-uncategorized" <?php if(function_exists('bbp_forum_class')){bbp_forum_class( '', array( 'p-3 p-sm-4 card card-static mb-3 ov-v' ) ); } ?>>
 					<div class="row">
 						<div class="col-12 col-xl-5 col-forum-info col-posts-info">
 							<div class="row d-flex align-items-center align-items-md-start">
@@ -1583,7 +1583,7 @@ if(!function_exists('ht_kb_display_archive')){
 			foreach ($categories as $category) { 
 				$t_id = $category->term_id; ?>
 
-				<div id="bbp-forum-<?= $t_id; ?>" <?php bbp_forum_class( '', array( 'p-3 p-sm-4 card card-static mb-3 ov-v' ) ); ?>>
+				<div id="bbp-forum-<?= $t_id; ?>" <?php if(function_exists('bbp_forum_class')){bbp_forum_class( '', array( 'p-3 p-sm-4 card card-static mb-3 ov-v' ) );} ?>>
 					<div class="row">
 						<div class="col-12 col-xl-5 col-forum-info col-posts-info">
 							<div class="row d-flex align-items-center align-items-md-start">
@@ -1626,7 +1626,7 @@ if(!function_exists('ht_kb_display_archive')){
 									</div>
 								</div>
 							</div>
-							<?php bbp_forum_row_actions(); ?>
+							<?php if(function_exists('bbp_forum_class')){bbp_forum_row_actions();} ?>
 						</div>
 						
 						<?php
