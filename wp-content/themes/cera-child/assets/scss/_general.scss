@@ -480,39 +480,99 @@ $secondary-main-color: #ec7923;
     }
 }
 
-.menu-item-call-us {
-    .btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+#site-wrapper header .navbar__container .hamburger-navbar-nav-menu-container .navbar-nav--buddypress {
+    .menu-item-call-us {
+        margin-left: 1rem;
+        margin-top: 0;
+        margin-right: 0;
+        
+        .btn {
+            height: 40px;
+            min-height: 40px;
+            width: auto;
+            padding: .1rem 1rem!important;
+            line-height: 0;
+            font-size: .9em;
+            font-weight: 600;
+            text-decoration: none!important;
+            font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            cursor: pointer;
+            color: #ffffff;
+            display: flex!important;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.3rem;
+            background-color: #ec7923!important;
+            border-color: #ec7923!important;
 
-        i {
-            margin-right: 5px;
-        }
+            i {
+                margin-right: 5px;
+            }
 
-        &:hover {
-            background-color: $secondary-main-color !important;
-        }
+            &:hover {
+                background-color: $secondary-main-color !important;
+            }
 
-        .phone_number_wrapper {
-            display: block;
-            line-height: 1;
+            .phone_number_wrapper {
+                display: block;
+                line-height: 1;
 
-            .phone_number_label {
-                font-size: 0.7em;
+                .phone_number_label {
+                    font-size: 0.7em;
+                }
             }
         }
-    }
 
+    }
+}
+
+.menu-item-call-us {
     &.mobile {
         right: 60px;
         position: absolute;
         padding: 0rem;
 
-        .btn {    
+        .btn {
+            height: 40px;
+            min-height: 40px;
+            width: auto;
             padding: 0.3rem 1rem;
+            line-height: 0;
+            font-size: .9em;
+            font-weight: 600;
+            text-decoration: none!important;
+            font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            cursor: pointer;
+            color: #ffffff;
+            display: flex!important;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.3rem;
+            background-color: #ec7923!important;
+            border-color: #ec7923!important;
+
+            i {
+                margin-right: 5px;
+            }
+
+            &:hover {
+                background-color: $secondary-main-color !important;
+            }
+
+            .phone_number_wrapper {
+                display: block;
+                line-height: 1;
+
+                .phone_number_label {
+                    font-size: 0.7em;
+                }
+            }
         }
     }
+}
+
+.hamburger-navbar .navbar__header {
+    height: 100%;
 }
 
 .slideout-wrapper {
@@ -714,21 +774,6 @@ nav.main-navigation .navbar-nav.navbar-nav--buddypress>.menu-item.menu-item--fri
 html {
     display: none;
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
