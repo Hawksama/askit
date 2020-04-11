@@ -751,7 +751,6 @@ function defer_parsing_of_js( $url ) {
     if ( is_admin() ) {
 		return $url; //don't break WP Admin
 	}
-
     if ( FALSE === strpos( $url, '.js' ) ) {
 		return $url;
 	}
@@ -759,8 +758,52 @@ function defer_parsing_of_js( $url ) {
     if ( strpos( $url, 'jquery.js' ) ) {
 		return $url;
 	}
-	
+
     return str_replace( ' src', ' defer src', $url );
 }
-
 add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' ); 
+remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+add_action('wp_enqueue_scripts', 'remove_script_css');
+function remove_script_css(){
+	wp_dequeue_script( 'jquery-migrate' );
+	wp_dequeue_script( 'ht-kb-live-search-plugin' );
+	wp_dequeue_script( 'ht-kb-live-search' );
+	wp_dequeue_script( 'concatemoji' );
+
+	if (is_front_page()) {
+		wp_dequeue_style( 'ht-voting-frontend-style' );
+		wp_dequeue_script( 'bp-legacy-js' );
+		wp_dequeue_script( 'priority-nav' );
+	}
+}
+
+function remove_jquery_migrate( &$scripts){
+	if(!is_admin()){
+		$scripts->remove( 'jquery');
+        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.2.1' );
+    }
+}
+add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
+
+// DISABLE WORDPRESS COMMENTS JS
+if (is_front_page()) {
+	function itsg_disable_comment_js(){
+		wp_deregister_script( 'comment-reply' );
+		wp_deregister_script( 'imagesloaded' );
+		wp_deregister_script( 'masonry' );
+		wp_deregister_script( 'jquery-masonry' );
+	}
+	add_action( 'init', 'itsg_disable_comment_js' );
+}
+
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+		show_admin_bar(false);
+	}
+}
