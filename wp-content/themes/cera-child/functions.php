@@ -762,9 +762,14 @@ function defer_parsing_of_js( $url ) {
 }
 
 $skipDeferToFixACF = strpos( $request_uri, '/articles/new/' );
-
-if($skipDeferToFixACF == false) {
+if($skipDeferToFixACF) {
+	add_filter('autoptimize_filter_noptimize','my_ao_noptimize',10,0);
+} else {
 	add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+}
+
+function my_ao_noptimize() {
+	return true;
 }
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
