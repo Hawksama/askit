@@ -695,7 +695,6 @@ function invoice_noptimize() {
 			$noOptimize = true;
 		}
 	}	
-
 }
 
 function contributes($columns) {
@@ -761,7 +760,12 @@ function defer_parsing_of_js( $url ) {
 
     return str_replace( ' src', ' defer src', $url );
 }
-add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+
+$skipDeferToFixACF = strpos( $request_uri, '/articles/new/' );
+
+if($skipDeferToFixACF == false) {
+	add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+}
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' ); 
