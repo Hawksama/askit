@@ -34,7 +34,7 @@ $logged_in = false;
 if (count($_COOKIE)) {
 	foreach ($_COOKIE as $key => $val) {
 		if (preg_match("/wordpress_logged_in/i", $key)) {
-			 $logged_in = true;
+			$logged_in = true;
 		} else {
 			$logged_in = false;
 		}
@@ -42,6 +42,8 @@ if (count($_COOKIE)) {
 } else {
 	$logged_in = false;
 }
+
+define('USERLOGGED', $logged_in);
 
 if( false === $is_admin || !$logged_in ){
 

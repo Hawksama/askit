@@ -180,13 +180,14 @@ if(is_user_logged_in()) {
 						$('.site-main').after(data);
 					}
 				);
-
+				<?php
 				// $.get(ajaxurl,{'action': 'homepage_1'}, 
 				// 	function (data) { 
 				// 		$('#homepage_1').after(data);
 				// 		$('#homepage_1').remove();
 				// 	}
 				// );
+				?>
 			}
 		});
 		</script>

@@ -98,18 +98,23 @@ function wp_cache_serve_cache_file() {
 		$file = get_current_url_supercache_dir() . $filename;
 		if ( false == file_exists( $file ) ) {
 			wp_cache_debug( "No Super Cache file found for current URL: $file" );
+			define('CACHENOTBUILD', true);
 			return false;
 		} elseif ( false == empty( $_GET ) ) {
 			wp_cache_debug( 'GET array not empty. Cannot serve a supercache file. ' . wpsc_dump_get_request() );
+			define('CACHENOTBUILD', true);
 			return false;
 		} elseif ( wp_cache_get_cookies_values() != '' ) {
 			wp_cache_debug( 'Cookies found. Cannot serve a supercache file. ' . wp_cache_get_cookies_values() );
+			define('CACHENOTBUILD', true);
 			return false;
 		} elseif ( isset( $wpsc_save_headers ) && $wpsc_save_headers ) {
 			wp_cache_debug( 'Saving headers. Cannot serve a supercache file.' );
+			define('CACHENOTBUILD', true);
 			return false;
 		} elseif ( $cache_max_time > 0 && ( filemtime( $file ) + $cache_max_time ) < time() ) {
 			wp_cache_debug( sprintf( "Cache has expired and is older than %d seconds old.", $cache_max_time ) );
+			define('CACHENOTBUILD', true);
 			return false;
 		}
 
@@ -201,6 +206,7 @@ function wp_cache_serve_cache_file() {
 			echo $cachefiledata;
 			exit();
 		} else {
+			define('CACHENOTBUILD', true);
 			wp_cache_debug( 'No wp-cache file exists. Must generate a new one.' );
 			return false;
 		}

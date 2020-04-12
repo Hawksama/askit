@@ -255,8 +255,6 @@ function sa_notifications_stuff(){
                 data: { action: "markArticlesNotification",  security:security, action_id:action_id, item_id:item_id },
                 success:
                 function(data) {
-                    //jQuery("#wp-admin-bar-bp-notifications #"+action_id).parent().remove();
-                    //jQuery("#ab-pending-notifications").html(jQuery("#ab-pending-notifications").html() - 1);
                 }
              });  
         }
