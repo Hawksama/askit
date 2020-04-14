@@ -83,24 +83,28 @@ if(is_user_logged_in()) {
 
 								<ul class="bbp-forums ht-posts-list">
 									<?php if(!$loggedIn){ ?>
-									<li class="dashboard--fake">
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-										<div class="dashboard--fake__item"></div>
-									</li>
+										<li class="dashboard--fake">
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+											<div class="dashboard--fake__item"></div>
+										</li>
 									<?php } else {
 										if(function_exists('ht_kb_display_archive')): 		
 											ht_kb_display_archive();
 										endif;
+									
+										// if(function_exists('ht_kb_display_uncategorized_articles')):
+										// 	ht_kb_display_uncategorized_articles();
+										// endif;
 									}
 									?>
 								</ul>
