@@ -1585,7 +1585,7 @@ if(!function_exists('ht_kb_display_archive')){
 
 				<div id="bbp-forum-<?= $t_id; ?>" <?php if(function_exists('bbp_forum_class')){bbp_forum_class( '', array( 'p-3 p-sm-4 card card-static mb-3 ov-v' ) );} ?>>
 					<div class="row">
-						<div class="col-12 col-xl-5 col-forum-info col-posts-info">
+						<div class="col-12 col-xl-3 col-forum-info col-posts-info">
 							<div class="row d-flex align-items-center align-items-md-start">
 								<div class="col-auto pr-0 topic-img-row">
 									<a href="<?php echo esc_attr(get_term_link($category, 'ht_kb_category')) ?>" title="<?php echo sprintf( __( 'View all posts in %s', 'ht-knowledge-base' ), $category->name ) ?>"">
@@ -1638,9 +1638,9 @@ if(!function_exists('ht_kb_display_archive')){
 						}
 						?>
 
-						<div class="col-12 col-xl-7  col-forum-meta mt-0 mt-md-4 mt-xl-0">
+						<div class="col-12 col-xl-9 col-forum-meta mt-0 mt-md-4 mt-xl-0">
 							<div class="row">
-								<div class="col-12 col-md-6 col-lg-5 col-forum-meta mt-4 mt-md-0">
+								<div class="col-12 col-md-6 col-lg-5 col-xl-4 col-forum-meta mt-4 mt-md-0">
 									<div class="row">
 										<div class="col forum-topic-count">
 											<div class="small text-uppercase font-weight-bold">
@@ -1661,7 +1661,7 @@ if(!function_exists('ht_kb_display_archive')){
 									</div>
 								</div>
 
-								<div class="col-12 col-md-6 col-lg-7 col-forum-meta mt-4 mt-md-0">
+								<div class="col-12 col-md-6 col-lg-7 col-xl-8 col-forum-meta mt-4 mt-md-0">
 									<div class="forum-freshness">
 										<div class="small text-uppercase font-weight-bold">
 											<?php esc_html_e( 'Latest - ', 'bbpress' ); 

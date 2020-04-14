@@ -716,7 +716,7 @@ add_action('manage_users_custom_column', 'contributes_columns', 10, 3);
 
 function new_nav_menu_items($items, $args) {
 	if($args->theme_location == 'primary') {
-		$categoryScript = '';
+		$categoryScript = '<li class="menu-item--title menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Categorii populare</a></li>';
 		
 		$args = array(
 			'orderby'       =>  'term_order',
@@ -740,7 +740,9 @@ function new_nav_menu_items($items, $args) {
 			}
 		} 
 
-		$items = $items . $categoryScript;
+		$categoryScript .= '<li class="menu-item--title menu-item menu-item-type-custom menu-item-object-custom"><a href="#"></a></li>';
+
+		$items = $categoryScript . $items;
 	}
 	return $items;
 }

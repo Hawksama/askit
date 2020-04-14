@@ -667,6 +667,8 @@ div.the_champ_counter_container {
             .slick-overlay {
                 color: #fff;
                 z-index: 1;
+                text-align: center;
+                padding: 10px 20px;
             }
 
             &:hover {
@@ -772,7 +774,7 @@ nav.main-navigation .navbar-nav.navbar-nav--buddypress>.menu-item.menu-item--fri
 } 
  
 html {
-    display: none;
+    // display: none;
 } 
 
 

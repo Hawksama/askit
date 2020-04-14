@@ -991,7 +991,9 @@ div.the_champ_counter_container .the_champ_sharing_ul li {
         transition: 0.3s; }
       .latest-news.slick-initialized .slick-content .slick-overlay {
         color: #fff;
-        z-index: 1; }
+        z-index: 1;
+        text-align: center;
+        padding: 10px 20px; }
       .latest-news.slick-initialized .slick-content:hover:after {
         opacity: 0.4; }
     .latest-news.slick-initialized .slick-dots {
@@ -1034,9 +1036,6 @@ body.logged-in nav .only-logged-out {
 nav.main-navigation .navbar-nav.navbar-nav--buddypress > .menu-item.menu-item--friends > a:before {
   content: "" !important;
   font: normal normal normal 17px/1 FontAwesome !important; }
-
-html {
-  display: none; }
 
 :root {
   --grimlock-site-identity-custom-logo-size: 90px;

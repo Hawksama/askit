@@ -64,7 +64,8 @@
                     slidesToScroll: 2
                 }
             } ]
-        }), $("html").css("display", "block");
-    });
+        });
+        // $('html').css('display','block');
+        });
 }(jQuery);
 //# sourceMappingURL=main.js.map
