@@ -969,3 +969,13 @@ function wp_html_compression_start() {
 if(defined('CACHENOTBUILD')) {
 	add_action('get_header', 'wp_html_compression_start');
 }
+
+function block_wpadmin() {
+    $file = basename($_SERVER['PHP_SELF']);
+    if ($file == 'wp-login.php' || is_admin() && !current_user_can('edit_posts') && $file != 'admin-ajax.php'){
+        wp_redirect( home_url() );
+        exit();
+    }
+}
+
+add_action('init', 'block_wpadmin');
